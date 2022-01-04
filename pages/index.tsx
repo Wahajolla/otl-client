@@ -3,5 +3,5 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
-  return <div>Текст2</div>;
+  return <div>Текст3</div>;
 }
