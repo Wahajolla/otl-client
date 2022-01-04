@@ -27,4 +27,4 @@ deploy:
   script:
     - bash deploy/deploy.sh
   only:
-    - master
+    - main
