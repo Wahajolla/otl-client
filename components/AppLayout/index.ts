@@ -1,3 +1,3 @@
-import Layout from "./AppLayout.view";
+import Layout from './AppLayout.view';
 
 export default Layout;

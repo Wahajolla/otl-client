@@ -1,11 +1,10 @@
-import { Menu } from "antd";
-import AppLayout from "../components/AppLayout";
-import "antd/dist/antd.css";
+import AppLayout from '../components/AppLayout';
+import 'antd/dist/antd.css';
+require('../styles/AntdTheming.less');
+import '../styles/globals.css';
+import { AppProps } from 'next/app';
 
-import "../styles/globals.css";
-import { AppProps } from "next/app";
-
-function MyApp({ Component, pageProps }:AppProps) {
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <AppLayout>
       <Component {...pageProps} />

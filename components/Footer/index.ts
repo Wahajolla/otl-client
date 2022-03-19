@@ -1,3 +1,3 @@
-import { Footer } from "./Footer.view";
+import Footer from './Footer.view';
 
 export default Footer;

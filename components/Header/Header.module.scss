@@ -1,10 +1,59 @@
 .header {
   display: flex;
-  align-content: center;
-  justify-content: space-around;
-}
-.headermenu {
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
   width: 1180px;
-  height: 80px;
+  height: auto;
   background-color: $primary-color;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+.infogroup {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 70px;
+  margin-right: 30px;
+}
+.contactgroup {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 70px;
+}
+.phone {
+  color: $primary-color !important;
+  border-color: $primary-color !important;
+  background: $secondary-color !important;
+  font-size: large;
+}
+.link {
+  color: $secondary-color !important;
+  border-color: $secondary-color !important;
+}
+.worktime {
+  color: $secondary-color !important;
+  border-color: $secondary-color !important;
+}
+.link:hover {
+  color: $primary-color !important;
+  border-color: $primary-color !important;
+  background: $secondary-color !important;
+}
+.ant-btn-primary:hover {
+  color: $primary-color !important;
+  border-color: $primary-color !important;
+  background: $secondary-color !important;
+}
+@media (max-width: 1024px) {
+  .header {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    width: 700px;
+    height: 80px;
+    background-color: $primary-color;
+  }
 }

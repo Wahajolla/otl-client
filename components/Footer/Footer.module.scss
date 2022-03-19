@@ -1,5 +1,19 @@
 .footer {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
   width: 1180px;
   height: 80px;
-  background-color: $primary-color;
+  background: $primary-color;
+}
+
+@media (max-width: 1024px) {
+  .footer {
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 700px;
+    height: 80px;
+  }
 }

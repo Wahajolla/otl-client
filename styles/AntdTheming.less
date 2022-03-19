@@ -1,0 +1,24 @@
+@import '~antd/lib/style/themes/default.less';
+@import '~antd/dist/antd.less'; // Import Ant Design styles
+
+@primary-color: #6f0908;
+@secondary-color: #e6e8e6;
+@border-color: #ced0ce;
+@outline-fade: #9fb8ad;
+@text-color: #475841;
+@processing-color: @primary-color;
+
+.ant-carousel .slick-dots li button {
+  background: @secondary-color !important;
+  opacity: 0.4 !important;
+  height: 16px !important;
+  width: 24px !important;
+}
+.ant-carousel .slick-dots li.slick-active button {
+  opacity: 1 !important;
+  height: 16px !important;
+  width: 24px !important;
+  background: @primary-color !important;
+  justify-items: center !important;
+  justify-content: center !important;
+}

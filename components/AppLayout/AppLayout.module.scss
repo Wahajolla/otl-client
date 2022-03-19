@@ -7,11 +7,19 @@
   display: flex;
   width: 100vw;
   align-items: center;
-  background: $primary-color;
+  background: white;
+}
+.mainmenu {
+  background: $secondary-color;
+  margin: 24px 16px 0;
+}
+.footer {
+  background: $secondary-color;
+  margin: 24px 16px 0;
 }
 
 .content {
-  background: $secondary-color;
+  background: $primary-color;
   margin: 24px 16px 0;
   display: flex;
   flex-direction: column;
@@ -22,7 +30,7 @@
 }
 @media (max-width: 1024px) {
   .content {
-    background: $secondary-color;
+    background: $primary-color;
     margin: 24px 16px 0;
     display: flex;
     flex-direction: column;
