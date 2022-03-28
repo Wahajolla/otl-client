@@ -8,10 +8,10 @@
     "lint1": "next lint",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
-    
   },
   "dependencies": {
     "antd": "^4.18.5",
+    "ky": "^0.30.0",
     "next": "12.0.7",
     "next-plugin-antd-less": "^1.8.0",
     "react": "17.0.2",

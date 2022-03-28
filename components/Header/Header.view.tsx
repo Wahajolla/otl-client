@@ -11,7 +11,7 @@ export const Header: FC = () => {
     <div className={styles.header}>
       <div className={styles.header}>
         <Image
-          src={'/../public/images/logo.png'}
+          src={'/images/logo.png'}
           alt="Логотип"
           width={'95px'}
           height={'95px'}

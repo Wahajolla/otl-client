@@ -3,7 +3,7 @@
   "extends": ["react-app", "prettier"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "project": ["tsconfig.json"]
+    "project": ["otl-client/tsconfig.json"]
   },
   "settings": {
     "import/resolver": {

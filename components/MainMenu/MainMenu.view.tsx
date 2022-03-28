@@ -26,7 +26,11 @@ export const MainMenu: FC = () => {
             Главная
           </Link>
         </Item>
-        <Item>Каталог</Item>
+        <Item>
+          <Link href={paths[2]} key={paths[2]}>
+            Каталог
+          </Link>
+        </Item>
         <Item>Доставка</Item>
         <Item>Способы оплаты</Item>
         <Item>

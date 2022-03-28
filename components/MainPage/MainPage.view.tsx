@@ -1,9 +1,13 @@
 import { Carousel } from 'antd';
+import { urlObjectKeys } from 'next/dist/shared/lib/utils';
 import Image from 'next/image';
 import { FC } from 'react';
 import styles from './MainPage.module.scss';
 
 export const MainPage: FC = () => {
+  const loaderProp = ({ src }) => {
+    return src;
+  };
   return (
     <div>
       <Carousel
@@ -11,12 +15,12 @@ export const MainPage: FC = () => {
         className={styles.container}
         dots={{ className: styles.dots }}
       >
-        <div>
+        {/* <div>
           <div className={styles.carouselItem}>
             <div className={styles.imagecontainer}>
               <Image
                 className={styles.fitImage}
-                src={'/../public/images/parapet.png'}
+                src={'/images/parapet.png'}
                 layout={'fill'}
                 objectFit={'contain'}
               />
@@ -33,13 +37,13 @@ export const MainPage: FC = () => {
               </ul>
             </div>
           </div>
-        </div>
-        {/* <div>
+        </div> */}
+        <div>
           <div className={styles.carouselItem}>
             <div className={styles.imagecontainer}>
               <Image
                 className={styles.fitImage}
-                src={'/../public/images/metallo2.png'}
+                src={'/images/metallo2.png'}
                 layout={'fill'}
                 //objectFit={'contain'}
               />
@@ -56,7 +60,7 @@ export const MainPage: FC = () => {
               </ul>
             </div>
           </div>
-        </div> */}
+        </div>
       </Carousel>
     </div>
   );
