@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DEPLOY_SERVER="93.157.110.76"
+DEPLOY_SERVER="164.215.102.47"
 SERVER_FOLDER="otlivchik"
 
 # Building React output
@@ -16,6 +16,6 @@ ssh rathet@${DEPLOY_SERVER} 'docker stop $(docker ps -q --filter ancestor=rathet
 ssh rathet@${DEPLOY_SERVER} 'docker rmi --force $(docker images -q "rathet/otlc" | uniq)'
 ssh rathet@${DEPLOY_SERVER} 'docker build --no-cache -t rathet/otlc ~/apps/otlivchik/otl-client'
 echo "Finished building docker"
-ssh rathet@${DEPLOY_SERVER} 'docker run -d -t -p 3001:3001  rathet/otlc:latest'
+ssh rathet@${DEPLOY_SERVER} 'docker run -d -t -p 4001:4001  rathet/otlc:latest'
 echo "Container started"
 
