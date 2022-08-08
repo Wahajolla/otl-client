@@ -8,7 +8,7 @@ SERVER_FOLDER="otlivchik"
 #yarn run build
 
 echo "Deploying to ${DEPLOY_SERVER}"
-scp -r ../otl-client rathet@${DEPLOY_SERVER}:home/rathet/apps/${SERVER_FOLDER}/
+scp -r ../otl-client rathet@${DEPLOY_SERVER}:/home/rathet/apps/${SERVER_FOLDER}/
 echo "Finished copying the build files"
 ssh rathet@${DEPLOY_SERVER} 'cd ~/apps/otlivchik/otl-client'
 ssh rathet@${DEPLOY_SERVER} 'pwd'
