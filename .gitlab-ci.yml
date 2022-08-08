@@ -12,7 +12,7 @@ before_script:
   - apt-get update -qq
   - apt-get install -qq git
   - test -d ~/.ssh || mkdir -p 0700 ~/.ssh
-  - grep -Fq 	164.215.102.47 /home/rathet/.ssh/known_hosts || ssh-keyscan -t rsa 	164.215.102.47 >> /home/rathet/.ssh/known_hosts
+  - grep -Fq 	164.215.102.47 ~/.ssh/known_hosts || ssh-keyscan -t rsa 	164.215.102.47 >> ~/.ssh/known_hosts
   - mv $SSH_PRIVATE_KEY ~/.ssh/id_rsa
   - chmod 600 ~/.ssh/id_rsa
   - echo "Start building"
