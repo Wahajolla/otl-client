@@ -6,20 +6,20 @@ const ContactView = ({ data }) => {
     <div>
       <Contacts />
       <ul>
-        {data.map((color) => {
+        {/* {data.map((color) => {
           return <li key={color.id}>{color.name}</li>;
-        })}
+        })} */}
       </ul>
     </div>
   );
 };
 
-export async function getServerSideProps(context) {
-  const data = await fetchColors();
+// export async function getServerSideProps(context) {
+//   const data = await fetchColors();
 
-  return {
-    props: { data },
-  };
-}
+//   return {
+//     props: { data },
+//   };
+// }
 
 export default ContactView;
