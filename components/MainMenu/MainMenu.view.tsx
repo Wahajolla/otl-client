@@ -47,7 +47,6 @@ export const MainMenu: FC = () => {
                     {navigation.map((item) => (
                       <Link href={item.href} key={item.href}>
                         <a
-                          children={item.name}
                           className={classNames(
                             item.current
                               ? 'bg-gray-900 text-white'
@@ -55,7 +54,9 @@ export const MainMenu: FC = () => {
                             'px-3 py-2 rounded-md text-sm font-medium'
                           )}
                           aria-current={item.current ? 'page' : undefined}
-                        />
+                        >
+                          {item.name}
+                        </a>
                       </Link>
                     ))}
                   </div>
