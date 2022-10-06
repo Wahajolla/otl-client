@@ -1,4 +1,3 @@
-import { Button } from 'antd';
 import Image from 'next/image';
 import { FC } from 'react';
 import styles from './Header.module.scss';
@@ -19,7 +18,7 @@ export const Header: FC = () => {
         />{' '}
       </div>
       <div className={styles.infogroup}>
-        <Button shape="round" ghost className={styles.worktime}>
+        {/* <Button shape="round" ghost className={styles.worktime}>
           Ежедневно: 9:00 - 19:00
         </Button>
         <Button
@@ -31,10 +30,10 @@ export const Header: FC = () => {
           className={styles.link}
         >
           Осташковское шоссе, вл1Бс7
-        </Button>
+        </Button> */}
       </div>
       <div className={styles.contactgroup}>
-        <Button
+        {/* <Button
           href={'tel:+7(969)0496392'}
           target="_blank"
           rel="noreferrer"
@@ -53,7 +52,7 @@ export const Header: FC = () => {
           className={styles.phone}
         >
           info@otlivchik.ru
-        </Button>
+        </Button> */}
       </div>
     </div>
   );

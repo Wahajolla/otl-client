@@ -1,4 +1,4 @@
-import { Layout } from 'antd';
+
 import { FC, Fragment, PropsWithChildren, ReactNode } from 'react';
 
 import Footer from '../Footer';
