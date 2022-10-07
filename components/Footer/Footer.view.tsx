@@ -6,6 +6,7 @@ import 'rc-footer/assets/index.css';
 export const Footer: FC = () => {
   return (
     <Footr
+    className=''
       theme="light"
       columnLayout="space-around"
       // columns={[

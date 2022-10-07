@@ -1,4 +1,3 @@
-
 import { FC, Fragment, PropsWithChildren, ReactNode } from 'react';
 
 import Footer from '../Footer';
@@ -11,30 +10,14 @@ interface Props {
 
 export const AppLayout: FC<PropsWithChildren<Props>> = ({ children }) => {
   return (
-    <div className="min-h-full">
+    <div className=" min-h-full flex flex-col h-screen">
       <MainMenu />
 
-      <main>
-        <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-          {/* Replace with your content */}
-          {children}
-          {/* /End replace */}
-        </div>
+      <main className="mb-auto flex-grow">
+        <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">{children}</div>
       </main>
       <Footer />
     </div>
-    // {/* <Layout className={styles.layout}>
-    //   <div className={styles.header}>
-    //     <Header />
-    //   </div>
-    //   <div className={styles.mainmenu}>
-    //     <MainMenu />
-    //   </div>
-    //   <Content className={styles.content}>{children}</Content>
-    //   <div className={styles.footer}>
-    //     <Footer />
-    //   </div>
-    // </Layout> */}
   );
 };
 

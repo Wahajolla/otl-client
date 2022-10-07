@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { FC, useEffect, Fragment, useState } from 'react';
 //import styles from './MainMenu.module.scss';
@@ -36,11 +37,17 @@ export const MainMenu: FC = () => {
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
             <div className="flex h-16 items-center justify-between">
               <div className="flex items-center">
                 <div className="flex-shrink-0">
-                  <img className="h-16 w-16" src="/images/logo.svg" alt="" />
+                  <Image
+                    width={'60%'}
+                    height={'60%'}
+                    className="h-16 w-16"
+                    src="/images/logo.svg"
+                    alt=""
+                  />
                 </div>
                 <div className="hidden md:block">
                   <div className="ml-10 flex items-baseline space-x-4">
@@ -51,7 +58,7 @@ export const MainMenu: FC = () => {
                             item.current
                               ? 'bg-gray-900 text-white'
                               : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                            'px-3 py-2 rounded-md text-sm font-medium'
+                            'px-3 py-2 rounded-md text-sm font-medium dark:bg-white'
                           )}
                           aria-current={item.current ? 'page' : undefined}
                         >

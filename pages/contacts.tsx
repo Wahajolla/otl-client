@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import Contacts from '../components/Contacts';
-import { fetchColors } from './api/catalog.fetch';
+import { fetchColors } from '../data/api/catalog.fetch';
 const ContactView = ({ data }) => {
   return (
     <div>

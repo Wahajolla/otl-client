@@ -10,6 +10,7 @@ export interface Category {
   name: string;
   parentId: number;
   description: string;
+  priceMultiplier: number;
 }
 
 export interface Product {

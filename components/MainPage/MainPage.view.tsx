@@ -51,7 +51,7 @@ export const MainPage: FC = () => {
                     <div className="space-y-1 px-2 pt-2 pb-3"></div>
                     <a
                       href="#"
-                      className="block w-full bg-gray-50 px-5 py-3 text-center font-medium text-indigo-600 hover:bg-gray-100"
+                      className="block w-full bg-gray-50 px-5 py-3 text-center font-medium text-indigo-600 hover:bg-gray-100 dark:bg-white"
                     >
                       Log in
                     </a>
