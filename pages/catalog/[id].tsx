@@ -1,32 +1,39 @@
-import { FC } from 'react';
+import { useRouter } from 'next/router';
+import { FC, useState } from 'react';
 import CatalogLayout from '~components/Common/CatalogLayout/CatalogLayout.view';
+import { fetchCategories } from '~data/api/catalog.fetch';
+import {
+  fetchProducts,
+  fetchProductsByCategory,
+} from '~data/api/product.fetch';
+import { Category, Product } from '~types/cms.types';
 
-const BaseCategory: FC = () => {
+const BaseCategory = ({ categories, products }) => {
+  const router = useRouter();
+  const [parentCat, setParentCat] = useState<Category>(
+    categories.find((c) => c.id === +router.query.id)
+  );
   return (
     <div>
-      <CatalogLayout />
-      {/* <div className="grid grid-rows-3 grid-flow-col gap-1 w-full">
-        <div className="row-span-3 w-36">
-          01 Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Consequatur sequi rem nemo unde quaerat dolore sapiente, repellendus
-          vero quis, porro praesentium. Illum repellat quidem maiores ad
-          consectetur nemo autem iure?
-        </div>
-        <div className="col-span-2 ">
-          02 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi
-          iste quaerat possimus sequi, ut voluptate delectus maxime quia odio
-          tempore ipsum velit quos corporis aut officiis pariatur id minima
-          nostrum?
-        </div>
-        <div className="row-span-2 col-span-2">
-          03 Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
-          iste ullam, quaerat iusto voluptatum reprehenderit quae, officiis odit
-          suscipit eligendi sed enim dolore, mollitia aut dolorem. Sint tempora
-          accusamus sed.
-        </div>
-      </div> */}
+      <p className="text-4xl text-center">{parentCat.name}</p>
+      <CatalogLayout
+        categoryList={categories}
+        pId={parentCat.id}
+        products={(products as Product[]).filter(
+          (p) => p.catId === parentCat.id
+        )}
+      />
     </div>
   );
 };
 
 export default BaseCategory;
+
+export async function getServerSideProps(context) {
+  const categories = await fetchCategories();
+
+  const products = await fetchProducts();
+  return {
+    props: { categories, products },
+  };
+}

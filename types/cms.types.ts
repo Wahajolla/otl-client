@@ -14,13 +14,14 @@ export interface Category {
 }
 
 export interface Product {
+  id: number;
   productName: string;
   dimensions: string;
   dimensionsRange: string;
   description: string;
   price: number;
   currentStock: number;
-  catId: number;
+  categoryId: number;
   colors: Color[];
   category: Category;
 }
