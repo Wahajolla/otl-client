@@ -70,7 +70,7 @@ const CatalogView = ({ products, categories }) => {
           <p className="text-6xl">Все товары</p>
 
           {/* <!-- main content page --> */}
-          <div className=" flex flex-row">
+          <div className=" flex flex-row flex-wrap justify-center">
             {products.map((p: Product) => {
               return <ProductCard product={p} key={p.id} />;
             })}
