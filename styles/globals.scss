@@ -22,3 +22,42 @@
 // $text-color: #475841;
 
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+      --coffee:rgb(246, 242, 235) !important;
+      --blackblue: rgb(24,52,81) !important;
+      --brown: rgb(94,54,46) !important;
+      --blackcorall: rgb(121,146,157) !important;
+      --silver: rgb(116,106,104) !important;
+      --transparentcorall: rgba(121,146,157, 0.5) !important;
+    }
+  }
+ 
+@layer components{
+    .site-bg{
+        background-color:var(--coffee);
+    }
+    .primary-bg{
+        background-color: var(--blackblue);
+    }
+    .secondary-bg{
+        background-color: var(--transparentcorall);
+    }
+    .secondary-border{
+        border-color: var(--blackcorall);
+    }
+    .text-primary{
+        color: var(--silver)
+    }
+    .text-secondary{
+        color: var(--coffee)
+    }
+    .hover-shadow{
+       @extend .shadow-lg !optional;
+        //@extend .shadow-[#dd0000];
+    }
+}

@@ -20,7 +20,7 @@ const BaseCategory = ({ categories, products }) => {
         categoryList={categories}
         pId={parentCat.id}
         products={(products as Product[]).filter(
-          (p) => p.catId === parentCat.id
+          (p) => p.categoryId === parentCat.id
         )}
       />
     </div>

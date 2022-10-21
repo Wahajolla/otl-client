@@ -18,7 +18,7 @@ const CatalogLayout: FC<Props> = ({ categoryList, products }) => {
   const router = useRouter();
   return (
     <div className="min">
-      <div className="flex w-full items-center justify-between bg-white p-2">
+      <div className="flex w-full items-center justify-between p-2">
         {/* <!-- logo --> */}
         <div className="flex items-center space-x-2">
           <button
@@ -45,7 +45,7 @@ const CatalogLayout: FC<Props> = ({ categoryList, products }) => {
           leaveTo="-translate-x-full opacity-0"
         >
           {
-            <aside className="flex w-72 flex-col space-y-2  bg-white p-2 h-24">
+            <aside className="flex w-72 flex-col space-y-2   p-2 h-24">
               {categoryList.map((el) => {
                 return (
                   <Link key={el.id} href={'/catalog/' + el.id} passHref>

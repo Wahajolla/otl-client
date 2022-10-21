@@ -10,7 +10,7 @@ interface Props {
 
 export const AppLayout: FC<PropsWithChildren<Props>> = ({ children }) => {
   return (
-    <div className=" min-h-full flex flex-col h-screen">
+    <div className=" min-h-full flex flex-col h-screen site-bg">
       <MainMenu />
 
       <main className="mb-auto flex-grow">

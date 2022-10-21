@@ -34,21 +34,24 @@ export const MainMenu: FC = () => {
   }, [router]);
   useEffect;
   return (
-    <Disclosure as="nav" className="bg-gray-800">
+    <Disclosure as="nav" className="primary-bg">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
             <div className="flex h-16 items-center justify-between">
               <div className="flex items-center">
-                <div className="flex-shrink-0">
-                  <Image
-                    width={'60%'}
-                    height={'60%'}
-                    className="h-16 w-16"
-                    src="/images/logo.svg"
-                    alt=""
-                  />
-                </div>
+                <Link href={'/'} passHref>
+                  <div className="flex flex-row items-center flex-shrink-0 cursor-pointer">
+                    <Image
+                      width={'60%'}
+                      height={'60%'}
+                      className="h-16 w-16"
+                      src="/images/logo.svg"
+                      alt=""
+                    />
+                    <p className="text-4xl pl-2 text-secondary">Отливчик</p>
+                  </div>
+                </Link>
                 <div className="hidden md:block">
                   <div className="ml-10 flex items-baseline space-x-4">
                     {navigation.map((item) => (
@@ -56,8 +59,8 @@ export const MainMenu: FC = () => {
                         <a
                           className={classNames(
                             item.current
-                              ? 'bg-gray-900 text-white'
-                              : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                              ? ' text-secondary secondary-bg'
+                              : 'text-secondary hover:secondary-bg hover:text-white',
                             'px-3 py-2 rounded-md text-sm font-medium '
                           )}
                           aria-current={item.current ? 'page' : undefined}
@@ -68,6 +71,9 @@ export const MainMenu: FC = () => {
                     ))}
                   </div>
                 </div>
+                <div className="flex flex-row justify-end">
+                  <a href="tel:89639298741">8 (963) 929 · 87 · 41</a>
+                </div>
               </div>
               <div className="hidden md:block">
                 <div className="ml-4 flex items-center md:ml-6">
@@ -75,7 +81,7 @@ export const MainMenu: FC = () => {
                   <Menu as="div" className="relative ml-3">
                     <div>
                       <Menu.Button className="flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                        <span className="sr-only">Open user menu</span>
+                        <span className="sr-only">Открыть меню</span>
                       </Menu.Button>
                     </div>
                     <Transition
@@ -111,7 +117,7 @@ export const MainMenu: FC = () => {
               <div className="-mr-2 flex md:hidden">
                 {/* Mobile menu button */}
                 <Disclosure.Button className="inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                  <span className="sr-only">Open main menu</span>
+                  <span className="sr-only">Открыть меню</span>
                   {open ? (
                     <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
                   ) : (
