@@ -19,7 +19,7 @@ const ProductCard: FC<Props> = ({ product, cardClick }) => {
         {/* <img
             className="w-full"
             src="/images/metallo.jpg"
-            alt="Sunset in the mountains"ы
+            alt="Sunset in the mountains"
           /> */}
 
         <div className="px-6 py-4">

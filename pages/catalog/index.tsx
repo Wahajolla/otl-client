@@ -7,6 +7,7 @@ import { fetchProducts } from '~data/api/product.fetch';
 import { Category, Product } from '~types/cms.types';
 import Link from 'next/link';
 import { Transition } from '@headlessui/react';
+import Breadcrumbs from '~components/Common/Breadcrumbs';
 
 const CatalogView = ({ products, categories }) => {
   const [cats, setCats] = useState<Category[]>([]);
@@ -37,7 +38,14 @@ const CatalogView = ({ products, categories }) => {
     // </div>
     <div className="min bg-primary">
       <div className="flex flex-col">
-        <p className=" flex text-6xl text-primary">Все товары</p>
+        <Breadcrumbs
+          links={[
+            { breadcrumbName: 'Главная', path: '/' },
+            { breadcrumbName: 'Каталог', path: '/catalog' },
+          ]}
+        />
+        {/* <p className=" flex text-6xl text-primary">Все товары</p> */}
+
         <div className="flex w-full items-center justify-between  p-2">
           {/* <!-- logo --> */}
           <div className="flex items-center space-x-2">

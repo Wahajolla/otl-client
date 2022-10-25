@@ -49,7 +49,9 @@ export const MainMenu: FC = () => {
                       src="/images/logo.svg"
                       alt=""
                     />
-                    <p className="text-4xl pl-2 text-secondary">Отливчик</p>
+                    <p className="invisible text-4xl pl-2 text-secondary lg:visible">
+                      Отливчик
+                    </p>
                   </div>
                 </Link>
                 <div className="hidden md:block">

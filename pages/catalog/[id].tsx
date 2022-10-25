@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import { FC, useState } from 'react';
+import Breadcrumbs from '~components/Common/Breadcrumbs';
 import CatalogLayout from '~components/Common/CatalogLayout/CatalogLayout.view';
 import { fetchCategories } from '~data/api/catalog.fetch';
 import {
@@ -15,10 +16,19 @@ const BaseCategory = ({ categories, products }) => {
   );
   return (
     <div>
-      <p className="text-4xl text-center">{parentCat.name}</p>
+      <Breadcrumbs
+        links={[
+          { breadcrumbName: 'Главная', path: '/' },
+          { breadcrumbName: 'Каталог', path: '/catalog' },
+          { breadcrumbName: parentCat.name, path: '/catalog/' + parentCat.id },
+        ]}
+        title={parentCat.name}
+      />
+      {/* <p className="text-4xl text-center">{parentCat.name}</p> */}
       <CatalogLayout
         categoryList={categories}
         pId={parentCat.id}
+        title={parentCat.name}
         products={(products as Product[]).filter(
           (p) => p.categoryId === parentCat.id
         )}
