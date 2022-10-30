@@ -12,17 +12,17 @@ interface Props {
 const ProductCard: FC<Props> = ({ product, cardClick }) => {
   return (
     <div
-      className="p-6 transition ease-in-out delay-50  hover:scale-105 "
+      className="pr-6 pb-6 transition ease-in-out delay-50  hover:scale-105 "
       onClick={cardClick}
     >
-      <div className="w-64 h-48 secondary-border secondary-bg rounded-2xl border-2  overflow-hidden shadow-lg shadow-indigo-50 flex flex-col space-between">
+      <div className="w-72 h-56 secondary-border secondary-bg rounded-2xl border-2  overflow-hidden shadow-lg shadow-indigo-50 flex flex-col justify-between">
         {/* <img
             className="w-full"
             src="/images/metallo.jpg"
             alt="Sunset in the mountains"
           /> */}
 
-        <div className="px-6 py-4">
+        <div className="w-auto h-48 max-h-48 flex justify-between flex-col px-6 py-4">
           <div className="font-bold text-primary text-xl mb-2">
             {product.productName}
           </div>
@@ -30,30 +30,19 @@ const ProductCard: FC<Props> = ({ product, cardClick }) => {
           <p className="text-secondary text-base">
             {product.dimensions + ',' + product.dimensionsRange}
           </p>
-          <p className="mt-2 text-primary border  border-green-500 border-2-green-500 text-base rounded-2xl shadow-lg text-center ">
+          <p className="mt-2 text-primary border border-green-500 border-2-green-500 text-base rounded-2xl shadow-lg text-center ">
             {product.price}
             {', руб.'}
             {/* <Image src={RoubleIcon} alt="" height={'20rem'} width={'20rem'} /> */}
           </p>
         </div>
-        <div className="px-6  pb-2">
-          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-primary mr-2 mb-2">
+        <div className="flex items-center ">
+          <div className="inline-block h-fit bg-gray-200 rounded-full px-3 py-0.5 text-sm font-semibold text-primary ml-1 mb-1">
             <Link href={'/catalog/' + product.categoryId}>
               {product.category.name}
             </Link>
-          </span>
+          </div>
         </div>
-        {/* <div className="px-6 pt-4 pb-2">
-         <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-          #photography
-        </span>
-        <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-          #travel
-        </span>
-        <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-          #winter
-        </span>
-      </div> */}
       </div>
     </div>
   );

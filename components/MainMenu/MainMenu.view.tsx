@@ -4,7 +4,12 @@ import { useRouter } from 'next/router';
 import { FC, useEffect, Fragment, useState } from 'react';
 //import styles from './MainMenu.module.scss';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import {
+  Bars3Icon,
+  EnvelopeIcon,
+  PhoneIcon,
+  XMarkIcon,
+} from '@heroicons/react/24/outline';
 
 const nav = [
   { name: 'Главная', href: '/', current: true },
@@ -38,8 +43,8 @@ export const MainMenu: FC = () => {
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
-            <div className="flex h-16 items-center justify-between">
-              <div className="flex items-center">
+            <div className="flex h-16 items-center ">
+              <div className="flex items-center justify-between w-full">
                 <Link href={'/'} passHref>
                   <div className="flex flex-row items-center flex-shrink-0 cursor-pointer">
                     <Image
@@ -49,7 +54,7 @@ export const MainMenu: FC = () => {
                       src="/images/logo.svg"
                       alt=""
                     />
-                    <p className="invisible text-4xl pl-2 text-secondary lg:visible">
+                    <p className="invisible w-0 text-4xl pl-2 text-secondary lg:visible lg:w-fit">
                       Отливчик
                     </p>
                   </div>
@@ -61,8 +66,8 @@ export const MainMenu: FC = () => {
                         <a
                           className={classNames(
                             item.current
-                              ? ' text-secondary secondary-bg'
-                              : 'text-secondary hover:secondary-bg hover:text-white',
+                              ? ' text-black secondary-bg'
+                              : 'text-secondary hover:secondary-bg hover:text-black',
                             'px-3 py-2 rounded-md text-sm font-medium '
                           )}
                           aria-current={item.current ? 'page' : undefined}
@@ -73,8 +78,35 @@ export const MainMenu: FC = () => {
                     ))}
                   </div>
                 </div>
-                <div className="flex flex-row justify-end">
-                  <a href="tel:89639298741">8 (963) 929 · 87 · 41</a>
+                <div className="flex flex-row justify-end content-center  items-center p-2">
+                  <a
+                    href="mailto:info@otlivchik.ru"
+                    className="flex flex-row items-center text-white  h-fit invisible w-0 lg:visible lg:w-auto"
+                  >
+                    <EnvelopeIcon width={20} height={20} className="pr-1" />{' '}
+                    info@otlivchik.ru
+                  </a>
+                  <div className="flex flex-col justify-around m-2">
+                    <a
+                      href="tel:89639298741"
+                      className="flex flex-nowrap  items-center overflow-x-auto overflow-visible text-white"
+                    >
+                      <PhoneIcon width={20} height={20} className="pr-1" />
+                      <p className="break-normal whitespace-nowrap">
+                        8 (963) 929 · 87 · 41
+                      </p>
+                    </a>
+                    <a
+                      href="tel:89639298741"
+                      className="flex flex-nowrap  items-center overflow-x-auto overflow-visible text-white"
+                    >
+                      <PhoneIcon width={20} height={20} className="pr-1" />
+                      <p className="break-normal whitespace-nowrap">
+                        {' '}
+                        8 (963) 929 · 87 · 41
+                      </p>
+                    </a>
+                  </div>
                 </div>
               </div>
               <div className="hidden md:block">
@@ -191,37 +223,6 @@ export const MainMenu: FC = () => {
         </>
       )}
     </Disclosure>
-    // <div className={styles.headermenu}>
-    //   <Menu
-    //     mode="horizontal"
-    //     className={styles.menuitems}
-    //     inlineIndent={50}
-    //     direction="ltr"
-    //   >
-    //     <Item>
-    //       <Link href={paths[0]} key={paths[0]}>
-    //         Главная
-    //       </Link>
-    //     </Item>
-    //     <Item>
-    //       <Link href={paths[2]} key={paths[2]}>
-    //         Каталог
-    //       </Link>
-    //     </Item>
-    //     <Item>Доставка</Item>
-    //     <Item>Способы оплаты</Item>
-    //     <Item>
-    //       <Link href={paths[1]} key={paths[1]}>
-    //         О нас
-    //       </Link>
-    //     </Item>
-    //     <Item>
-    //       <Link href={paths[4]} key={paths[4]}>
-    //         Контакты
-    //       </Link>
-    //     </Item>
-    //   </Menu>
-    // </div>
   );
 };
 

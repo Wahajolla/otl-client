@@ -14,6 +14,7 @@ const BaseCategory = ({ categories, products }) => {
   const [parentCat, setParentCat] = useState<Category>(
     categories.find((c) => c.id === +router.query.id)
   );
+  
   return (
     <div>
       <Breadcrumbs

@@ -10,7 +10,7 @@ import ProductCard from '../ProductCard';
 interface Props {
   categoryList: Category[];
   products: Product[];
-  pId: number;
+  pId?: number;
   title?: String;
 }
 const CatalogLayout: FC<Props> = ({
@@ -18,7 +18,7 @@ const CatalogLayout: FC<Props> = ({
   products,
   title = 'Все товары',
 }) => {
-  const [aside, setAside] = useState<boolean>(true);
+  const [aside, setAside] = useState<boolean>(false);
   const handleResize = () => {
     if (window.innerWidth < 1280) {
       setAside(false);
@@ -28,14 +28,13 @@ const CatalogLayout: FC<Props> = ({
   };
   useEffect(() => {
     window.addEventListener('resize', handleResize);
+    handleResize();
   }, []);
   const router = useRouter();
   return (
-    <div className="min bg-primary">
+    <div className="min ">
       <div className="flex flex-col">
-        {/* <p className=" flex text-6xl text-primary">{title}</p> */}
         <div className="flex w-full items-center justify-between p-2">
-          {/* <!-- logo --> */}
           <div className="flex items-center space-x-2">
             <button
               type="button"
@@ -61,7 +60,7 @@ const CatalogLayout: FC<Props> = ({
             leaveTo="-translate-x-full opacity-0"
           >
             {
-              <aside className="flex w-72 flex-col rounded-2xl space-y-2  p-2 h-auto secondary-bg">
+              <aside className="flex w-72 flex-col rounded-2xl space-y-2  p-2 h-auto bg-white">
                 {categoryList.map((el) => {
                   return (
                     <Link key={el.id} href={'/catalog/' + el.id} passHref>
@@ -77,7 +76,7 @@ const CatalogLayout: FC<Props> = ({
               </aside>
             }
           </Transition>
-          <div className="w-full p-4">
+          <div className="w-full">
             {/* <!-- main content page --> */}
             <div className="flex flex-row flex-wrap justify-center">
               {products.map((p) => {

@@ -39,7 +39,7 @@ const BreadCrumbs: FC<Props> = ({ links, title = 'Все товары' }) => {
 function itemRender(route: Link, routes: Link[]) {
   const last = routes.indexOf(route) === routes.length - 1;
   return last ? (
-    <div className="text-gray-700 hover:text-gray-900 ml-1 text-base font-medium">
+    <div className="text-white  ml-1 text-base font-medium cursor-default rounded-xl bg-gray-700 px-2">
       {route.breadcrumbName}
     </div>
   ) : (

@@ -2,7 +2,7 @@
   "name": "otl-client",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev REACT_APP_PREVIEW=on",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

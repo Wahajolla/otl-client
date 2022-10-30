@@ -28,12 +28,13 @@
 
 @layer base {
     :root {
-      --coffee:rgb(246, 242, 235) !important;
+      --coffee2:rgb(246, 242, 235) !important;
+      --coffee:white !important;
       --blackblue: rgb(24,52,81) !important;
       --brown: rgb(94,54,46) !important;
       --blackcorall: rgb(121,146,157) !important;
       --silver: rgb(116,106,104) !important;
-      --transparentcorall: rgba(121,146,157, 0.5) !important;
+      --transparentcorall: #e7e5e4 !important;
     }
   }
  
