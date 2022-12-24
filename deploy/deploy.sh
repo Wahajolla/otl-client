@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DEPLOY_SERVER="164.215.102.47"
+DEPLOY_SERVER="45.67.32.94"
 SERVER_FOLDER="otlivchik"
 
 # Building React output
