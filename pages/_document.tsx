@@ -9,7 +9,9 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head></Head>
+        <Head>
+          <meta name="yandex-verification" content="489579590226a12c" />
+        </Head>
         <body className="dark site-bg">
           <Main />
           <NextScript />
