@@ -16,6 +16,6 @@ ssh rathet@${DEPLOY_SERVER} 'docker stop $(docker ps -q --filter ancestor=rathet
 ssh rathet@${DEPLOY_SERVER} 'docker rmi --force $(docker images -q "rathet/otlc" | uniq)'
 ssh rathet@${DEPLOY_SERVER} 'docker build --no-cache -t rathet/otlc ~/apps/otlivchik/otl-client'
 echo "Finished building docker"
-ssh rathet@${DEPLOY_SERVER} 'docker run -d -t -p 4001:4001 --volumes-from rathet/otlb  rathet/otlc:latest'
+ssh rathet@${DEPLOY_SERVER} 'docker run -d -t -p 4001:4001 --volumes-from backend  rathet/otlc:latest'
 echo "Container started"
 
