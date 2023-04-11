@@ -8,9 +8,8 @@ import {
   QueueListIcon,
   UserCircleIcon,
 } from '@heroicons/react/24/outline';
-import styles from './Footer.module.scss';
 import 'rc-footer/assets/index.css';
-import { rgb } from '@react-spring/shared';
+import Moment from 'moment';
 
 export const Footer: FC = () => {
   return (
@@ -77,7 +76,7 @@ export const Footer: FC = () => {
           ],
         },
       ]}
-      bottom="Отливчик 2022"
+      bottom={`Отливчик ${Moment().format('YYYY')}`}
     />
   );
 };

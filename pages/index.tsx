@@ -1,4 +1,4 @@
-
+//import Widget from '@components/Common/Widget';
 import Head from 'next/head';
 import Image from 'next/image';
 import { ReactElement } from 'react';
@@ -9,6 +9,7 @@ export default function Home() {
   return (
     <div>
       <MainPage></MainPage>
+     
     </div>
   );
 }

@@ -1,14 +1,14 @@
-import CatalogCard from '@/components/Common/CatalogCard';
+import CatalogCard from '@components/common/CatalogCard';
 import { Fragment, useEffect, useState } from 'react';
 import { Bars4Icon, CubeIcon } from '@heroicons/react/24/outline';
-import ProductCard from '~components/Common/ProductCard';
-import { fetchCategories } from '~data/api/catalog.fetch';
-import { fetchProducts } from '~data/api/product.fetch';
-import { Category, Product } from '~types/cms.types';
+import ProductCard from '@components/common/ProductCard';
+import { fetchCategories } from 'data/api/catalog.fetch';
+import { fetchProducts } from 'data/api/product.fetch';
+import { Category } from 'types/cms.types';
 import Link from 'next/link';
 import { Transition } from '@headlessui/react';
-import Breadcrumbs from '~components/Common/Breadcrumbs';
-import CatalogLayout from '~components/Common/CatalogLayout';
+import Breadcrumbs from '@components/common/Breadcrumbs';
+import CatalogLayout from '@components/common/CatalogLayout';
 
 const CatalogView = ({ products, categories }) => {
   const [cats, setCats] = useState<Category[]>([]);
@@ -53,10 +53,12 @@ export default CatalogView;
 
 export async function getServerSideProps(context) {
   const products = await fetchProducts();
-  const categories = await (
-    await fetchCategories()
-  ).filter((x) => x.parentId === null);
+  const categor = await fetchCategories();
   return {
-    props: { products, categories },
+    props: { products: products.products, categories: categor.categories },
   };
+  // categories.filter((x) => x.parentId === null);
+  // return {
+  //   props: { products, categories },
+  // };
 }

@@ -1,8 +1,7 @@
 import ky from 'ky';
-import { Category, Color } from '../../types/cms.types';
+import { Category, CMSCategory, Color } from '../../types/cms.types';
+import { API } from './api.base';
 
-export const fetchColors = () =>
-  ky.get('http://93.157.110.76:3000/colors').json<Color[]>();
+// export const fetchColors = () => ky.get('categories/').json<Category[]>();
 
-export const fetchCategories = () =>
-  ky.get('http://45.67.32.94:4002/api/category').json<Category[]>();
+export const fetchCategories = () => API.get('categories').json<CMSCategory>();

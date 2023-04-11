@@ -1,5 +1,10 @@
 {
     "configurations": [
-        
+        {
+            "type": "command",
+            "name": "Command configuration",
+            "program": "yarn",
+            "args": ["dev"],
+        },
     ]
 }

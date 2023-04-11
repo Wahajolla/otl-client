@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import Image from 'next/image';
 import img from '~public/images/metallo2.png';
-import { Category, Product } from '~types/cms.types';
+import { Category, Product } from 'types/cms.types';
 import Link from 'next/link';
 import RoubleIcon from '~public/images/rouble.svg';
 
@@ -24,11 +24,11 @@ const ProductCard: FC<Props> = ({ product, cardClick }) => {
 
         <div className="w-auto h-48 max-h-48 flex justify-between flex-col px-6 py-4">
           <div className="font-bold text-primary text-xl mb-2">
-            {product.productName}
+            {product.product}
           </div>
-          <p className="text-sm text-secondary">{product.description}</p>
+          <p className="text-sm text-secondary">{product.details}</p>
           <p className="text-secondary text-base">
-            {product.dimensions + ',' + product.dimensionsRange}
+            {/* {product + ',' + product.dimensionsRange} */}
           </p>
           <p className="mt-2 text-primary border border-green-500 border-2-green-500 text-base rounded-2xl shadow-lg text-center ">
             {product.price}
@@ -38,9 +38,9 @@ const ProductCard: FC<Props> = ({ product, cardClick }) => {
         </div>
         <div className="flex items-center ">
           <div className="inline-block h-fit bg-gray-200 rounded-full px-3 py-0.5 text-sm font-semibold text-primary ml-1 mb-1">
-            <Link href={'/catalog/' + product.categoryId}>
-              {product.category.name}
-            </Link>
+            {/* <Link href={'/catalog/' + product.ca}>
+              {/* {product.categories[0].name} }
+            </Link> */}
           </div>
         </div>
       </div>

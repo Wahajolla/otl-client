@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2017",
     "lib": [
       "dom",
       "dom.iterable",
@@ -19,16 +19,28 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "baseUrl": ".",
+    // "paths": {
+    //   "~*": ["./*"],
+    //   "@/components/*":["components/*"]
+    // },
     "paths": {
-      "~*": ["./*"],
-      "@/components/*":["components/*"]
-    }
+      "@components/*": ["components/*"],
+      "@layouts": ["/layouts"],
+      "@assets/*": ["/assets/*"],
+      "@data/*": ["/data/*"],
+      "@global/*": ["/global/*"],
+      "@slices/*": ["/global/slices/*"],
+      "@hooks": ["/hooks"],
+      "@utils/*": ["/utils/*"],
+      "@public/*": ["/public/*"],
+      "@styled": ["/styled"],
+    },
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "../test/opencart.api.ts"  ],
   "exclude": [
     "node_modules"
   ],
