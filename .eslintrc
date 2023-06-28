@@ -1,10 +1,7 @@
 {
-
-  "extends": ["react-app", "prettier", "next/core-web-vitals"],
+  "extends": ["@feature-sliced", "prettier", "next/core-web-vitals"],
   "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "project": ["otl-client/tsconfig.json"]
-  },
+  "plugins": ["@typescript-eslint"],
   "settings": {
     "import/resolver": {
       "typescript": {
@@ -14,6 +11,7 @@
   },
   "rules": {
     "object-curly-spacing": ["warn", "always"],
+    "import/no-internal-modules": "off",
     "no-unused-vars": [
       "warn",
       {

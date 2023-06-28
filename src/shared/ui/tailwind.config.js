@@ -20,7 +20,7 @@ const colors = {
   transparentcorall: generateColorClass('transparentcorall'),
 };
 module.exports = {
-  content: ['./**/*.{js,ts,jsx,tsx}'],
+  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {
       backgroundColor,
