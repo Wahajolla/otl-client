@@ -1,0 +1,31 @@
+{
+	"folders": [
+		{
+			"path": "./src/shared"
+		},
+		{
+			"path": "./src/entities"
+		},
+			{
+			"path": "./src/features"
+		},
+		{
+			"path": "./src/widgets"
+		},
+		{
+			"path": "./src/pages-flat"
+		},
+			{
+			"path": "./src/pages"
+		},
+		{
+			"path": "./src/app"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"typescript.tsdk": "otl-client/node_modules/typescript/lib"
+	},
+}

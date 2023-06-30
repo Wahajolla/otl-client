@@ -2,6 +2,7 @@ import { Transition } from '@headlessui/react';
 import { Bars4Icon, CubeIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { Fragment, useEffect, useState } from 'react';
+import { AppLayout } from '@/widgets/AppLayout';
 import { Breadcrumbs } from '@/widgets/Breadcrumbs';
 import { CategoryList } from '@/widgets/CategoryList';
 import { categoryApi } from '@/entities/category';
@@ -34,7 +35,6 @@ const CategoriesPage = ({ products, categories }) => {
     </>
   );
 };
-
 export { CategoriesPage };
 
 export async function getServerSideProps(context) {

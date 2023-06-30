@@ -5,7 +5,7 @@
   align-items: center;
   width: 1180px;
   height: auto;
-  background-color: $primary-color;
+  background-color: var(--primary-color);
   margin-left: 30px;
   margin-right: 30px;
 }
@@ -23,29 +23,25 @@
   height: 70px;
 }
 .phone {
-  color: $primary-color !important;
-  border-color: $primary-color !important;
-  background: $secondary-color !important;
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  background: var(--primary-color);
   font-size: large;
 }
 .link {
-  color: $secondary-color !important;
-  border-color: $secondary-color !important;
+  color: var(--secondary-color);
+  border-color: var(--secondary-color);
 }
 .worktime {
-  color: $secondary-color !important;
-  border-color: $secondary-color !important;
+  color: var(--secondary-color);
+  border-color: var(--secondary-color);
 }
 .link:hover {
-  color: $primary-color !important;
-  border-color: $primary-color !important;
-  background: $secondary-color !important;
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  background: var(--secondary-color);
 }
-.ant-btn-primary:hover {
-  color: $primary-color !important;
-  border-color: $primary-color !important;
-  background: $secondary-color !important;
-}
+
 @media (max-width: 1024px) {
   .header {
     display: flex;

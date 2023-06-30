@@ -1,6 +1,6 @@
 import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline';
 import { FC } from 'react';
-const ContactPage = ({ data }) => {
+const Contacts = () => {
   return (
     <div className="p-4">
       <h1 className="text-4xl pb-4">Контакты</h1>
@@ -77,4 +77,4 @@ const ContactPage = ({ data }) => {
 //   };
 // }
 
-export { ContactPage };
+export { Contacts };

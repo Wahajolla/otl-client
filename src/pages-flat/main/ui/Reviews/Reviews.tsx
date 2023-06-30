@@ -1,19 +1,10 @@
-export const Page = () => {
+export const Reviews = () => {
   return (
-    <div
-      style={{
-        width: '560px',
-        height: '800px',
-        overflow: 'hidden',
-        position: 'relative',
-      }}
-    >
+    <div className="w-full h-full">
       <iframe
+        className="w-full h-full"
         style={{
-          width: '100%',
-          height: '100%',
-          border: '1px solid #e6e6e6',
-          borderRadius: '8px',
+          border: 'none',
           boxSizing: 'border-box',
         }}
         src="https://yandex.ru/maps-reviews-widget/184535784417?comments"
@@ -39,8 +30,6 @@ export const Page = () => {
           display: 'block',
           maxHeight: '14px',
           whiteSpace: 'nowrap',
-          //   padding: '0 16px',
-          //   boxSizing: 'border-box',
         }}
       >
         Отливчик на карте Мытищ — Яндекс Карты
@@ -48,5 +37,3 @@ export const Page = () => {
     </div>
   );
 };
-
-export default Page;

@@ -1,6 +1,11 @@
 module.exports = {
   plugins: {
-    tailwindcss: { config: './src/shared/ui/tailwind.config.js' },
+    // 'tailwindcss/nesting': {'postcss-nesting'},
+
     autoprefixer: {},
+    'postcss-mixins': {},
+    'postcss-custom-media': {},
+    'postcss-nested': {},
+    tailwindcss: { config: './src/shared/ui/tailwind.config.js' },
   },
 };

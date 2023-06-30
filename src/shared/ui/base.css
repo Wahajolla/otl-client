@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* @import url('./colors.css'); */
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --primary-color: theme('colors.indigo.600');
+  --primary-colorPressed: theme('colors.indigo.800');
+
+  --background-color: theme('colors.white');
+  --alternate-background-color: theme('colors.gray.400');
+
+  --text-color: theme('colors.neutral.500');
+  --link-color: theme('colors.purple.500');
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+html[data-theme='dark'] {
+  --text-color: theme('colors.neutral.800');
+  --link-color: theme('colors.purple.500');
+
+  --background-color: theme('colors.white');
+  --alternate-background-color: theme('colors.gray.400');
+}
+
+html[data-theme='light'] {
+  --text-color: theme('colors.neutral.800');
+  --link-color: theme('colors.purple.400');
+
+  --background-color: theme('colors.neutral.700');
+  --alternate-background-color: theme('colors.gray.400');
+}
+
+html,
+body {
+  min-height: 100%;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+
+  background: var(--background-color);
+  color: var(--text-color);
+}
+
+p {
+  color: var(--text-color);
+}
+
+a {
+  color: var(--link-color);
+}

@@ -1,4 +1,5 @@
 import { FC, PropsWithChildren, ReactNode } from 'react';
+import { LayoutHeader } from '../LayoutHeader';
 
 interface Props {
   children?: ReactNode;
@@ -12,11 +13,10 @@ export const AppLayout: FC<PropsWithChildren<Props>> = ({
   footer,
 }) => {
   return (
-    <div className=" min-h-full flex flex-col h-screen site-bg">
+    <div className="min-h-full flex flex-col h-screen">
+      <LayoutHeader></LayoutHeader>
       {sider}
-      <main className="mb-auto flex-grow">
-        <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">{children}</div>
-      </main>
+      <main className="flex flex-col h-full">{children}</main>
       {footer}
     </div>
   );

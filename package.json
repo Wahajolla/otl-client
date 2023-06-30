@@ -18,6 +18,7 @@
     "autoprefixer": "^10.4.12",
     "bootstrap": "^5.2.3",
     "classnames": "^2.3.2",
+    "clsx": "^1.2.1",
     "cogo-toast": "^4.2.3",
     "isotope-layout": "^3.0.6",
     "ky": "^0.30.0",
@@ -33,8 +34,6 @@
     "react-icons": "^4.8.0",
     "react-redux": "^8.0.5",
     "react-spring": "^9.5.5",
-    "sass": "^1.49.0",
-    "styled-components": "^5.3.9",
     "styled-system": "^5.1.5"
   },
   "devDependencies": {
@@ -60,6 +59,10 @@
     "eslint-plugin-react": "7.28.0",
     "eslint-plugin-react-hooks": "4.3.0",
     "node-sass": "7.0.1",
+    "postcss-custom-media": "^9.1.5",
+    "postcss-import": "^15.1.0",
+    "postcss-mixins": "^9.0.4",
+    "postcss-nested": "^6.0.1",
     "prettier": "2.6.0",
     "prettier-eslint": "13.0.0",
     "prettier-eslint-cli": "5.0.1",

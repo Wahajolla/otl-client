@@ -1,4 +1,4 @@
-import '@/shared/ui/globals.css';
+import '@/shared/ui/base.css';
 export default function App({ Component, props }: AppPropsWithLayout) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const getLayout = Component.getLayout ?? ((page: any) => page);
