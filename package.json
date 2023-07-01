@@ -17,7 +17,6 @@
     "@types/styled-system": "^5.1.16",
     "autoprefixer": "^10.4.12",
     "bootstrap": "^5.2.3",
-    "classnames": "^2.3.2",
     "clsx": "^1.2.1",
     "cogo-toast": "^4.2.3",
     "isotope-layout": "^3.0.6",
@@ -27,14 +26,11 @@
     "next-transpile-modules": "^9.0.0",
     "npm-check": "^6.0.1",
     "postcss": "^8.4.17",
-    "rc-footer": "^0.6.6",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-html-parser": "^2.0.2",
     "react-icons": "^4.8.0",
-    "react-redux": "^8.0.5",
-    "react-spring": "^9.5.5",
-    "styled-system": "^5.1.5"
+    "react-redux": "^8.0.5"
   },
   "devDependencies": {
     "@babel/core": "^7.16.12",
@@ -58,7 +54,6 @@
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-react": "7.28.0",
     "eslint-plugin-react-hooks": "4.3.0",
-    "node-sass": "7.0.1",
     "postcss-custom-media": "^9.1.5",
     "postcss-import": "^15.1.0",
     "postcss-mixins": "^9.0.4",

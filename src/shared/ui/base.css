@@ -5,21 +5,28 @@
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   font-weight: 400;
   font-synthesis: none;
   text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --primary-color: theme('colors.indigo.600');
-  --primary-colorPressed: theme('colors.indigo.800');
+  --secondary-color: theme('colors.stone.200');
+  --secondary-colorPressed: theme('colors.stone.400');
+
+  --primary-color: theme('colors.red.900');
+  --primary-colorPressed: theme('colors.red.800');
 
   --background-color: theme('colors.white');
-  --alternate-background-color: theme('colors.gray.400');
+  --alternate-background-color: theme('colors.stone.300');
 
   --text-color: theme('colors.neutral.500');
-  --link-color: theme('colors.purple.500');
+  --text-accent-color: theme('colors.neutral.700');
+  --primary-text-color: theme('colors.neutral.200');
+  --secondary-text-color: theme('colors.neutral.200');
+  --link-color: theme('colors.neutral.600');
+  --link-colorPressed: theme('colors.neutral.400');
 }
 
 * {
@@ -61,8 +68,38 @@ body {
 
 p {
   color: var(--text-color);
+  @apply: text-start mb-1;
 }
 
 a {
   color: var(--link-color);
+  transition: 0.2s;
+}
+
+a:hover {
+  cursor: pointer;
+  color: var(--link-colorPressed);
+  /* transform: scale(1); */
+}
+
+h1,
+h2,
+h3 {
+  color: var(--text-accent-color);
+
+  font-weight: 900 !important;
+}
+
+h1 {
+  @apply text-xl mb-2;
+  line-height: 1rem /* 28px */;
+}
+
+h2 {
+  @apply text-lg  mb-1;
+  line-height: 1.25rem /* 28px */;
+}
+
+h3 {
+  @apply text-base;
 }

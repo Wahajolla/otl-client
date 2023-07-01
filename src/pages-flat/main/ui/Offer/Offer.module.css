@@ -1,0 +1,18 @@
+.accentCard {
+  background: var(--alternate-background-color);
+  transition: 0.2s;
+}
+
+.accentCard:hover {
+  background: var(--secondary-color);
+  cursor: pointer;
+}
+
+.sizes {
+  display: inline-block;
+  /* border: solid var(--text-accent-color); */
+  /* border-width: 0 0 2px 2px; */
+}
+
+.sizes::first-letter {
+}

@@ -1,14 +1,15 @@
+import clsx from 'clsx';
 import React from 'react';
 
 type HeaderProps = {
-  text?: string;
+  children?: React.ReactElement;
 };
 
 const Header = (props: HeaderProps) => {
   return (
     <a href="#">
       <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-        {props.text}
+        {props.children}
       </h5>
     </a>
   );
@@ -20,7 +21,7 @@ type BodyProps = {
 
 const Body = (props: BodyProps) => {
   return (
-    <div className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+    <div className="h-max flex flex-col gap-4 justify-between font-normal text-gray-700 dark:text-gray-400">
       {props.children}
     </div>
   );
@@ -36,10 +37,11 @@ function Card({ children, className }: CardProps) {
 
   return (
     <div
-      className={
-        'p-6 align-text-top justify-start content-stretch  border border-gray-50 rounded-lg shadow-sm shadow-slate-50 dark:bg-gray-800 dark:border-gray-700' +
-        ' h-full w-full'
-      }
+      className={clsx(
+        'pl-6 pr-6 pt-3 pb-3 align-text-top justify-start content-stretch  border border-gray-200 rounded shadow shadow-slate-50 dark:bg-gray-800 dark:border-gray-700' +
+          ' h-full w-full',
+        className
+      )}
     >
       {children}
     </div>

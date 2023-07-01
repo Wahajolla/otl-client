@@ -1,11 +1,12 @@
 .root {
-  padding: 0 2rem;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 4;
   height: fit-content;
   width: fit-content;
-  padding: 1rem 1rem;
+  padding: 0.6rem 1rem;
   line-height: 1.2rem;
-  background: var(--primary-color);
-  color: var(--text-color);
   border: 0;
   font-size: medium;
   border-radius: 5px;
@@ -14,13 +15,28 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: scale(1);
-  transition: transform 0.2s ease-in-out;
+  transition: 0.2s;
+
+  &_type_primary:hover {
+    background: var(--primary-colorPressed);
+  }
+
+  &_type_primary {
+    background: var(--primary-color);
+    color: var(--primary-text-color);
+  }
+
+  &_type_secondary {
+    background: var(--secondary-color);
+    color: var(--secondary-text-color);
+  }
+
+  &_type_secondary:hover {
+    background: var(--secondary-colorPressed);
+  }
 
   &_size_s {
     padding: 0;
-    height: 28px;
-    line-height: 28px;
   }
 
   &_size_m {

@@ -14,6 +14,7 @@ type Props = {
   size?: 'm' | 's';
   isLoading?: boolean;
   disabled?: boolean;
+  className?: string;
 };
 
 function Button({
@@ -24,9 +25,19 @@ function Button({
   type = 'primary',
   shape = 'default',
   disabled,
+  className,
 }: Props) {
   return (
-    <button className={styles.root} type={'submit'} onClick={onClick}>
+    <button
+      className={clsx(
+        styles.root,
+        styles[`root_size_${size}`],
+        styles[`root_type_${type}`],
+        className
+      )}
+      type={'submit'}
+      onClick={onClick}
+    >
       {children}
     </button>
   );
