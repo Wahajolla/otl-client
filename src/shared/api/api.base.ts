@@ -3,7 +3,7 @@ import ky from 'ky';
 import { keys } from 'lodash';
 
 /** Базовый URL */
-export const prefixUrl = 'http://94.250.248.181/api/2.0/';
+export const prefixUrl = 'http://94.250.250.194/api/2.0/';
 
 /** HEADERS для авторизации и обзначения платформы
  */
