@@ -29,13 +29,10 @@ export const MainMenu: FC = () => {
   useEffect(() => {
     setNav(
       navigation.map((f) => {
-        console.log(router.asPath);
-
         f.href === router.asPath ? (f.current = true) : (f.current = false);
         return f;
       })
     );
-    console.log(navigation);
   }, [router]);
   useEffect;
   return (

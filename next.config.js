@@ -72,6 +72,13 @@ const withTM = require('next-transpile-modules')([
   '@spectrum-icons/workflow',
 ]);
 
-module.exports = withTM({
+module.exports = {
   // Your next configuration
-});
+  reactStrictMode: true,
+  rewrites: async () => [
+    {
+      source: '/api/2.0/:path*',
+      destination: 'http://94.250.248.181/api/2.0/:path*',
+    },
+  ],
+};

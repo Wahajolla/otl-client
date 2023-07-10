@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import Image from 'next/image';
 import img from '~public/images/metallo2.png';
 import { Category, Product } from 'types/cms.types';
@@ -10,6 +10,9 @@ interface Props {
   cardClick: () => void;
 }
 const ProductCard: FC<Props> = ({ product, cardClick }) => {
+  useEffect(() => {
+    console.log(product);
+  }, []);
   return (
     <div
       className="pr-6 pb-6 transition ease-in-out delay-50  hover:scale-105 "

@@ -88,7 +88,7 @@ export interface Product {
   manufacturer_id?: number;
   flags?: any[];
   company_details?: any;
-  categories?: number[];
+  category_ids?: number[];
   images?: Image[];
   image_pairs?: any[];
   live_product?: boolean;

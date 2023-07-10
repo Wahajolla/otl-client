@@ -2,7 +2,7 @@ import ky from 'ky';
 import { keys } from 'lodash';
 
 /** Базовый URL */
-export const prefixUrl = 'http://94.250.248.181/api/2.0/';
+export const prefixUrl = 'http://localhost:3000/api/2.0/';
 
 /** HEADERS для авторизации и обзначения платформы
  */
@@ -12,9 +12,11 @@ export const headers = () =>
       `apiuser@yandex.ru:l5P24564f6XQ84u7PT32rX6stsJRRKu1`
     ).toString('base64')}`,
     'Content-Type': 'application/json',
+    Accept: 'application/json',
+    Vary: 'Accept-Encoding, User-Agent',
+    Connection: 'keep-alive',
   } as any);
-/**Инициализация апи дефолтными опциями
- */
+
 export const API = ky.extend({
   prefixUrl,
   retry: 0,
@@ -29,6 +31,7 @@ export const API = ky.extend({
         keys(defaultHeaders).forEach((header) =>
           inHeaders.set(header, defaultHeaders[header] as string)
         );
+        console.log(request.headers);
       },
     ],
     afterResponse: [

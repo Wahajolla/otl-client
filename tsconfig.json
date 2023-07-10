@@ -25,6 +25,7 @@
     // },
     "paths": {
       "@components/*": ["components/*"],
+      "@common/*": ["components/common/*"],
       "@layouts": ["/layouts"],
       "@assets/*": ["/assets/*"],
       "@data/*": ["/data/*"],

@@ -36,7 +36,6 @@ const CatalogLayout: FC<Props> = ({
   //get non sorted categories as tree
   const getCategoriesTree = (categories: Category[]): CategoryTree[] => {
     const categoriesTree: CategoryTree[] = [];
-    console.log('non sorted: ', categories);
 
     //sort ascending categories array by parent_id using lodash
     const sorted = sortBy(categories, ['parent_id']);
@@ -59,7 +58,6 @@ const CatalogLayout: FC<Props> = ({
         }
       }
     });
-    console.log('sorted: ', sorted);
 
     return categoriesTree;
   };
@@ -87,36 +85,6 @@ const CatalogLayout: FC<Props> = ({
         </div>
 
         <div className="flex">
-          {/* <Transition
-            show={aside}
-            as={Fragment}
-            enter="transition ease-in-out duration-300 transform"
-            enterFrom="-translate-x-full opacity-0"
-            enterTo="translate-x-0 opacity-100"
-            leave="transition ease-in-out duration-300 transform"
-            leaveFrom="translate-x-0 opacity-100"
-            leaveTo="-translate-x-full opacity-0"
-          > */}
-          {/* {
-              <aside className="flex w-72 flex-col rounded-2xl space-y-2  p-2 h-auto bg-white">
-                {categoryList.map((el) => {
-                  return (
-                    <Link
-                      key={el.category_id}
-                      href={'/catalog/' + el.category_id}
-                      passHref
-                    >
-                      <div className="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600">
-                        <span className="text-2xl">
-                          <CubeIcon className="h-6 w-6" />
-                        </span>
-                        <span>{el.category}</span>
-                      </div>
-                    </Link>
-                  );
-                })}
-              </aside>
-            } */}
           {
             <aside className="flex w-72 flex-col rounded-2xl  p-1 h-auto bg-white">
               {getCategoriesTree(categoryList).map((el) => {
@@ -160,6 +128,7 @@ const CatalogLayout: FC<Props> = ({
           <div className="w-full">
             {/* <!-- main content page --> */}
             <div className="flex flex-row flex-wrap justify-center">
+              {console.log(products)}
               {products.map((p) => {
                 return <ProductCard product={p} key={p.product_id} />;
               })}
