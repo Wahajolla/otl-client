@@ -1,4 +1,4 @@
-FROM node:16.14.0-alpine3.13
+FROM node:16.14.0
 
 RUN mkdir -p /usr/src/app
 ENV PORT 4001
