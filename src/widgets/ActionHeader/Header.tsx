@@ -18,24 +18,19 @@ const link =
 
 export const ActionHeader: FC = () => {
   return (
-    <div className="bg-slate-200 align-items-center p-6 rounded   border-gray-200 flex flex-col">
-      <div className="align-middle w-full flex flex-col gap-4 ">
-        <div className="flex flex-row gap-4 justify-between align-center">
-          <Button className="flex flex-row gap-2">
-            <ListBulletIcon className="w-6 h-6"></ListBulletIcon>
-            Каталог товаров
-          </Button>
-          <input type={'text'} className="border flex-1 rounded"></input>
-          <div className="flex flex-row gap-4 content-center items-center">
-            {/* <a>Каталог</a> */}
-            {/* <a>Контакты</a>
-          <a>Компаниям</a> */}
-            <UserCircleIcon className="w-6 h-6 text-zinc-500"></UserCircleIcon>
-            <a>Вход</a>
-            <ShoppingCartIcon className="w-6 h-6 text-zinc-500"></ShoppingCartIcon>
-            <a>Корзина</a>
-          </div>
-        </div>
+    <div className="flex h-12 flex-row justify-center gap-4">
+      {/* <Button className="block w-full gap-2" onClick={() => {}}>
+        <ListBulletIcon className="h-6 w-6 invert"></ListBulletIcon>
+        Каталог товаров
+      </Button> */}
+      <input
+        placeholder="Найти товары"
+        type={'text'}
+        className="flex-1 rounded border p-2"
+      ></input>
+      <div className="flex flex-row content-center items-center gap-4 ">
+        <ShoppingCartIcon className="h-6 w-6 text-zinc-500 "></ShoppingCartIcon>
+        <a className="hidden md:block">Корзина</a>
       </div>
     </div>
   );

@@ -1,3 +1,5 @@
+import { ReactElement } from 'react';
+import type { AppProps } from 'next/app';
 declare global {
   /**
    * Custom utility types

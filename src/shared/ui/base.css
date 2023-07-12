@@ -30,6 +30,8 @@
 }
 
 * {
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
   box-sizing: border-box;
 }
 
@@ -61,45 +63,48 @@ body {
   min-height: 100vh;
   padding: 0;
   margin: 0;
-
+  overflow-x: hidden;
   background: var(--background-color);
   color: var(--text-color);
 }
+@layer base {
+  p {
+    color: var(--text-color);
+    @apply mb-1 text-left text-xs  md:text-base;
+  }
 
-p {
-  color: var(--text-color);
-  @apply: text-start mb-1;
-}
+  a {
+    color: var(--link-color);
+    transition: 0.2s;
+    @apply text-left text-xs lg:text-sm;
+  }
 
-a {
-  color: var(--link-color);
-  transition: 0.2s;
-}
+  a:hover {
+    cursor: pointer;
+    color: var(--link-colorPressed);
+    /* transform: scale(1); */
+  }
 
-a:hover {
-  cursor: pointer;
-  color: var(--link-colorPressed);
-  /* transform: scale(1); */
-}
+  h1,
+  h2,
+  h3 {
+    color: var(--text-accent-color);
+    @apply text-left;
+  }
 
-h1,
-h2,
-h3 {
-  color: var(--text-accent-color);
+  h1 {
+    @apply text-2xl sm:text-xl;
+  }
 
-  font-weight: 900 !important;
-}
+  h2 {
+    @apply text-xl sm:text-lg;
+  }
 
-h1 {
-  @apply text-xl mb-2;
-  line-height: 1rem /* 28px */;
-}
+  h3 {
+    @apply text-base;
+  }
 
-h2 {
-  @apply text-lg  mb-1;
-  line-height: 1.25rem /* 28px */;
-}
-
-h3 {
-  @apply text-base;
+  svg {
+    @apply inline h-6 w-6 text-left text-zinc-500 sm:text-xs md:text-base;
+  }
 }

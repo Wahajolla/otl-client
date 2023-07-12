@@ -1,6 +1,6 @@
 .root {
+  @apply flex flex-row;
   padding: 0 1rem;
-  display: flex;
   flex-direction: row;
   gap: 4;
   height: fit-content;
@@ -12,7 +12,6 @@
   border-radius: 5px;
   font-weight: bold;
   cursor: pointer;
-  display: flex;
   justify-content: center;
   align-items: center;
   transition: 0.2s;

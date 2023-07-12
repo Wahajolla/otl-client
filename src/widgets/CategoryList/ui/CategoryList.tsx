@@ -35,7 +35,6 @@ const CategoryList: FC<Props> = ({
   //get non sorted categories as tree
   const getCategoriesTree = (categories: Category[]): CategoryTree[] => {
     const categoriesTree: CategoryTree[] = [];
-    console.log('non sorted: ', categories);
 
     //sort ascending categories array by parent_id using lodash
     const sorted = sortBy(categories, ['parent_id']);
@@ -58,7 +57,6 @@ const CategoryList: FC<Props> = ({
         }
       }
     });
-    console.log('sorted: ', sorted);
 
     return categoriesTree;
   };

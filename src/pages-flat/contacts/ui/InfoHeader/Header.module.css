@@ -1,0 +1,55 @@
+.header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 1180px;
+  height: auto;
+  background-color: var(--primary-color);
+  margin-left: 30px;
+  margin-right: 30px;
+}
+.infogroup {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 70px;
+  margin-right: 30px;
+}
+.contactgroup {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 70px;
+}
+.phone {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  background: var(--primary-color);
+  font-size: large;
+}
+.link {
+  color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+.worktime {
+  color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+.link:hover {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  background: var(--secondary-color);
+}
+
+@media (max-width: 1024px) {
+  .header {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    width: 700px;
+    height: 80px;
+    background-color: $primary-color;
+  }
+}

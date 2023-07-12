@@ -6,13 +6,7 @@ type HeaderProps = {
 };
 
 const Header = (props: HeaderProps) => {
-  return (
-    <a href="#">
-      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-        {props.children}
-      </h5>
-    </a>
-  );
+  return <>{props.children}</>;
 };
 
 type BodyProps = {
@@ -21,7 +15,7 @@ type BodyProps = {
 
 const Body = (props: BodyProps) => {
   return (
-    <div className="h-max flex flex-col gap-4 justify-between font-normal text-gray-700 dark:text-gray-400">
+    <div className="flex flex-1 flex-col justify-end  gap-1 font-normal text-gray-700 dark:text-gray-400 md:gap-2 md:gap-4">
       {props.children}
     </div>
   );
@@ -33,18 +27,16 @@ type CardProps = {
 };
 
 function Card({ children, className }: CardProps) {
-  console.log(className);
-
   return (
-    <div
+    <article
       className={clsx(
-        'pl-6 pr-6 pt-3 pb-3 align-text-top justify-start content-stretch  border border-gray-200 rounded shadow shadow-slate-50 dark:bg-gray-800 dark:border-gray-700' +
-          ' h-full w-full',
+        'flex flex-col content-stretch justify-start rounded border border-gray-200 px-4 py-3 shadow shadow-slate-50 dark:border-gray-700 dark:bg-gray-800 md:px-4 md:py-3' +
+          'h-full w-full',
         className
       )}
     >
       {children}
-    </div>
+    </article>
   );
 }
 

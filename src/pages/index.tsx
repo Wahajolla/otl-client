@@ -1,2 +1,4 @@
-import Page from '@/pages-flat/main';
-export default Page;
+import { MainPage, getServerSideProps } from '@/pages-flat/main';
+
+export default MainPage;
+export { getServerSideProps };
