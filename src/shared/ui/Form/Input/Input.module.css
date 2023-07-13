@@ -1,0 +1,80 @@
+.input {
+  display: inline;
+  background: none;
+  @apply px-2 py-1;
+
+  &:focus {
+    outline: none;
+    @apply border-none outline-none;
+  }
+
+  &_block {
+    display: inline-block;
+    @apply w-full;
+  }
+
+  &_size_s {
+    @apply text-xs md:text-base;
+  }
+
+  &_size_m {
+    @apply text-base md:text-lg;
+  }
+
+  &_size_l {
+    @apply text-lg md:text-xl;
+  }
+
+  &_disabled {
+    cursor: default;
+    opacity: 0.7;
+  }
+
+  &::placeholder {
+    color: var(--secondary-text-color);
+  }
+}
+
+.input-inner-container > .ant-input:first-child,
+.input-inner-container.addon:first-child {
+  border-start-end-radius: 0;
+  border-end-end-radius: 0;
+}
+
+.input-inner-container {
+  display: flex;
+  border-collapse: separate;
+  position: relative;
+  border-spacing: 0;
+  flex-direction: row;
+  align-items: stretch;
+  text-align: center;
+  width: 100%;
+}
+
+.input-addon,
+.input-prefix {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  @apply px-2;
+}
+
+.input-addon {
+  background: var(--alternate-background-color);
+}
+
+.input-container {
+  @apply overflow-hidden rounded border;
+  &:focus-within {
+    @apply border  border-[var(--link-color)] outline-none;
+  }
+  &_block {
+    display: inline-block;
+    @apply h-fit w-full;
+  }
+}
+
+.input-label {
+  @apply block text-sm font-medium text-gray-900 dark:text-white;
+}

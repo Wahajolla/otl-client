@@ -11,9 +11,12 @@ import { LayoutFooter } from '@/widgets/LayoutFooter';
 import { LayoutHeader } from '@/widgets/LayoutHeader';
 import Button from '@/shared/ui/Button/Button';
 import { Card } from '@/shared/ui/Card/Card';
+import Input from '@/shared/ui/Form/Input/Input';
+import PageDefaultLayout from '@/shared/ui/Layout/PageDefaultLayout';
+import Cards from './Cards/Cards';
 import { Contacts } from './Contacts/Contacts';
-import { InfoHeader } from './InfoHeader';
-import Offer from './Offer/Offer';
+import Contractors from './Contractors/Contractors';
+
 interface Props {
   data: string;
 }
@@ -42,8 +45,6 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
 const MainPage: NextPageWithLayout<
   InferGetServerSidePropsType<typeof getServerSideProps>
 > = (props) => {
-  console.log(props);
-
   (async () => {
     // fetch(
     //   'https://0.tcp.eu.ngrok.io:11147/SmallBusiness/odata/standard.odata/Catalog_Номенклатура'
@@ -65,134 +66,27 @@ const MainPage: NextPageWithLayout<
   })();
 
   return (
-    <div className="flex h-full flex-1 flex-col gap-4 pl-6 pr-6 lg:gap-8 lg:pl-8 lg:pr-8">
-      <InfoHeader></InfoHeader>
-      <ActionHeader></ActionHeader>
-      <Offer></Offer>
+    <PageDefaultLayout>
+      {/* <>
+        <address className="align-center md: col-span-2 flex flex-col justify-start gap-1  not-italic md:col-span-1  md:grid-cols-2 md:flex-row lg:flex-row">
+          <a className="block leading-3 text-red-900 ">+7 (963) 929-87-41</a>
+          <a className="block leading-3 text-red-900 ">+7 (969) 049 63 92 </a>
+          <a className="block leading-4">info@otlivchik.ru</a>
+          <a className="block leading-3">
+            будни 9:00 - 19:00 | вск. 9:00 - 18:00
+          </a>
 
-      <section>
-        <div className="relative flex h-48 flex-col justify-center overflow-hidden rounded-lg align-middle">
-          <div className="absolute h-full w-full">
-            <Image
-              className="absolute inset-0 transition-all hover:scale-105"
-              src="/images/bending.jpg"
-              alt="Изготовление продукции на заказ"
-              layout="fill"
-              objectFit="cover"
-              // objectPosition={'25% 75%'}
-            ></Image>
-          </div>
-          <div className="pointer-events-none absolute inset-0 bg-slate-900 opacity-60"></div>
-          <div className="z-10 ">
-            <h1 className="text-center text-white">Изготовление</h1>
-            <p className="text-center text-white">
-              По эскизам, размерам, цветам
-            </p>
-          </div>
+          <div>
+          <a className="block leading-4  "> Осташковское ш., вл1Бс7 </a>
+          <a className="block leading-4">будни 9:00 - 19:00</a>
+          <a className="block leading-4">вск. 9:00 - 18:00</a>
         </div>
-      </section>
+        </address>
+      </> */}
 
-      <section className="w-full ">
-        <h1 className="inline">Производители</h1>
-        <p>Гарант качества нашей продукции</p>
-
-        <div>
-          <article className="grid grid-cols-5 gap-8">
-            <Image
-              width={50}
-              objectFit="contain"
-              height={250}
-              alt="EUROMET"
-              src="/brands/EUROMET.png"
-            ></Image>
-            <Image
-              width={50}
-              objectFit="contain"
-              height={250}
-              alt="GRANDLINE"
-              src="/brands/GRANDLINE.png"
-            ></Image>
-            <Image
-              width={50}
-              objectFit="contain"
-              height={250}
-              alt="INOXPOINT"
-              src="/brands/INOXPOINT.png"
-            ></Image>
-            <Image
-              width={50}
-              objectFit="contain"
-              height={250}
-              alt="NLMK"
-              src="/brands/NLMK.png"
-            ></Image>
-            <Image
-              width={50}
-              objectFit="contain"
-              height={250}
-              alt="TECHNIKOL"
-              src="/brands/TECHNIKOL.png"
-            ></Image>
-          </article>
-        </div>
-      </section>
-      <section className="w-full">
-        <h1>Заказчики</h1>
-        <div>Доверяют и рекомендуют</div>
-        <div>
-          <article className="grid grid-cols-5 gap-8">
-            <Image
-              width={50}
-              objectFit="contain"
-              height={250}
-              alt="EUROMET"
-              src="/brands/EUROMET.png"
-            ></Image>
-            <Image
-              width={50}
-              objectFit="contain"
-              height={250}
-              alt="GRANDLINE"
-              src="/brands/GRANDLINE.png"
-            ></Image>
-            <Image
-              width={50}
-              objectFit="contain"
-              height={250}
-              alt="INOXPOINT"
-              src="/brands/INOXPOINT.png"
-            ></Image>
-            <Image
-              width={50}
-              objectFit="contain"
-              height={250}
-              alt="NLMK"
-              src="/brands/NLMK.png"
-            ></Image>
-            <Image
-              width={50}
-              objectFit="contain"
-              height={250}
-              alt="TECHNIKOL"
-              src="/brands/TECHNIKOL.png"
-            ></Image>
-          </article>
-        </div>
-      </section>
-
-      <section className="flex w-full flex-row justify-between  gap-4">
-        <div>
-          <h1>Категория 1</h1>
-          <h2>Подкатегория 1</h2>
-          <h2>Подкатегория 2</h2>
-          <h2>Подкатегория 3</h2>
-        </div>
-
-        <h1>Категория 2</h1>
-        <h1>Категория 3</h1>
-        <h1>Категория 4</h1>
-      </section>
-    </div>
+      <Cards></Cards>
+      <Contractors></Contractors>
+    </PageDefaultLayout>
   );
 };
 
@@ -200,11 +94,7 @@ MainPage.getLayout = function getLayout(page: ReactElement) {
   return (
     <AppLayout
       header={<LayoutHeader></LayoutHeader>}
-      footer={
-        <>
-          <LayoutFooter></LayoutFooter>
-        </>
-      }
+      footer={<LayoutFooter></LayoutFooter>}
     >
       <>{page}</>
     </AppLayout>

@@ -1,28 +1,23 @@
 .root {
-  @apply flex flex-row;
-  padding: 0 1rem;
-  flex-direction: row;
-  gap: 4;
-  height: fit-content;
-  width: fit-content;
-  padding: 0.6rem 1rem;
-  line-height: 1.2rem;
-  border: 0;
-  font-size: medium;
-  border-radius: 5px;
-  font-weight: bold;
-  cursor: pointer;
-  justify-content: center;
-  align-items: center;
-  transition: 0.2s;
-
   &_type_primary:hover {
     background: var(--primary-colorPressed);
   }
 
+  &_size_s {
+    @apply text-xs md:text-base;
+  }
+
+  &_size_m {
+    @apply text-base md:text-lg;
+  }
+
   &_type_primary {
-    background: var(--primary-color);
-    color: var(--primary-text-color);
+    background: var(--primary-color-light);
+    color: var(--button-text-color);
+  }
+
+  &_type_link {
+    color: var(--primary-color);
   }
 
   &_type_secondary {
@@ -34,19 +29,11 @@
     background: var(--secondary-colorPressed);
   }
 
-  &_size_s {
-    padding: 0;
-  }
-
-  &_size_m {
-    @media (--s-viewport) {
-    }
-  }
-
   &_disabled {
     cursor: default;
     opacity: 0.7;
   }
+  @apply rounded px-4 py-1;
 }
 
 .loader {

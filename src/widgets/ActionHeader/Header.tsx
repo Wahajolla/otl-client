@@ -6,10 +6,13 @@ import {
   UserCircleIcon,
   PhoneIcon,
   EnvelopeIcon,
+  MagnifyingGlassIcon,
+  UserIcon,
 } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import { FC } from 'react';
 import Button from '@/shared/ui/Button/Button';
+import Input from '@/shared/ui/Form/Input/Input';
 import styles from './Header.module.css';
 const link =
   'https://yandex.ru/maps/10740/mytischi/house/ostashkovskoye_shosse_vl1bs7/Z04YcABoSUYPQFtvfXR4eH9iZA==/?from=mapframe&l=trf%2Ctrfe&ll=37.678319%2C55.899228&source=mapframe&utm_source=mapframe&z=17.81';
@@ -18,19 +21,25 @@ const link =
 
 export const ActionHeader: FC = () => {
   return (
-    <div className="flex h-12 flex-row justify-center gap-4">
-      {/* <Button className="block w-full gap-2" onClick={() => {}}>
-        <ListBulletIcon className="h-6 w-6 invert"></ListBulletIcon>
-        Каталог товаров
-      </Button> */}
-      <input
-        placeholder="Найти товары"
-        type={'text'}
-        className="flex-1 rounded border p-2"
-      ></input>
+    <div className=" flex max-w-7xl flex-row justify-start gap-4 p-2 ">
+      <Button type="primary" size="m">
+        <ListBulletIcon></ListBulletIcon>
+        Каталог
+      </Button>
+      <Input
+        name={'Поиск товаров'}
+        size={'l'}
+        placeholder={'Поиск товаров'}
+        block
+        prefixAfter={<MagnifyingGlassIcon></MagnifyingGlassIcon>}
+        onChange={() => {
+          console.log('kek');
+        }}
+        onPressEnter={() => console.log('test')}
+      ></Input>
       <div className="flex flex-row content-center items-center gap-4 ">
-        <ShoppingCartIcon className="h-6 w-6 text-zinc-500 "></ShoppingCartIcon>
-        <a className="hidden md:block">Корзина</a>
+        <ShoppingCartIcon></ShoppingCartIcon>
+        <UserIcon></UserIcon>
       </div>
     </div>
   );

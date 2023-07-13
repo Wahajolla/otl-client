@@ -17,14 +17,16 @@
 
   --primary-color: theme('colors.red.900');
   --primary-colorPressed: theme('colors.red.800');
+  --primary-color-light: #a44953;
 
   --background-color: theme('colors.white');
-  --alternate-background-color: theme('colors.stone.300');
+  --alternate-background-color: theme('colors.slate.50');
 
   --text-color: theme('colors.neutral.500');
+  --button-text-color: theme('colors.white');
   --text-accent-color: theme('colors.neutral.700');
-  --primary-text-color: theme('colors.neutral.200');
-  --secondary-text-color: theme('colors.neutral.200');
+  --primary-text-color: theme('colors.neutral.600');
+  --secondary-text-color: theme('colors.neutral.400');
   --link-color: theme('colors.neutral.600');
   --link-colorPressed: theme('colors.neutral.400');
 }
@@ -46,7 +48,7 @@ html[data-theme='dark'] {
   --link-color: theme('colors.purple.500');
 
   --background-color: theme('colors.white');
-  --alternate-background-color: theme('colors.gray.400');
+  --alternate-background-color: theme('colors.slate.50');
 }
 
 html[data-theme='light'] {
@@ -54,7 +56,7 @@ html[data-theme='light'] {
   --link-color: theme('colors.purple.400');
 
   --background-color: theme('colors.neutral.700');
-  --alternate-background-color: theme('colors.gray.400');
+  --alternate-background-color: theme('colors.slate.50');
 }
 
 html,
@@ -105,6 +107,6 @@ body {
   }
 
   svg {
-    @apply inline h-6 w-6 text-left text-zinc-500 sm:text-xs md:text-base;
+    @apply inline h-5 w-5 text-left sm:text-xs md:text-base;
   }
 }

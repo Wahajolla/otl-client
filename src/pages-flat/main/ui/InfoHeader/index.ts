@@ -1,1 +1,0 @@
-export { InfoHeader } from './Header';
