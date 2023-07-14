@@ -29,13 +29,10 @@ export const MainMenu: FC = () => {
   useEffect(() => {
     setNav(
       navigation.map((f) => {
-
-
         f.href === router.asPath ? (f.current = true) : (f.current = false);
         return f;
       })
     );
-
   }, [router]);
   useEffect;
   return (
@@ -44,9 +41,9 @@ export const MainMenu: FC = () => {
         <>
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
             <div className="flex h-16 items-center ">
-              <div className="flex items-center justify-between w-full">
+              <div className="flex w-full items-center justify-between">
                 <Link href={'/'} passHref>
-                  <div className="flex flex-row items-center flex-shrink-0 cursor-pointer">
+                  <div className="flex flex-shrink-0 cursor-pointer flex-row items-center">
                     <Image
                       width={'60%'}
                       height={'60%'}
@@ -54,7 +51,7 @@ export const MainMenu: FC = () => {
                       src="/images/logo.svg"
                       alt=""
                     />
-                    <p className="invisible w-0 text-4xl pl-2 text-secondary lg:visible lg:w-fit">
+                    <p className="text-secondary invisible w-0 pl-2 text-4xl lg:visible lg:w-fit">
                       Отливчик
                     </p>
                   </div>
@@ -66,9 +63,9 @@ export const MainMenu: FC = () => {
                         <a
                           className={classNames(
                             item.current
-                              ? ' text-black secondary-bg'
+                              ? ' secondary-bg text-black'
                               : 'text-secondary hover:secondary-bg hover:text-black',
-                            'px-3 py-2 rounded-md text-sm font-medium '
+                            'rounded-md px-3 py-2 text-sm font-medium '
                           )}
                           aria-current={item.current ? 'page' : undefined}
                         >
@@ -78,30 +75,30 @@ export const MainMenu: FC = () => {
                     ))}
                   </div>
                 </div>
-                <div className="flex flex-row justify-end content-center  items-center p-2">
+                <div className="flex flex-row content-center items-center  justify-end p-2">
                   <a
                     href="mailto:info@otlivchik.ru"
-                    className="flex flex-row items-center text-white  h-fit invisible w-0 lg:visible lg:w-auto"
+                    className="invisible flex h-fit w-0  flex-row items-center text-white lg:visible lg:w-auto"
                   >
                     <EnvelopeIcon width={20} height={20} className="pr-1" />{' '}
                     info@otlivchik.ru
                   </a>
-                  <div className="flex flex-col justify-around m-2">
+                  <div className="m-2 flex flex-col justify-around">
                     <a
                       href="tel:89639298741"
-                      className="flex flex-nowrap  items-center overflow-x-auto overflow-visible text-white"
+                      className="flex flex-nowrap  items-center overflow-visible overflow-x-auto text-white"
                     >
                       <PhoneIcon width={20} height={20} className="pr-1" />
-                      <p className="break-normal whitespace-nowrap">
+                      <p className="whitespace-nowrap break-normal">
                         8 (963) 929 · 87 · 41
                       </p>
                     </a>
                     <a
                       href="tel:89639298741"
-                      className="flex flex-nowrap  items-center overflow-x-auto overflow-visible text-white"
+                      className="flex flex-nowrap  items-center overflow-visible overflow-x-auto text-white"
                     >
                       <PhoneIcon width={20} height={20} className="pr-1" />
-                      <p className="break-normal whitespace-nowrap">
+                      <p className="whitespace-nowrap break-normal">
                         {' '}
                         8 (963) 929 · 87 · 41
                       </p>
@@ -163,7 +160,7 @@ export const MainMenu: FC = () => {
           </div>
 
           <Disclosure.Panel className="md:hidden">
-            <div className="space-y-1 px-2 pt-2 pb-3 sm:px-3">
+            <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
               {navigation.map((item) => (
                 <Disclosure.Button
                   key={item.name}
@@ -173,7 +170,7 @@ export const MainMenu: FC = () => {
                     item.current
                       ? 'bg-gray-900 text-white'
                       : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                    'block px-3 py-2 rounded-md text-base font-medium'
+                    'block rounded-md px-3 py-2 text-base font-medium'
                   )}
                   aria-current={item.current ? 'page' : undefined}
                 >
@@ -181,7 +178,7 @@ export const MainMenu: FC = () => {
                 </Disclosure.Button>
               ))}
             </div>
-            <div className="border-t border-gray-700 pt-4 pb-3">
+            <div className="border-t border-gray-700 pb-3 pt-4">
               <div className="flex items-center px-5">
                 <div className="flex-shrink-0">
                   {/* <img
