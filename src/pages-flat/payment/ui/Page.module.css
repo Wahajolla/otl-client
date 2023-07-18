@@ -1,0 +1,67 @@
+.container {
+  height: 300px;
+  width: 1180px;
+  background: transparent;
+}
+.imagecontainer {
+  width: 600px;
+  height: 300px;
+  position: relative;
+  .fitImage {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    object-fit: cover;
+  }
+}
+
+.description {
+  width: 580px;
+  //-webkit-backdrop-filter: blur(5px);
+  //backdrop-filter: blur(10px);
+
+  z-index: 0;
+  position: relative;
+  color: $secondary-color;
+  //filter: blur(5px);
+
+  h1 {
+    font-family: Arsenal;
+    font-style: bold;
+    color: $secondary-color;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 2.5em;
+  }
+  li {
+    font-family: Arsenal;
+    //font-style: bold;
+    margin-left: 30px;
+    font-size: 1.8em;
+  }
+  // .backimg {
+  //   background-image: url('/images/metallo2.png');
+
+  //   background-size: cover;
+  //   position: absolute;
+  //   left: 0;
+  //   right: 0;
+  //   top: 0;
+  //   bottom: 0;
+  //   z-index: -11;
+  //   -webkit-filter: blur(20px);
+  //   -moz-filter: blur(20px);
+  //   -o-filter: blur(20px);
+  //   -ms-filter: blur(20px);
+  //   filter: blur(15px);
+  // }
+}
+
+.carouselItem {
+  display: flex;
+  flex-direction: row;
+  border: 2px solid $secondary-color;
+}
+.CITextblock {
+  filter: blur(4px);
+}

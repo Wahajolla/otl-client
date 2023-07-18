@@ -31,7 +31,10 @@
   --link-colorPressed: theme('colors.neutral.400');
 }
 
-* {
+*,
+::after,
+::before {
+  margin: 0;
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box; /* Firefox, other Gecko */
   box-sizing: border-box;
@@ -72,13 +75,13 @@ body {
 @layer base {
   p {
     color: var(--text-color);
-    @apply mb-1 text-left text-xs  md:text-base;
+    @apply mb-1 text-left text-sm  md:text-base;
   }
 
   a {
     color: var(--link-color);
     transition: 0.2s;
-    @apply text-left text-xs lg:text-sm;
+    @apply text-left text-sm lg:text-base;
   }
 
   a:hover {

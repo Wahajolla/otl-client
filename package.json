@@ -8,14 +8,13 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@adobe/react-spectrum": "^3.22.0",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
-    "@headlessui/react": "^1.7.3",
     "@heroicons/react": "^2.0.11",
     "@popperjs/core": "^2.11.7",
     "@types/styled-system": "^5.1.16",
     "autoprefixer": "^10.4.12",
+    "axios": "^1.4.0",
     "bootstrap": "^5.2.3",
     "clsx": "^1.2.1",
     "cogo-toast": "^4.2.3",
@@ -32,7 +31,8 @@
     "react-html-parser": "^2.0.2",
     "react-icons": "^4.8.0",
     "react-redux": "^8.0.5",
-    "swr": "^2.2.0"
+    "swr": "^2.2.0",
+    "wretch": "^2.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.16.12",

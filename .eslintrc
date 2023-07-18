@@ -1,5 +1,9 @@
 {
-  "extends": ["@feature-sliced", "prettier", "next/core-web-vitals"],
+  "extends": [
+    "@feature-sliced/eslint-config/rules/layers-slices",
+    "prettier",
+    "next/core-web-vitals"
+  ],
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"],
   "settings": {
@@ -55,6 +59,8 @@
     "react/no-unescaped-entities": "off",
     "react/jsx-one-expression-per-line": "off",
     "react/jsx-wrap-multilines": "off",
-    "react/destructuring-assignment": "off"
+    "react/destructuring-assignment": "off",
+    // feature-sliced/layers-slices
+    "boundaries/element-types": "warn" // ~ 1,
   }
 }

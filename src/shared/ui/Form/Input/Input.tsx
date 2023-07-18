@@ -1,12 +1,10 @@
 import clsx from 'clsx';
-import React from 'react';
+import React, { forwardRef, MouseEventHandler } from 'react';
 import styles from './Input.module.css';
 
 type InputType = 'primary' | 'secondary';
 
-type Props = {
-  onChange?: () => void;
-  onPressEnter?: () => void;
+type InputProps = {
   size?: 's' | 'm' | 'l';
   disabled?: boolean;
   block?: boolean;
@@ -19,28 +17,25 @@ type Props = {
   addonBefore?: React.ReactNode;
   prefixAfter?: React.ReactNode;
   prefixBefore?: React.ReactNode;
-};
+} & Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>;
 
-function Input({
-  onChange,
-  onPressEnter,
-  label,
-  size = 'm',
-  placeholder,
-  disabled,
-  block,
-  name,
-  required,
-  className,
-  addonAfter,
-  addonBefore,
-  prefixBefore,
-  prefixAfter,
-}: Props) {
-  const _onPressEnter = (e) => {
-    e.key === 'Enter' && onPressEnter();
-  };
-
+const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
+  props,
+  ref
+) {
+  const {
+    size,
+    block,
+    label,
+    addonAfter,
+    addonBefore,
+    name,
+    disabled,
+    prefixBefore,
+    prefixAfter,
+    className,
+    ...rest
+  } = props;
   return (
     <span
       className={clsx(
@@ -61,6 +56,8 @@ function Input({
           <span className={styles['input-prefix']}>{prefixBefore}</span>
         )}
         <input
+          {...rest}
+          ref={ref}
           type="text"
           id={name}
           disabled={disabled}
@@ -71,10 +68,6 @@ function Input({
             block && styles.input_block,
             className
           )}
-          onKeyDown={_onPressEnter}
-          placeholder={placeholder}
-          onChange={onChange}
-          required={required}
         />
         {prefixAfter && (
           <span className={styles['input-prefix']}>{prefixAfter}</span>
@@ -85,6 +78,5 @@ function Input({
       </span>
     </span>
   );
-}
-
+});
 export default Input;

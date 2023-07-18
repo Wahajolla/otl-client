@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Breadcrumbs } from '@/widgets/Breadcrumbs';
-import { CategoryList } from '@/widgets/CategoryList';
+import { CategoryList } from '@/widgets/CategorySearch';
 import { Category, categoryApi } from '@/entities/category';
 import { Product, productApi } from '@/entities/product';
 

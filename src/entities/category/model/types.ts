@@ -3,17 +3,12 @@
 export type CategoryId = Brand<Id, 'CategoryId'>;
 
 export type Category = {
-  category_id: string;
-  parent_id: string;
-  id_path: string;
-  category: string;
-  position: string;
-  status: string;
-  company_id: Id;
-  storefront_id: string;
-  product_count: string;
-  seo_name: string;
-  seo_path: Url;
+  id: Id;
+  parentId: Id;
+  name: string;
+  description: string;
+  priority: Priority;
+  isActive: boolean;
 };
 
 // export type CategoryWithProducts = Category & {

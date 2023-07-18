@@ -17,6 +17,14 @@ declare global {
    * Type aliases
    */
   export type Id = number;
+  export type Sku = number;
+
+  export type Priority = number;
+  export type Dimensions = {
+    length: number;
+    width: number;
+    heigh: number;
+  };
 
   export type Rubles = number;
 

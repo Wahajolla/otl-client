@@ -11,14 +11,28 @@ const Header = (props: HeaderProps) => {
 
 type BodyProps = {
   children?: React.ReactElement | React.ReactElement[];
+  className?: string;
 };
 
 const Body = (props: BodyProps) => {
   return (
-    <div className="flex flex-1 flex-col justify-end  gap-1 font-normal text-gray-700 dark:text-gray-400 md:gap-2 md:gap-4">
+    <div
+      className={clsx(
+        'flex flex-1 flex-col justify-end  gap-1 font-normal text-gray-700 dark:text-gray-400 md:gap-2 md:gap-4',
+        props.className
+      )}
+    >
       {props.children}
     </div>
   );
+};
+
+type FooterProps = {
+  children?: React.ReactElement;
+};
+
+const Footer = (props: FooterProps) => {
+  return <>{props.children}</>;
 };
 
 type CardProps = {
@@ -30,7 +44,7 @@ function Card({ children, className }: CardProps) {
   return (
     <article
       className={clsx(
-        'flex flex-col content-stretch justify-start rounded border border-gray-200 px-4 py-3 shadow shadow-slate-50 dark:border-gray-700 dark:bg-gray-800 md:px-4 md:py-3' +
+        'flex flex-col content-stretch justify-start rounded dark:border-gray-700 dark:bg-gray-800 ' +
           'h-full w-full',
         className
       )}
@@ -42,5 +56,6 @@ function Card({ children, className }: CardProps) {
 
 Card.Header = Header;
 Card.Body = Body;
+Card.Footer = Footer;
 
 export { Card };

@@ -1,6 +1,8 @@
 import { FC, PropsWithChildren, ReactNode } from 'react';
+import { LayoutFooter } from '../LayoutFooter';
+import { LayoutHeader } from '../LayoutHeader';
 // eslint-disable-next-line boundaries/element-types
-import { ActionHeader } from '../ActionHeader';
+
 // eslint-disable-next-line boundaries/element-types
 
 interface Props {
@@ -17,11 +19,11 @@ export const AppLayout: FC<PropsWithChildren<Props>> = ({
   footer,
 }) => {
   return (
-    <main className="flex flex-col h-screen items-center">
-      {header}
+    <main className="flex h-screen flex-col items-center">
+      <LayoutHeader></LayoutHeader>
       {sider}
       <div className="w-full max-w-7xl flex-1 ">{children}</div>
-      {footer}
+      <LayoutFooter></LayoutFooter>
     </main>
   );
 };

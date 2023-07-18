@@ -1,0 +1,49 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Next.js: debug server-side",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "yarn dev",
+      "env": {
+        "NODE_OPTIONS": "--inspect"
+      },
+      "skipFiles": [
+        "${workspaceFolder}/<node_internals>/**",
+        "${workspaceFolder}/node_modules/**"
+      ]
+    },
+    {
+      "name": "Next.js: debug client-side",
+      "type": "firefox",
+      "request": "attach",
+      "url": "http://localhost:3000",
+      "env": {
+        "NODE_OPTIONS": "--inspect"
+      },
+      "skipFiles": [
+        "${workspaceFolder}/<node_internals>/**",
+        "${workspaceFolder}/node_modules/**"
+      ]
+    },
+    {
+      "name": "Next.js: debug full stack",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "NODE_OPTIONS=--inspect yarn dev",
+      "serverReadyAction": {
+        "pattern": "started server on .+, url: (https?://.+)",
+        "uriFormat": "%s",
+        "action": "debugWithChrome"
+      },
+      "env": {
+        "NODE_OPTIONS": "--inspect"
+      },
+      "skipFiles": [
+        "${workspaceFolder}/<node_internals>/**",
+        "${workspaceFolder}/node_modules/**"
+      ]
+    }
+  ]
+}

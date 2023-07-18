@@ -1,0 +1,22 @@
+.breadcrumbs {
+  @apply flex flex-row content-stretch items-end overflow-y-scroll p-2;
+}
+
+.breadcrumbs > .breadcrumbs-item {
+  @apply align-middle opacity-50;
+
+  &::after {
+    content: '/';
+    margin: 2px;
+  }
+  &::before {
+    content: ' ';
+  }
+
+  &:last-child {
+    @apply align-middle opacity-100;
+  }
+  &:last-child::after {
+    content: '';
+  }
+}

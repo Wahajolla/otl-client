@@ -1,1 +1,1 @@
-export { LayoutHeader } from './Header';
+export { LayoutHeader } from './ui/LayoutHeader/LayoutHeader';
