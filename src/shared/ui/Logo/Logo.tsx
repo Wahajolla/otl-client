@@ -21,7 +21,7 @@ export default function Logo({}: Props) {
       </svg>
       <div className="mb-0 flex flex-col leading-3 text-red-900">
         <span>отливчик</span>
-        <span className="text-[0.5rem] text-red-900">
+        <span className="text-[0.6rem] text-red-900">
           все для наружной отделки
         </span>
       </div>

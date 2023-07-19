@@ -18,7 +18,7 @@ const Body = (props: BodyProps) => {
   return (
     <div
       className={clsx(
-        'flex flex-1 flex-col justify-end  gap-1 font-normal text-gray-700 dark:text-gray-400 md:gap-2 md:gap-4',
+        'flex flex-1 flex-col justify-start  gap-1 font-normal text-gray-700 dark:text-gray-400 md:gap-2 md:gap-4',
         props.className
       )}
     >

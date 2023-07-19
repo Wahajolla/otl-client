@@ -3,5 +3,5 @@ export type ManufacturerDto = {
   name: string;
   description: string;
   image: Url;
-  country: 'Страна производителя';
+  country: string;
 };

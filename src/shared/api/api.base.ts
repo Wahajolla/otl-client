@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { keys } from 'lodash';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import wretch from 'wretch';
-
-/** Базовый URL */
-export const baseURL = process.env.BACKEND_URL;
+import { HYDRATE } from 'next-redux-wrapper';
+import { config } from '../lib/config';
 
 /** HEADERS для авторизации и обзначения платформы
  */
@@ -14,6 +14,16 @@ export const headers = () =>
     ).toString('base64')}`,
     'Content-Type': 'application/json',
   } as any);
-/**Инициализация апи дефолтными опциями
- */
-export const API = wretch(baseURL).options({ credentials: "include", mode: "cors" });
+
+export const API = createApi({
+  reducerPath: 'api',
+  baseQuery: fetchBaseQuery({
+    baseUrl: config.PROXY_URL,
+  }),
+  extractRehydrationInfo(action, { reducerPath }) {
+    if (action.type === HYDRATE) {
+      return action.payload[reducerPath];
+    }
+  },
+  endpoints: () => ({}),
+});

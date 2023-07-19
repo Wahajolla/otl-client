@@ -6,7 +6,7 @@ type Props = {
 
 function PageDefaultLayout({ children }: Props) {
   return (
-    <div className="flex h-full flex-1 flex-col gap-2 px-6 lg:gap-4 lg:px-8">
+    <div className="flex h-full flex-1 flex-col gap-2 px-4 lg:gap-4 lg:px-8">
       {children}
     </div>
   );

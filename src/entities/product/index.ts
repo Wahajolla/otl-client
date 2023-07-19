@@ -1,3 +1,10 @@
-export { productApi } from './api/productApi';
+export {
+  productApi,
+  useSearchProductsQuery,
+  useGetProductByIdQuery,
+  getRunningQueriesThunk,
+} from './api/productApi';
 export { ProductCard } from './ui/ProductCard/ProductCard';
-export type {  Product } from './model/types';
+export type { Product, ProductVariation } from './model/types';
+export { productSlice } from './model/slice';
+export { selectProducts } from './model/slice';

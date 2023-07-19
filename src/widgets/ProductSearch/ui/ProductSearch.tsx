@@ -1,14 +1,26 @@
+import { selectProducts } from '@/entities/product';
 import { SearchByInput } from '@/features/product/search';
+import { useAppSelector } from '@/shared/model/hooks';
 import Input from '@/shared/ui/Form/Input/Input';
 import Overlay from '@/shared/ui/Overlay/Overlay';
+import { ProductList } from '@/widgets/ProductList';
 import { MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import React, { useState } from 'react';
+import { useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react';
 
 type Props = {};
 // <Overlay collapsed={collapsedSearch} header={}></Overlay>;
 
 function ProductSearch({}: Props) {
   const [collapsedSearch, setCollapsedSearch] = useState(true);
+  const products = useAppSelector(selectProducts);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!collapsedSearch) {
+      setCollapsedSearch(true);
+    }
+  }, [router.asPath]);
 
   return (
     <>
@@ -35,7 +47,7 @@ function ProductSearch({}: Props) {
           </div>
         }
       >
-        <>А тут будет лист товаров под поиск</>
+        <ProductList products={products}></ProductList>
       </Overlay>
     </>
   );

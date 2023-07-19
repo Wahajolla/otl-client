@@ -3,6 +3,8 @@ import { FC } from 'react';
 import { Card } from '@/shared/ui/Card/Card';
 
 import { Product } from '../../model/types';
+import Logo from '@/shared/ui/Logo/Logo';
+import SkeletonImage from '@/shared/ui/Skeleton/SkeletonImage';
 
 interface Props {
   product: Product;
@@ -16,6 +18,8 @@ const ProductCard: FC<Props> = ({ product, actionSlot }) => {
       <Card>
         <Card.Body>
           <>{product.name}</>
+          <>{product.price}</>
+          <>{product.price}</>
         </Card.Body>
         <Card.Footer>
           <>{actionSlot}</>

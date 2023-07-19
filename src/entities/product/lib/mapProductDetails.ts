@@ -9,16 +9,20 @@ export function mapProductDetails(
   return {
     id: dto.id,
     name: dto.name,
-    price: dto.price,
-    stock: dto.stock,
-    images: dto.images,
+    price: dto.price || null,
+    stock: dto.stock || null,
+    images: dto.images || [],
+    image: dto.images[0] || null,
     category: null,
-    description: dto.description,
-    isActive: dto.isActive,
+    description: dto.description || null,
+    isActive: dto.isActive || true,
     manufacturer: null,
-    metadata: dto.metadata,
-    priority: dto.priority,
-    tags: dto.tags.map((tag) => mapSeoTag(tag)),
+    metadata: dto.metadata || null,
+    priority: dto.priority || null,
+    tags:
+      dto.tags && dto.tags.length > 0
+        ? dto.tags.map((tag) => mapSeoTag(tag))
+        : [],
     variations: [],
   } as ProductWithDetails;
 }

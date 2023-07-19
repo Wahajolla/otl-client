@@ -12,7 +12,7 @@ export type Product = {
   stock: number;
 };
 
-export type ProductWithDetails = {
+export type ProductWithDetails = Product & {
   // //Не нужно в модели ?
   // category: Category;
   description: string;
@@ -29,9 +29,13 @@ export type ProductWithDetails = {
 
 export interface ProductVariation {
   id: Id;
-  dimension: Dimension;
-  color: Color;
+  specs: ProductSpec;
   price: Rubles;
   stock: number;
   sku: Sku;
+}
+
+export interface ProductSpec {
+  dimension: Dimension;
+  color: Color;
 }

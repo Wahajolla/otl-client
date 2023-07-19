@@ -5,7 +5,7 @@ import { ColorDto } from '@/entities/color/@x/product';
 import { CategoryDto } from '@/entities/category/@x/product';
 
 export type ProductsSearchArgsDto = {
-  q: string;
+  search: string;
 };
 
 export type ProductDto = {

@@ -1,3 +1,3 @@
 export function formatPrice(value: Rubles, withSign = true) {
-  return `${withSign ? '₽' : ''}${Number(value / 100).toFixed(0)}`;
+  return `${Number(value).toFixed(0)}${withSign ? ' р.' : ''}`;
 }

@@ -1,4 +1,5 @@
 export type Dimension = {
+  id: number;
   volume: number;
   volume_unit: string;
   width: number;

@@ -1,30 +1,39 @@
 import { API } from '@/shared/api/api.base';
 import { mapProduct } from '../lib/mapProduct';
 import { mapProductDetails } from '../lib/mapProductDetails';
+import { Product, ProductWithDetails } from '../model/types';
 import {
   ProductDto,
   ProductDtoWithDetails,
   ProductsSearchArgsDto,
 } from './types';
-// import { ProductsSearch } from './types';
 
-// export const searchProducts = () => API.get('/products')();
+export const productApi = API.injectEndpoints({
+  endpoints: (build) => ({
+    searchProducts: build.query<Product[], ProductsSearchArgsDto>({
+      query: (params) => ({
+        method: 'GET',
+        url: `products`,
+        params: { search: params.search },
+      }),
 
-export const searchProducts = (args: ProductsSearchArgsDto) =>
-  API.get(`/products${new URLSearchParams(args).toString()}`)
-    .json<ProductDto[]>()
-    .then((response) => response.map((dto) => mapProduct(dto)))
-    .catch((e) => console.log(e));
+      transformResponse: (response: ProductDto[]) => response.map(mapProduct),
+    }),
+    getProductById: build.query<ProductWithDetails, { id: number }>({
+      query: ({ id }) => ({
+        url: `products/${id}`,
+      }),
+      transformResponse: (response: ProductDtoWithDetails) =>
+        mapProductDetails(response),
+    }),
+  }),
+});
 
-export const getProductById = (options: { id: Id }) =>
-  API.get(`/products/${options.id}`)
-    .json<ProductDtoWithDetails>()
-    .then((dto) => mapProductDetails(dto))
-    .catch((e) => console.log(e));
-
-export const productApi = {
-  searchProducts,
-  getProductById,
-};
+export const {
+  useSearchProductsQuery,
+  useLazySearchProductsQuery,
+  useGetProductByIdQuery,
+  util: { getRunningQueriesThunk },
+} = productApi;
 
 // export const createProducts = (args: {dto: ProductDto }) => new Promise();

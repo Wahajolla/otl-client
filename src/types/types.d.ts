@@ -48,7 +48,7 @@ declare global {
    * ⚠️ FSD
    *
    */
-  declare type RootState = import('../src/app/appStore').RootState;
+  declare type RootState = import('../app/appStore').RootState;
   declare type AppDispatch = import('../src/app/appStore').AppDispatch;
   declare type NextPageWithLayout =
     import('../src/app/appStore').NextPageWithLayout;

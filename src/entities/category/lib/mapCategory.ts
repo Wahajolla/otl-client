@@ -4,7 +4,6 @@ import { type Category } from '../model/types';
 export function mapCategory(dto: CategoryDto): Category {
   return {
     id: dto.id,
-    parentId: dto.parentId,
     name: dto.name,
     description: dto.description,
     priority: dto.priority,

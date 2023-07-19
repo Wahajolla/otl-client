@@ -10,3 +10,7 @@ export type CategoryDto = {
 };
 
 export type CategoryDtoWithDetails = CategoryDto & {};
+
+export type CategoryDetailsRequestArgs = {
+  id: number;
+};

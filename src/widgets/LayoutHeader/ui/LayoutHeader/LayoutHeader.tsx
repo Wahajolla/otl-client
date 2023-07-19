@@ -31,14 +31,14 @@ const NavigationList: React.ReactNode[] = [
       <span className="">Оплата</span>
     </a>
   </Link>,
-  <Link href={'/receiving'} key={'contacts'}>
+  <Link href={'/receiving'} key={'receiving'}>
     <a>
       <ArchiveBoxIcon className="m-2 h-5 w-5 md:hidden"></ArchiveBoxIcon>
       <span className="">Получение</span>
     </a>
   </Link>,
 
-  <Link href={'/contacts'} key={'payment'}>
+  <Link href={'/contacts'} key={'contacts'}>
     <a>
       <PhoneIcon className="m-2 h-5 w-5 md:hidden"></PhoneIcon>
       <span className="">Контакты</span>
