@@ -1,5 +1,5 @@
-import { type ProductDtoWithDetails } from '../api/types';
-import { type ProductWithDetails } from '../model/types';
+import { ProductVariationDto, type ProductDtoWithDetails } from '../api/types';
+import { ProductVariation, type ProductWithDetails } from '../model/types';
 
 import { mapSeoTag } from '@/entities/seo-tag/@x/product';
 
@@ -23,6 +23,21 @@ export function mapProductDetails(
       dto.tags && dto.tags.length > 0
         ? dto.tags.map((tag) => mapSeoTag(tag))
         : [],
-    variations: [],
+    variations:
+      dto.variations && dto.variations.length > 0
+        ? dto.variations.map((v) => mapProductVariations(v))
+        : [],
   } as ProductWithDetails;
+}
+function mapProductVariations(dto: ProductVariationDto): ProductVariation {
+  return {
+    id: dto.id,
+    price: dto.price,
+    sku: dto.sku,
+    specs: {
+      color: dto.color,
+      dimension: dto.dimension,
+    },
+    stock: dto.stock,
+  };
 }

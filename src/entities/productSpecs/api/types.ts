@@ -10,3 +10,11 @@ export type DimensionDto = {
   height_unit: string;
   depth_unit: string;
 };
+
+export interface ColorDto {
+  id: Id;
+  hex: string;
+  name: string;
+  ralId: string;
+  description: string;
+}

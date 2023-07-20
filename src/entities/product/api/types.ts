@@ -1,7 +1,6 @@
 import { ManufacturerDto } from '@/entities/manufacturer/@x/product';
-import { DimensionDto } from '@/entities/dimension/@x/product';
+import { DimensionDto, ColorDto } from '@/entities/productSpecs/@x/product';
 import { SeoTagDto } from '@/entities/seo-tag/@x/product';
-import { ColorDto } from '@/entities/color/@x/product';
 import { CategoryDto } from '@/entities/category/@x/product';
 
 export type ProductsSearchArgsDto = {

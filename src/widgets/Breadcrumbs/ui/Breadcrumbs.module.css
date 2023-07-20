@@ -1,5 +1,5 @@
 .breadcrumbs {
-  @apply flex flex-row content-stretch items-end overflow-y-scroll p-2;
+  @apply flex flex-row content-stretch items-end overflow-y-scroll py-2;
 }
 
 .breadcrumbs > .breadcrumbs-item {

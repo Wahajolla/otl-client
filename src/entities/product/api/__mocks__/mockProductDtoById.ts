@@ -20,14 +20,14 @@ const mockVariations = [
     },
     color: {
       id: 1,
-      hex: '#44132',
+      hex: '#ff0000',
       name: 'Красивый',
-      ralId: '123213',
+      ralId: '5555',
       description: 'ну такое',
     },
 
     price: 400,
-    sku: 12321,
+    sku: 324,
     stock: 4,
   },
   {
@@ -47,14 +47,14 @@ const mockVariations = [
     },
     color: {
       id: 2,
-      hex: '#41432',
+      hex: '#bd3a3a',
       name: 'Не очень красивый',
-      ralId: '123213',
+      ralId: '4444',
       description: 'ну такое',
     },
 
     price: 4000,
-    sku: 12321,
+    sku: 331,
     stock: 4,
   },
   {
@@ -74,14 +74,14 @@ const mockVariations = [
     },
     color: {
       id: 3,
-      hex: '#414323',
+      hex: '#34b353',
       name: 'Ваще очень красивый',
-      ralId: '123213',
+      ralId: '12355213',
       description: 'ну такое',
     },
 
     price: 4000,
-    sku: 12321,
+    sku: 113,
     stock: 4,
   },
 ] as ProductVariationDto[];
@@ -91,7 +91,7 @@ const mockProductWithDetails: ProductDtoWithDetails = {
   name: faker.commerce.product(),
   description: faker.commerce.productDescription(),
   isActive: true,
-  images: [faker.image.url()],
+  images: [faker.image.urlLoremFlickr()],
   price: faker.number.int(),
   stock: faker.number.int(),
   variations: mockVariations,
@@ -107,7 +107,7 @@ const mockProductWithDetails: ProductDtoWithDetails = {
     id: faker.number.int(),
     name: faker.company.name(),
     description: faker.company.catchPhrase(),
-    image: faker.image.url(),
+    image: faker.image.urlLoremFlickr(),
     country: faker.location.country(),
   },
   metadata: '',

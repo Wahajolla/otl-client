@@ -15,7 +15,7 @@ type Props = {
   loading?: boolean;
 
   disabled?: boolean;
-  link?: boolean;
+
   className?: string;
 };
 
@@ -35,7 +35,9 @@ function Button({
         styles.root,
         styles[`root_size_${size}`],
         styles[`root_type_${type}`],
-        className
+        styles[`root_type_${shape}`],
+        className,
+        disabled && styles[`root_disabled`]
       )}
       type={'submit'}
       onClick={onClick}

@@ -6,6 +6,7 @@ module.exports = {
     'postcss-mixins': {},
     'postcss-custom-media': {},
     'postcss-nested': {},
+    'tailwindcss/nesting': {},
     tailwindcss: { config: './src/shared/ui/tailwind.config.js' },
   },
 };

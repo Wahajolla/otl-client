@@ -5,7 +5,7 @@ import { mockProductWithDetailsDto } from './mockProductDtoById';
 import { config } from '@/shared/lib/config';
 
 export const productsHandlers = [
-  rest.get(`http://localhost:3000/api/product/:id`, (_req, res, ctx) => {
+  rest.get(`${config.BACKEND_URL}/products/*`, (_req, res, ctx) => {
     return res(ctx.json<ProductDtoWithDetails>(mockProductWithDetailsDto()));
   }),
 ];

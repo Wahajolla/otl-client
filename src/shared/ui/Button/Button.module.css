@@ -1,10 +1,12 @@
 .root {
+  @apply rounded px-4 py-1;
+
   &_type_primary:hover {
     background: var(--primary-colorPressed);
   }
 
   &_size_s {
-    @apply text-xs md:text-base;
+    @apply text-sm md:text-base;
   }
 
   &_size_m {
@@ -17,7 +19,11 @@
   }
 
   &_type_link {
-    color: var(--primary-color);
+    @apply p-0 transition-all;
+  }
+
+  &_type_link:hover {
+    @apply opacity-60;
   }
 
   &_type_secondary {
@@ -33,7 +39,6 @@
     cursor: default;
     opacity: 0.7;
   }
-  @apply rounded px-4 py-1;
 }
 
 .loader {
