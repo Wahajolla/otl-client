@@ -44,7 +44,7 @@ function Card({ children, className }: CardProps) {
   return (
     <article
       className={clsx(
-        'flex flex-col content-stretch justify-start rounded dark:border-gray-700 dark:bg-gray-800 ' +
+        'flex flex-col content-stretch justify-start rounded  ' +
           'h-full w-full',
         className
       )}

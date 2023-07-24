@@ -1,10 +1,5 @@
-import clsx from 'clsx';
-
-import Image from 'next/dist/client/image';
-import React, { Fragment } from 'react';
-import Button from '@/shared/ui/Button/Button';
-import { Card } from '@/shared/ui/Card/Card';
-import styles from './Offer.module.css';
+import Image from 'next/image';
+import React from 'react';
 import Link from 'next/link';
 type Props = {};
 

@@ -1,38 +1,39 @@
-import { ProductSpecsVariants } from '@/entities/productSpecs/@x/product';
-import { Product, ProductWithDetails } from '../model/types';
+import {
+  Spec,
+  SpecName,
+  NamedSpec,
+  NamedSpecs,
+} from '@/entities/productSpecs/model/types';
+import { Product, ProductVariation, ProductWithDetails } from '../model/types';
 
-export const mapSpecsFromProductVariants = (product: ProductWithDetails) => {
-  const uniqueSpec = product.variations.reduce(function (
-    uniqueSpec,
-    variation
-  ) {
-    if (!uniqueSpec.get(`color${variation.specs.color.id}`)) {
-      uniqueSpec.set(`color${variation.specs.color.id}`, {
-        id: variation.specs.color.id,
-        name: 'color',
-        value: variation.specs.color,
-      });
-    }
-    if (!uniqueSpec.get(`dimension${variation.specs.dimension.id}`)) {
-      uniqueSpec.set(`dimension${variation.specs.dimension.id}`, {
-        id: variation.specs.dimension.id,
-        name: 'dimension',
-        value: variation.specs.dimension,
-      });
-    }
-    return uniqueSpec;
-  },
-  new Map<string, ProductSpecsVariants>());
+export const mapSpecsFromProductVariations = (
+  variations: ProductVariation[]
+) => {
+  type UniqueSpec = { id: Id; spec_name: SpecName };
 
-  const arr = [
-    {
-      name: 'dimension',
-      values: [...uniqueSpec.values()].filter((e) => e.name === 'dimension'),
-    },
-    {
-      name: 'color',
-      values: [...uniqueSpec.values()].filter((e) => e.name === 'color'),
-    },
-  ];
+  const allSpecs = variations
+    .map((v) => v.specs.map((s) => s))
+    .flatMap((f) => f);
+
+  const uniqueSpec = allSpecs.reduce(function (map, spec) {
+    const key = `${spec.spec_name}${spec.id}`;
+    if (!map.get(key)) {
+      map.set(key, spec);
+    }
+    return map;
+  }, new Map<string, Spec>());
+
+  const arr = [...uniqueSpec.values()].reduce((arr, u) => {
+    if (!arr.some((e) => e.spec_name === u.spec_name)) {
+      arr.push({ spec_name: u.spec_name, specs: [u] });
+      return arr;
+    }
+    arr.find((e) => e.spec_name === u.spec_name).specs.push(u);
+    return arr;
+  }, [] as NamedSpecs[]);
   return arr;
+};
+
+export const mapSpecFromProductWithDetails = (product: ProductWithDetails) => {
+  return mapSpecsFromProductVariations(product.variations);
 };

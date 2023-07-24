@@ -1,16 +1,11 @@
 import Tag from '@/shared/ui/Tag/Tag';
 import React from 'react';
-import {
-  Color,
-  Dimension,
-  GenericProductSpec,
-  ProductSpecsVariants,
-} from '../model/types';
+import { Color, Dimension, GenericSpec, Spec } from '../model/types';
 
-const specParse = (spec: ProductSpecsVariants) => {
-  switch (spec.name) {
+const specParse = (spec: Spec) => {
+  switch (spec.spec_name) {
     case 'dimension': {
-      const value = spec.value as Dimension;
+      const value = spec as Dimension;
       return (
         <>
           {value.depth} {value.depth_unit} x {value.width} {value.width_unit} x{' '}
@@ -19,7 +14,7 @@ const specParse = (spec: ProductSpecsVariants) => {
       );
     }
     case 'color': {
-      const value = spec.value as Color;
+      const value = spec as Color;
       return (
         <>
           <div className=" flex flex-col justify-start">
@@ -40,14 +35,14 @@ const specParse = (spec: ProductSpecsVariants) => {
       );
     }
     default: {
-      const value = spec.value as GenericProductSpec;
+      const value = spec as GenericSpec;
       return <>{value.id}</>;
     }
   }
 };
 
 type Props = {
-  spec: ProductSpecsVariants;
+  spec: Spec;
   disabled?: boolean;
   selected?: boolean;
 };

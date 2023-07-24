@@ -11,6 +11,7 @@ export function makeStore() {
     reducer: rootReducer,
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware().concat([API.middleware]),
+    devTools: true,
   });
 
   setupListeners(store.dispatch);

@@ -17,33 +17,31 @@
     {
       "name": "Next.js: debug client-side",
       "type": "firefox",
-      "request": "attach",
+      "request": "launch",
+      "reAttach": true,
       "url": "http://localhost:3000",
-      "env": {
-        "NODE_OPTIONS": "--inspect"
-      },
-      "skipFiles": [
-        "${workspaceFolder}/<node_internals>/**",
-        "${workspaceFolder}/node_modules/**"
+      "pathMappings": [
+        {
+          "url": "webpack://_n_e",
+          "path": "${workspaceFolder}"
+        },
+        {
+          "url": "webpack://_N_E",
+          "path": "${workspaceFolder}"
+        }
       ]
     },
     {
       "name": "Next.js: debug full stack",
       "type": "node-terminal",
       "request": "launch",
-      "command": "NODE_OPTIONS=--inspect yarn dev",
+      "command": "yarn dev",
+      "sourceMaps": true,
       "serverReadyAction": {
         "pattern": "started server on .+, url: (https?://.+)",
         "uriFormat": "%s",
-        "action": "debugWithChrome"
-      },
-      "env": {
-        "NODE_OPTIONS": "--inspect"
-      },
-      "skipFiles": [
-        "${workspaceFolder}/<node_internals>/**",
-        "${workspaceFolder}/node_modules/**"
-      ]
+        "action": "openExternally"
+      }
     }
   ]
 }

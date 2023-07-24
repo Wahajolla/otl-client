@@ -11,7 +11,7 @@ import { FC, useEffect, useState } from 'react';
 import Logo from '@/shared/ui/Logo/Logo';
 import Overlay from '@/shared/ui/Overlay/Overlay';
 
-import { ProductSearch } from '@/widgets/ProductSearch';
+import { ProductSearch } from '@/widgets/product/ProductSearch';
 import { useMediaQuery } from '@/shared/lib/useMediaQuery';
 import { CategorySearch } from '@/widgets/CategorySearch';
 import { useRouter } from 'next/router';
@@ -26,23 +26,23 @@ type Props = {
 
 const NavigationList: React.ReactNode[] = [
   <Link href={'/payment'} key={'payment'}>
-    <a>
+    <>
       <CreditCardIcon className="m-2 h-5 w-5 md:hidden"></CreditCardIcon>
       <span className="">Оплата</span>
-    </a>
+    </>
   </Link>,
   <Link href={'/receiving'} key={'receiving'}>
-    <a>
+    <>
       <ArchiveBoxIcon className="m-2 h-5 w-5 md:hidden"></ArchiveBoxIcon>
       <span className="">Получение</span>
-    </a>
+    </>
   </Link>,
 
   <Link href={'/contacts'} key={'contacts'}>
-    <a>
+    <>
       <PhoneIcon className="m-2 h-5 w-5 md:hidden"></PhoneIcon>
       <span className="">Контакты</span>
-    </a>
+    </>
   </Link>,
 ];
 

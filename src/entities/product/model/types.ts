@@ -1,12 +1,8 @@
 import { SeoTag } from '@/entities/seo-tag/@x/product';
 import { Manufacturer } from '@/entities/manufacturer/@x/product';
-import {
-  Color,
-  Dimension,
-  ProductSpecs,
-} from '@/entities/productSpecs/@x/product';
 
 import { Category } from '@/entities/category';
+import { Spec } from '@/entities/productSpecs/model/types';
 
 export type Product = {
   id: Id;
@@ -33,7 +29,7 @@ export type ProductWithDetails = Product & {
 
 export interface ProductVariation {
   id: Id;
-  specs: ProductSpecs;
+  specs: Spec[];
   price: Rubles;
   stock: number;
   sku: Sku;

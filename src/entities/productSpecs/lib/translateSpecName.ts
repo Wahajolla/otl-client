@@ -1,4 +1,4 @@
-import { ProductSpecsNames } from '../model/types';
+import { SpecName } from '../model/types';
 
 const specsNamesTranslate = {
   dimension: 'Размер',
@@ -6,6 +6,6 @@ const specsNamesTranslate = {
   generic: 'Вариант',
 };
 
-export function translateSpecName(name: string) {
+export function translateSpecName(name: SpecName) {
   return specsNamesTranslate[name];
 }

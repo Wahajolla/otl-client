@@ -13,12 +13,25 @@
     @apply text-base md:text-lg;
   }
 
+  &_size_lg {
+    @apply py-2 text-lg md:text-xl;
+  }
+
+  &_block {
+    @apply inline-block;
+  }
+
   &_type_primary {
     background: var(--primary-color-light);
     color: var(--button-text-color);
   }
 
   &_type_link {
+    color: var(--link-color);
+    @apply p-0 transition-all;
+  }
+
+  &_type_text {
     @apply p-0 transition-all;
   }
 

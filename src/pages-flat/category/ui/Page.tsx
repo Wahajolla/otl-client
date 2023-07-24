@@ -19,10 +19,10 @@ const CategoryPage: FC<CategoryProps> = ({
     <>
       <Breadcrumbs
         links={[
-          { breadcrumbName: 'Главная', path: '/' },
-          { breadcrumbName: 'Каталог', path: '/catalog' },
+          { name: 'Главная', path: '/' },
+          { name: 'Каталог', path: '/catalog' },
           {
-            breadcrumbName: parentCategory.category,
+            name: parentCategory.category,
             path: '/catalog/' + parentCategory.category_id,
           },
         ]}

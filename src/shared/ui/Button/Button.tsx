@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import React from 'react';
 import styles from './Button.module.css';
 
-type ButtonTheme = 'primary' | 'secondary' | 'link';
+type ButtonTheme = 'primary' | 'secondary' | 'link' | 'dashed' | 'text';
 type ShapeType = 'default' | 'pill';
 type DisplayType = 'primary' | 'secondary';
 
@@ -11,8 +11,9 @@ type Props = {
   children?: React.ReactNode;
   type?: ButtonTheme;
   shape?: ShapeType;
-  size?: 'm' | 's';
+  size?: 'm' | 's' | 'lg';
   loading?: boolean;
+  block?: boolean;
 
   disabled?: boolean;
 
@@ -23,6 +24,7 @@ function Button({
   onClick,
   children,
   loading,
+  block = false,
   size = 'm',
   type = 'primary',
   shape = 'default',
@@ -36,8 +38,10 @@ function Button({
         styles[`root_size_${size}`],
         styles[`root_type_${type}`],
         styles[`root_type_${shape}`],
-        className,
-        disabled && styles[`root_disabled`]
+        styles[`root_type_${shape}`],
+        disabled && styles[`root_disabled`],
+        block && styles[`root_block`],
+        className
       )}
       type={'submit'}
       onClick={onClick}

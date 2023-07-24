@@ -1,4 +1,4 @@
-import Image from 'next/dist/client/image';
+import Image from 'next/image';
 import React from 'react';
 type Props = {};
 

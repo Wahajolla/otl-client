@@ -1,3 +1,4 @@
+import { DefaultSeo } from 'next-seo';
 import Document, { NextScript, Head, Main, Html } from 'next/document';
 
 export default class AppDocument extends Document {
@@ -8,10 +9,9 @@ export default class AppDocument extends Document {
 
   render() {
     return (
-      <Html lang="en">
-        <Head>
-          <meta name="yandex-verification" content="489579590226a12c" />
-        </Head>
+      <Html lang="ru">
+        <Head></Head>
+
         <body className="site-bg dark">
           <Main />
           <NextScript />

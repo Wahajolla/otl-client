@@ -1,8 +1,7 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import { ReactElement } from 'react';
 import { AppLayout } from '@/widgets/AppLayout';
-import { LayoutFooter } from '@/widgets/LayoutFooter';
-import { LayoutHeader } from '@/widgets/LayoutHeader';
+import { NextSeo, OrganizationJsonLd, ProductJsonLd } from 'next-seo';
 import PageDefaultLayout from '@/shared/ui/Layout/PageDefaultLayout';
 import Cards from './Cards/Cards';
 import Contractors from './Contractors/Contractors';
@@ -12,36 +11,44 @@ interface Props {
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  let data;
-
   return { props: { data: 'test' } };
 };
 
 const MainPage: NextPageWithLayout<
   InferGetServerSidePropsType<typeof getServerSideProps>
 > = (props) => {
-  (async () => {
-    // fetch(
-    //   'https://0.tcp.eu.ngrok.io:11147/SmallBusiness/odata/standard.odata/Catalog_Номенклатура'
-    // ).catch((e) => console.log(e));
-    // o('http://0.tcp.eu.ngrok.io:11147/SmallBusiness/odata/standard.odata', {
-    //   headers: new Headers({
-    //     Authorization: btoa(`odata.user:12345`),
-    //     'Access-Control-Allow-Origin': '*',
-    //     'Access-Control-Allow-Credentials': 'true',
-    //   }),
-    // })
-    //   .get('Catalog_Номенклатура')
-    //   .query({ $format: 'json' })
-    //   .then((e) => {
-    //     console.log(e);
-    //   })
-    //   .catch((f) => console.log(f))
-    //   .finally(() => console.log('fff'));
-  })();
-
   return (
     <PageDefaultLayout>
+      <OrganizationJsonLd
+        type="HomeAndConstructionBusiness"
+        id="https://www.otlivchik.ru/#contact"
+        logo="https://www.otlivchik.ru/favicon.ico"
+        legalName=""
+        name="Отливчик"
+        address={{
+          streetAddress: 'Мытищи, Мытищинская ярмарка, Осташковское ш., вл1Бс7',
+          addressLocality: 'Москва',
+          addressRegion: 'Москва',
+          GeolocationCoordinates: [55.89931, 37.678038],
+          addressCountry: 'RU',
+        }}
+        contactPoint={[
+          {
+            telephone: '+7 (969) 049 63 92',
+            contactType: 'Оформление заказа',
+            email: 'info@otlivchik.ru',
+            availableLanguage: ['Russian'],
+          },
+          {
+            telephone: '+7 (963) 929-87-41',
+            contactType: 'Во вопросам',
+            email: 'info@otlivchik.ru',
+            availableLanguage: ['Russian'],
+          },
+        ]}
+        sameAs={['https://www.otlivchik.ru']}
+        url="https://www.otlivchik.ru/"
+      />
       <Cards></Cards>
       <Contractors></Contractors>
     </PageDefaultLayout>
@@ -49,14 +56,7 @@ const MainPage: NextPageWithLayout<
 };
 
 MainPage.getLayout = function getLayout(page: ReactElement) {
-  return (
-    <AppLayout
-      header={<LayoutHeader></LayoutHeader>}
-      footer={<LayoutFooter></LayoutFooter>}
-    >
-      <>{page}</>
-    </AppLayout>
-  );
+  return <AppLayout>{page}</AppLayout>;
 };
 
 export { MainPage };

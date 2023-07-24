@@ -5,7 +5,15 @@ export {
   getRunningQueriesThunk,
 } from './api/productApi';
 export { ProductCard } from './ui/ProductCard/ProductCard';
-export type { Product, ProductVariation } from './model/types';
-export { productSlice } from './model/slice';
-export { selectProducts } from './model/slice';
-export { mapSpecsFromProductVariants } from './lib/mapSpecsFromProductVariants';
+export type {
+  Product,
+  ProductVariation,
+  ProductWithDetails,
+} from './model/types';
+export { productSlice, selectProductVariation } from './model/slice';
+export { productSelectors } from './model/selectors';
+export {
+  mapSpecsFromProductVariations,
+  mapSpecFromProductWithDetails,
+} from './lib/mapSpecsFromProductVariants';
+export { compareSpecs } from './lib/compareSpecs';

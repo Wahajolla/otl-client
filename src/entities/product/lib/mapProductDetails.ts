@@ -2,6 +2,8 @@ import { ProductVariationDto, type ProductDtoWithDetails } from '../api/types';
 import { ProductVariation, type ProductWithDetails } from '../model/types';
 
 import { mapSeoTag } from '@/entities/seo-tag/@x/product';
+import { color } from 'styled-system';
+import { Spec } from '@/entities/productSpecs/model/types';
 
 export function mapProductDetails(
   dto: ProductDtoWithDetails
@@ -34,10 +36,18 @@ function mapProductVariations(dto: ProductVariationDto): ProductVariation {
     id: dto.id,
     price: dto.price,
     sku: dto.sku,
-    specs: {
-      color: dto.color,
-      dimension: dto.dimension,
-    },
+    specs: [
+      {
+        spec_name: 'dimension',
+        spec_name_translated: 'Размер',
+        ...(dto.dimension as Spec),
+      },
+      {
+        spec_name: 'color',
+        spec_name_translated: 'Цвет',
+        ...(dto.color as Spec),
+      },
+    ],
     stock: dto.stock,
   };
 }
