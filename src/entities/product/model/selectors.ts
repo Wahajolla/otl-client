@@ -7,7 +7,7 @@ const product = (state: RootState) => state.product.product;
 
 const variation = (state: RootState) => state.product?.variation;
 
-const selectedSpecs = (state: RootState) => variation(state).specs;
+const selectedSpecs = (state: RootState) => variation(state)?.specs || [];
 
 const specs = (state: RootState) =>
   mapSpecsFromProductVariations(productVariations(state));

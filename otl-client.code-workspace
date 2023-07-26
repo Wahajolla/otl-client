@@ -26,6 +26,7 @@
 		}
 	],
 	"settings": {
+
 		"typescript.tsdk": "otl-client/node_modules/typescript/lib"
 	},
 }

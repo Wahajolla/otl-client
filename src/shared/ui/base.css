@@ -1,4 +1,5 @@
 @tailwind base;
+
 @tailwind components;
 @tailwind utilities;
 /* @import url('./colors.css'); */
@@ -72,44 +73,53 @@ body {
   background: var(--background-color);
   color: var(--text-color);
 }
+
+p {
+  color: var(--text-color);
+  @apply mb-1 text-left text-sm  md:text-base;
+}
+
+a {
+  color: var(--link-color);
+  transition: 0.2s;
+  @apply text-left text-sm lg:text-base;
+}
+
+a:hover {
+  cursor: pointer;
+  color: var(--link-colorPressed);
+  /* transform: scale(1); */
+}
+
+h1,
+h2,
+h3 {
+  color: var(--text-accent-color);
+  @apply text-left;
+}
+
+h1 {
+  @apply text-2xl sm:text-xl;
+}
+
+h2 {
+  @apply text-xl sm:text-lg;
+}
+
+h3 {
+  @apply text-base;
+}
+
+svg {
+  @apply inline h-5 w-5 text-left sm:text-xs md:text-base;
+}
+
 @layer base {
-  p {
-    color: var(--text-color);
-    @apply mb-1 text-left text-sm  md:text-base;
-  }
-
-  a {
-    color: var(--link-color);
-    transition: 0.2s;
-    @apply text-left text-sm lg:text-base;
-  }
-
-  a:hover {
-    cursor: pointer;
-    color: var(--link-colorPressed);
-    /* transform: scale(1); */
-  }
-
-  h1,
-  h2,
-  h3 {
-    color: var(--text-accent-color);
-    @apply text-left;
-  }
-
-  h1 {
-    @apply text-2xl sm:text-xl;
-  }
-
-  h2 {
-    @apply text-xl sm:text-lg;
-  }
-
-  h3 {
-    @apply text-base;
-  }
-
-  svg {
-    @apply inline h-5 w-5 text-left sm:text-xs md:text-base;
+  button,
+  .button,
+  input[type='button'],
+  input[type='reset'],
+  input[type='submit'] {
+    all: unset;
   }
 }

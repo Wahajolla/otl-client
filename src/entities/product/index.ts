@@ -5,6 +5,7 @@ export {
   getRunningQueriesThunk,
 } from './api/productApi';
 export { ProductCard } from './ui/ProductCard/ProductCard';
+export { ProductItem } from './ui/ProductItem/ProductItem';
 export type {
   Product,
   ProductVariation,

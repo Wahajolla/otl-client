@@ -18,7 +18,7 @@ export const headers = () =>
 export const API = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({
-    baseUrl: `${process.env.PROXY_URL}/api`,
+    baseUrl: `${config.NEXT_PUBLIC_URL}/api`,
   }),
   extractRehydrationInfo(action, { reducerPath }) {
     if (action.type === HYDRATE) {

@@ -1,5 +1,6 @@
 import { ReactElement } from 'react';
 import type { AppProps } from 'next/app';
+import { NextPage } from 'next';
 declare global {
   /**
    * Custom utility types
@@ -17,6 +18,7 @@ declare global {
    * Type aliases
    */
   export type Id = number;
+  export type Uuid = string;
   export type Sku = number;
 
   export type Priority = number;
@@ -32,6 +34,8 @@ declare global {
 
   export type Url = string;
 
+  export type Brand<K, T> = K & { [_brand]: T };
+
   /**
    * NextJs
    */
@@ -40,7 +44,7 @@ declare global {
     getLayout?: (page: ReactElement) => ReactNode;
   };
 
-  type AppPropsWithLayout = AppProps & {
+  export type AppPropsWithLayout = AppProps & {
     Component: NextPageWithLayout;
   };
 
@@ -49,9 +53,7 @@ declare global {
    *
    */
   declare type RootState = import('../app/appStore').RootState;
-  declare type AppDispatch = import('../src/app/appStore').AppDispatch;
-  declare type NextPageWithLayout =
-    import('../src/app/appStore').NextPageWithLayout;
+  declare type AppDispatch = import('../app/appStore').AppDispatch;
 }
 
 export {};

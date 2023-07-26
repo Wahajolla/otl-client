@@ -38,7 +38,6 @@ function Button({
         styles[`root_size_${size}`],
         styles[`root_type_${type}`],
         styles[`root_type_${shape}`],
-        styles[`root_type_${shape}`],
         disabled && styles[`root_disabled`],
         block && styles[`root_block`],
         className

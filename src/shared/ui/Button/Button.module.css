@@ -1,8 +1,8 @@
 .root {
-  @apply rounded px-4 py-1;
+  @apply items-center gap-1 rounded px-4 py-1;
 
-  &_type_primary:hover {
-    background: var(--primary-colorPressed);
+  &:hover {
+    @apply cursor-pointer;
   }
 
   &_size_s {
@@ -22,16 +22,24 @@
   }
 
   &_type_primary {
-    background: var(--primary-color-light);
+    /* !important - плохо, но preflight переписывает кнопки на прозрачные, так то пусть будет так */
+    background: var(--primary-color-light) !important;
     color: var(--button-text-color);
+  }
+
+  &_type_primary:hover {
+    background: var(--primary-colorPressed) !important;
   }
 
   &_type_link {
     color: var(--link-color);
+    background: transparent !important;
     @apply p-0 transition-all;
   }
 
   &_type_text {
+    background: transparent !important;
+
     @apply p-0 transition-all;
   }
 
@@ -40,12 +48,12 @@
   }
 
   &_type_secondary {
-    background: var(--secondary-color);
-    color: var(--secondary-text-color);
+    background: var(--secondary-color) !important;
+    color: var(--secondary-text-color) !important;
   }
 
   &_type_secondary:hover {
-    background: var(--secondary-colorPressed);
+    background: var(--secondary-colorPressed) !important;
   }
 
   &_disabled {

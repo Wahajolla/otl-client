@@ -7,7 +7,7 @@ export type NamedSpecs = { spec_name: SpecName; specs: Spec[] };
 export type GenericSpec = {
   id: Id;
   spec_name: SpecName;
-  spec_name_translated: string;
+  values?: string[];
 };
 
 export type Color = GenericSpec & {

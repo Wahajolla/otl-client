@@ -1,14 +1,23 @@
 import { ManufacturerDto } from '@/entities/manufacturer/@x/product';
-import { DimensionDto, ColorDto } from '@/entities/productSpecs/@x/product';
+import {
+  DimensionDto,
+  ColorDto,
+  Spec,
+} from '@/entities/productSpecs/@x/product';
 import { SeoTagDto } from '@/entities/seo-tag/@x/product';
 import { CategoryDto } from '@/entities/category/@x/product';
+import { CategoryId } from '@/entities/category/model/types';
 
 export type ProductsSearchArgsDto = {
-  search: string;
+  search?: string;
+  sortBy?: 'asc' | 'des';
+  specs?: Spec[];
+  categoires?: CategoryId[];
 };
 
 export type ProductDto = {
   id: Id;
+  uuid: Uuid;
   name: string;
   images: Url[];
   price: Rubles;

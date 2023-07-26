@@ -87,6 +87,7 @@ const mockVariations = [
 
 const mockProductWithDetails: ProductDtoWithDetails = {
   id: faker.number.int(),
+  uuid: 'test-product',
   name: faker.commerce.product(),
   description: faker.commerce.productDescription(),
   isActive: true,
@@ -96,6 +97,7 @@ const mockProductWithDetails: ProductDtoWithDetails = {
   variations: mockVariations,
   category: {
     id: faker.number.int(),
+    uuid: 'test-category',
     parentId: faker.number.int(),
     name: faker.commerce.product(),
     description: faker.commerce.productDescription(),

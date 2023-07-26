@@ -5,9 +5,6 @@ const envVariables = z.object({
   PROXY_URL: z.string(),
 });
 
-// console.log(process.env);
-// envVariables.parse(process.env);
-
 declare global {
   interface ImportMetaEnv extends z.infer<typeof envVariables> {}
 }
@@ -15,4 +12,5 @@ declare global {
 export const config = {
   BACKEND_URL: process.env.BACKEND_URL,
   PROXY_URL: process.env.PROXY_URL,
+  NEXT_PUBLIC_URL: process.env.NEXT_PUBLIC_URL,
 } as const;

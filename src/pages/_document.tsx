@@ -12,7 +12,7 @@ export default class AppDocument extends Document {
       <Html lang="ru">
         <Head></Head>
 
-        <body className="site-bg dark">
+        <body className="site-bg">
           <Main />
           <NextScript />
         </body>

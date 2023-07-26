@@ -12,7 +12,6 @@ type Props = {
 
 export const AddVariationToCartButton = ({}: Props) => {
   const variation = useAppSelector(productSelectors.variation);
-  console.log(variation);
 
   return (
     <Button

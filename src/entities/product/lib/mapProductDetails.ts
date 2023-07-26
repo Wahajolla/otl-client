@@ -10,15 +10,23 @@ export function mapProductDetails(
 ): ProductWithDetails {
   return {
     id: dto.id,
+    uuid: dto.uuid,
     name: dto.name,
     price: dto.price || null,
     stock: dto.stock || null,
     images: dto.images || [],
     image: dto.images[0] || null,
-    category: null,
+    category: {
+      id: 1,
+      uuid: 'vodostochnye-sistemy',
+      name: 'Водосточные системы',
+      description: 'Водосточные системы',
+      isActive: true,
+      priority: 1,
+    },
     description: dto.description || null,
     isActive: dto.isActive || true,
-    manufacturer: null,
+    manufacturer: dto.manufacturer || null,
     metadata: dto.metadata || null,
     priority: dto.priority || null,
     tags:
@@ -38,14 +46,14 @@ function mapProductVariations(dto: ProductVariationDto): ProductVariation {
     sku: dto.sku,
     specs: [
       {
+        ...(dto.dimension as Spec),
         spec_name: 'dimension',
         spec_name_translated: 'Размер',
-        ...(dto.dimension as Spec),
       },
       {
+        ...(dto.color as Spec),
         spec_name: 'color',
         spec_name_translated: 'Цвет',
-        ...(dto.color as Spec),
       },
     ],
     stock: dto.stock,

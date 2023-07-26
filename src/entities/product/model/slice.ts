@@ -12,8 +12,8 @@ import { HYDRATE } from 'next-redux-wrapper';
 
 type ProductSliceState = {
   products: Product[];
-  product: ProductWithDetails;
-  variation: ProductVariation;
+  product: ProductWithDetails | null;
+  variation: ProductVariation | null;
   selectedSpecs: Spec[];
 };
 
@@ -51,6 +51,14 @@ export const productSlice = createSlice({
       productApi.endpoints.searchProducts.matchFulfilled,
       (state: ProductSliceState, { payload }) => {
         state.products = payload;
+      }
+    );
+    builder.addMatcher(
+      productApi.endpoints.getProductByUuid.matchFulfilled,
+      (state: ProductSliceState, { payload }) => {
+        state.product = payload;
+        state.variation = payload.variations[0];
+        state.selectedSpecs = payload.variations[0].specs;
       }
     );
     builder.addMatcher(

@@ -1,0 +1,9 @@
+.root {
+  @apply flex cursor-pointer items-center justify-start space-x-1  rounded-md py-2;
+
+  &:hover {
+  }
+
+  &:active {
+  }
+}

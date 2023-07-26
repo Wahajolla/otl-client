@@ -10,15 +10,22 @@ import type {
 
 export const categoryApi = API.injectEndpoints({
   endpoints: (build) => ({
-    categories: build.query<Category[], void>({
+    searchCategories: build.query<Category[], void>({
       query: () => ({
-        url: `/category`,
+        url: `/categories`,
       }),
       transformResponse: (response: CategoryDto[]) => mapCategories(response),
     }),
-    category: build.query<Category, CategoryDetailsRequestArgs>({
+    getCategoryById: build.query<Category, CategoryDetailsRequestArgs>({
       query: ({ id }) => ({
-        url: `/category${id}`,
+        url: `/categories/${id}`,
+      }),
+      transformResponse: (response: CategoryDtoWithDetails) =>
+        mapCategory(response),
+    }),
+    getCategoryByUuid: build.query<Category, { uuid: Uuid }>({
+      query: ({ uuid }) => ({
+        url: `/categories/${uuid}`,
       }),
       transformResponse: (response: CategoryDtoWithDetails) =>
         mapCategory(response),
@@ -26,4 +33,9 @@ export const categoryApi = API.injectEndpoints({
   }),
 });
 
-export const { useLazyCategoriesQuery, useCategoriesQuery, useCategoryQuery } = categoryApi;
+export const {
+  useLazySearchCategoriesQuery,
+  useSearchCategoriesQuery,
+  useGetCategoryByIdQuery,
+  useLazyGetCategoryByIdQuery,
+} = categoryApi;

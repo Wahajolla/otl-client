@@ -25,4 +25,4 @@ export type RootState = ReturnType<Store['getState']>;
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 export type AppDispatch = Store['dispatch'];
 
-export const wrapper = createWrapper(makeStore, {});
+export const StoreWrapper = createWrapper(makeStore, {});

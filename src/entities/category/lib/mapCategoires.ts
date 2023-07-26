@@ -5,19 +5,14 @@ export function mapCategories(dtos: CategoryDto[]): Category[] {
   const categories = dtos.map((dto) => {
     return {
       id: dto.id,
+      uuid: dto.uuid,
       description: dto.description,
+      parentId: dto.parentId || null,
       isActive: dto.isActive,
       name: dto.name,
       priority: dto.priority,
     } as Category;
   });
 
-  const categoriesWithChildren = categories.map((category) => {
-    return {
-      ...category,
-      children: categories.filter((e) => e.parentId === category.id),
-    } as Category;
-  });
-
-  return categoriesWithChildren;
+  return categories;
 }

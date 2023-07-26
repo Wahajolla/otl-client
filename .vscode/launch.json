@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Next.js: debug server-side",
+      "name": "Server-side",
       "type": "node-terminal",
       "request": "launch",
       "command": "yarn dev",
@@ -15,7 +15,7 @@
       ]
     },
     {
-      "name": "Next.js: debug client-side",
+      "name": "Client-side",
       "type": "firefox",
       "request": "launch",
       "reAttach": true,
@@ -32,7 +32,7 @@
       ]
     },
     {
-      "name": "Next.js: debug full stack",
+      "name": "Full stack",
       "type": "node-terminal",
       "request": "launch",
       "command": "yarn dev",

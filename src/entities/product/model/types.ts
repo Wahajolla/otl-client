@@ -4,8 +4,11 @@ import { Manufacturer } from '@/entities/manufacturer/@x/product';
 import { Category } from '@/entities/category';
 import { Spec } from '@/entities/productSpecs/model/types';
 
+export type ProductId = Brand<Id, 'ProductId'>;
+
 export type Product = {
-  id: Id;
+  id: ProductId;
+  uuid: Uuid;
   name: string;
   image: Url;
   price: Rubles;
@@ -27,8 +30,10 @@ export type ProductWithDetails = Product & {
   metadata: string;
 };
 
+export type ProductVariationId = Brand<Id, 'ProductVariationId'>;
+
 export interface ProductVariation {
-  id: Id;
+  id: ProductVariationId;
   specs: Spec[];
   price: Rubles;
   stock: number;

@@ -35,12 +35,6 @@
   }
 }
 
-.input-inner-container > .ant-input:first-child,
-.input-inner-container.addon:first-child {
-  border-start-end-radius: 0;
-  border-end-end-radius: 0;
-}
-
 .input-inner-container {
   display: flex;
   border-collapse: separate;
