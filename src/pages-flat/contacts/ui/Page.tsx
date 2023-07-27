@@ -1,19 +1,18 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import { ReactElement } from 'react';
 
+import { Contacts } from './Contacts/Contacts';
+
+import PageDefaultLayout from '@/shared/ui/Layout/PageDefaultLayout';
 import { AppLayout } from '@/widgets/layout/AppLayout';
 import { Breadcrumbs } from '@/widgets/layout/Breadcrumbs';
 import { LayoutFooter } from '@/widgets/layout/LayoutFooter';
 import { LayoutHeader } from '@/widgets/layout/LayoutHeader';
-import PageDefaultLayout from '@/shared/ui/Layout/PageDefaultLayout';
-import { Contacts } from './Contacts/Contacts';
 interface Props {
   data: string;
 }
 
-export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  return { props: { data: 'kek' } };
-};
+export { MainPage };
 
 const MainPage: NextPageWithLayout<
   InferGetServerSidePropsType<typeof getServerSideProps>
@@ -39,4 +38,6 @@ MainPage.getLayout = function getLayout(page: ReactElement) {
   );
 };
 
-export { MainPage };
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
+  return { props: { data: 'kek' } };
+};

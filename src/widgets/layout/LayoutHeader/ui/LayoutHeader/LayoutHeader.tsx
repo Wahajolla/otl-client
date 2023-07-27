@@ -6,15 +6,14 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { FC, useEffect, useState } from 'react';
 
+import { useMediaQuery } from '@/shared/lib/use-media-query';
+import { Overlay } from '@/shared/ui';
 import Logo from '@/shared/ui/Logo/Logo';
-import Overlay from '@/shared/ui/Overlay/Overlay';
-
-import { ProductSearch } from '@/widgets/product/ProductSearch';
-import { useMediaQuery } from '@/shared/lib/useMediaQuery';
 import { CategorySearch } from '@/widgets/category/CategorySearch';
-import { useRouter } from 'next/router';
+import { ProductSearch } from '@/widgets/product/ProductSearch';
 
 const link =
   'https://yandex.ru/maps/10740/mytischi/house/ostashkovskoye_shosse_vl1bs7/Z04YcABoSUYPQFtvfXR4eH9iZA==/?from=mapframe&l=trf%2Ctrfe&ll=37.678319%2C55.899228&source=mapframe&utm_source=mapframe&z=17.81';

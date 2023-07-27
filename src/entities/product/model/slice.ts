@@ -1,14 +1,18 @@
-import { Spec } from '@/entities/productSpecs/model/types';
 import {
-  type PayloadAction,
-  createSlice,
-  createSelector,
   AnyAction,
+  createSelector,
+  createSlice,
+  type PayloadAction,
 } from '@reduxjs/toolkit';
-import { productApi } from '../api/productApi';
-import { ProductVariationDto } from '../api/types';
-import { Product, ProductVariation, ProductWithDetails } from './types';
 import { HYDRATE } from 'next-redux-wrapper';
+
+
+import { productApi } from '../api/product.api';
+import { ProductVariationDto } from '../api/types';
+
+import { Product, ProductVariation, ProductWithDetails } from './types';
+
+import { Spec } from '@/entities/product-specs/model/types';
 
 type ProductSliceState = {
   products: Product[];

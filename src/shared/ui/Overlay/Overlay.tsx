@@ -8,7 +8,7 @@ type Props = {
   header?: React.ReactNode;
 };
 
-export default function Overlay({ collapsed, children, sider, header }: Props) {
+export function Overlay({ collapsed, children, sider, header }: Props) {
   return (
     <>
       <div

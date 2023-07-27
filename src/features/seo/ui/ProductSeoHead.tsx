@@ -1,8 +1,9 @@
-import { ProductWithDetails } from '@/entities/product';
-import { Color } from '@/entities/productSpecs';
-import { config } from '@/shared/lib/config';
 import { BreadcrumbJsonLd, NextSeo, ProductJsonLd } from 'next-seo';
 import React from 'react';
+
+import { ProductWithDetails } from '@/entities/product';
+import { Color } from '@/entities/product-specs';
+import { config } from '@/shared/lib/config';
 
 type Props = {
   productDetails: ProductWithDetails;
@@ -57,7 +58,9 @@ const ProductSeoHead = ({ productDetails }: Props) => {
         <ProductJsonLd
           productName={productDetails.name}
           description={productDetails.description}
-          color={(v.specs?.find((s) => s.spec_name === 'color') as Color)?.name}
+          color={
+            (v.specs?.find((s) => s.uniqueName === 'color') as Color)?.name
+          }
           sku={v.sku.toString()}
           manufacturerName={productDetails.manufacturer?.name}
           offers={[

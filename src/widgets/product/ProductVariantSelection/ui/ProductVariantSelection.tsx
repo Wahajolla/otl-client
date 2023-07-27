@@ -1,14 +1,15 @@
+import React from 'react';
+
 import { compareSpecs } from '@/entities/product';
 import { productSelectors } from '@/entities/product';
 import { ProductWithDetails } from '@/entities/product/model/types';
-import { Spec } from '@/entities/productSpecs';
-import { translateSpecName } from '@/entities/productSpecs/lib/translateSpecName';
+import { Spec } from '@/entities/product-specs';
+import { translateSpecName } from '@/entities/product-specs/lib/translateSpecName';
 import {
   SelectVariantButton,
   updateVariationBySpec,
 } from '@/features/product/selectVariantBySpec';
 import { useAppDispatch, useAppSelector } from '@/shared/model/hooks';
-import React from 'react';
 
 type Props = {
   product: ProductWithDetails;
@@ -37,7 +38,7 @@ export const ProductVariantSelection = ({ product }: Props) => {
                   selected={selectedSpecs.some((e) => compareSpecs(e, v))}
                   disabled={!availableSpecs.some((e) => compareSpecs(e, v))}
                   spec={v}
-                  key={v.spec_name + v.id}
+                  key={v.uniqueName + v.id}
                   onClick={(e) => updateVariation(e)}
                 ></SelectVariantButton>
               ))}

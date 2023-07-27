@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { keys } from 'lodash';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import wretch from 'wretch';
+import { keys } from 'lodash';
 import { HYDRATE } from 'next-redux-wrapper';
+import wretch from 'wretch';
+
 import { config } from '../lib/config';
 
 /** HEADERS для авторизации и обзначения платформы
@@ -12,7 +13,6 @@ export const headers = () =>
     Authorization: `Basic ${Buffer.from(
       `apiuser@yandex.ru:l5P24564f6XQ84u7PT32rX6stsJRRKu1`
     ).toString('base64')}`,
-    'Content-Type': 'application/json',
   } as any);
 
 export const API = createApi({

@@ -1,10 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
 import {
   selectProductVariation,
   productSelectors,
   compareSpecs,
 } from '@/entities/product';
-import { Spec } from '@/entities/productSpecs';
+import { Spec } from '@/entities/product-specs';
 
 export const selectVariationBySpec = createAsyncThunk<
   void,
@@ -16,7 +17,7 @@ export const selectVariationBySpec = createAsyncThunk<
   const variations = productSelectors.productVariations(state);
   const selectedSpecs = productSelectors.selectedSpecs(state);
   let newSpecs = [
-    ...selectedSpecs.filter((e) => e.spec_name !== spec.spec_name),
+    ...selectedSpecs.filter((e) => e.uniqueName !== spec.uniqueName),
     spec,
   ];
   let variationBySpecs = variations.find((v) =>

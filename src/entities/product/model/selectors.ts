@@ -1,5 +1,5 @@
-import { getAvailableSpecsToSelect } from '../lib/getAvailabeSpecsToSelect';
-import { mapSpecsFromProductVariations } from '../lib/mapSpecsFromProductVariants';
+import { getAvailableSpecsToSelect } from '../lib/get-availabe-specs';
+import { mapSpecsFromProductVariations } from '../lib/map-specs-variants';
 
 const products = (state: RootState) => state.product.products;
 

@@ -27,6 +27,9 @@
 	],
 	"settings": {
 
-		"typescript.tsdk": "otl-client/node_modules/typescript/lib"
+		"typescript.tsdk": "otl-client/node_modules/typescript/lib",
+		"exportall.config.folderListener": [
+			"/Users/wahajolla/Personal/02.Projects/01.Pet/otlivchik/otl-client/src/entities/category/api/__mocks__"
+		]
 	},
 }

@@ -1,12 +1,13 @@
+import { MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react';
+
 import { productSelectors } from '@/entities/product';
 import { SearchByInput } from '@/features/product/search';
 import { useAppSelector } from '@/shared/model/hooks';
 import Input from '@/shared/ui/Form/Input/Input';
-import Overlay from '@/shared/ui/Overlay/Overlay';
+import Overlay from '@/shared/ui/overlay/overlay';
 import { ProductList } from '@/widgets/product/ProductList';
-import { MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
 
 type Props = {};
 // <Overlay collapsed={collapsedSearch} header={}></Overlay>;

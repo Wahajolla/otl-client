@@ -1,10 +1,12 @@
+export type { Category } from './model/types';
 export {
-  categoryApi,
   useSearchCategoriesQuery,
   useLazySearchCategoriesQuery,
   useGetCategoryByIdQuery,
-} from './api/categoryApi';
+  categoryApi,
+} from './api/category.api';
+export { mapCategoriesToTree } from './lib/map-categories-to-tree';
 export { categorySlice } from './model/slice';
-export { CategoryItem } from './ui/CategoryItem/CategoryItem';
-export type { Category } from './model/types';
-export { mapCategoriesToTree } from './lib/mapCategoriesToTree';
+export { Item as CategoryItem } from './ui/item/Item';
+
+export { _mockCategory_ } from './__mocks__';

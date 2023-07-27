@@ -1,6 +1,7 @@
-import { ProductWithDetails } from '@/entities/product/model/types';
-import React from 'react';
 import Image from 'next/image';
+import React from 'react';
+
+import { ProductWithDetails } from '@/entities/product/model/types';
 type Props = {
   product: ProductWithDetails;
 };

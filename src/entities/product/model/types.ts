@@ -1,19 +1,7 @@
-import { SeoTag } from '@/entities/seo-tag/@x/product';
-import { Manufacturer } from '@/entities/manufacturer/@x/product';
-
 import { Category } from '@/entities/category';
-import { Spec } from '@/entities/productSpecs/model/types';
-
-export type ProductId = Brand<Id, 'ProductId'>;
-
-export type Product = {
-  id: ProductId;
-  uuid: Uuid;
-  name: string;
-  image: Url;
-  price: Rubles;
-  stock: number;
-};
+import { Manufacturer } from '@/entities/manufacturer/@x/product';
+import { Spec } from '@/entities/product-specs/model/types';
+import { SeoTag } from '@/entities/seo-tag/@x/product';
 
 export type ProductWithDetails = Product & {
   // //Не нужно в модели ?
@@ -39,3 +27,14 @@ export interface ProductVariation {
   stock: number;
   sku: Sku;
 }
+
+export type ProductId = Brand<Id, 'ProductId'>;
+
+export type Product = {
+  id: ProductId;
+  uuid: Uuid;
+  name: string;
+  image: Url;
+  price: Rubles;
+  stock: number;
+};

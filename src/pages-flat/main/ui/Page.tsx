@@ -1,19 +1,20 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
-import { ReactElement } from 'react';
-import { AppLayout } from '@/widgets/layout/AppLayout';
 import { NextSeo, OrganizationJsonLd, ProductJsonLd } from 'next-seo';
-import PageDefaultLayout from '@/shared/ui/Layout/PageDefaultLayout';
+import { ReactElement } from 'react';
+
+
 import Cards from './Cards/Cards';
 import Contractors from './Contractors/Contractors';
+
 import { LocalBusinessSeo } from '@/features/seo';
+import PageDefaultLayout from '@/shared/ui/Layout/PageDefaultLayout';
+import { AppLayout } from '@/widgets/layout/AppLayout';
 
 interface Props {
   data: string;
 }
 
-export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  return { props: { data: 'test' } };
-};
+export { MainPage };
 
 const MainPage: NextPageWithLayout<
   InferGetServerSidePropsType<typeof getServerSideProps>
@@ -31,4 +32,6 @@ MainPage.getLayout = function getLayout(page: ReactElement) {
   return <AppLayout>{page}</AppLayout>;
 };
 
-export { MainPage };
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
+  return { props: { data: 'test' } };
+};

@@ -1,11 +1,11 @@
-import { Category } from '@/entities/category';
-import { useSearchCategoriesQuery } from '@/entities/category/api/categoryApi';
-import Button from '@/shared/ui/Button/Button';
-import Overlay from '@/shared/ui/Overlay/Overlay';
-import { CategoryList } from '@/widgets/category/CategoryList';
 import { ListBulletIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
+
+import { Category, useSearchCategoriesQuery } from '@/entities/category';
+import { Button } from '@/shared/ui';
+import Overlay from '@/shared/ui/overlay/overlay';
+import { CategoryList } from '@/widgets/category/CategoryList';
 
 type Props = {
   initialCategories: Category[];

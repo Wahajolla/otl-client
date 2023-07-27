@@ -1,4 +1,4 @@
-import { Category } from '../model/types';
+export type CategoryDtoWithDetails = CategoryDto & {};
 
 export type CategoryDto = {
   id: Id;
@@ -9,8 +9,6 @@ export type CategoryDto = {
   priority: Priority;
   isActive: boolean;
 };
-
-export type CategoryDtoWithDetails = CategoryDto & {};
 
 export type CategoryDetailsRequestArgs = {
   id: number;

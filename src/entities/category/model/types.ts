@@ -1,5 +1,8 @@
-// import type { Product } from '@/entities/product/@x/category';
+export type CategoryTree = Category & {
+  children?: CategoryTree[];
+};
 
+// import type { Product } from '@/entities/product/@x/category';
 export type CategoryId = Brand<Id, 'CategoryId'>;
 
 export type Category = {
@@ -11,10 +14,6 @@ export type Category = {
   description: string;
   priority: Priority;
   isActive: boolean;
-};
-
-export type CategoryTree = Category & {
-  children?: CategoryTree[];
 };
 
 // export type CategoryWithProducts = Category & {

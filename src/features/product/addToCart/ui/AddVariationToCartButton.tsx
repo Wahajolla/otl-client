@@ -1,10 +1,9 @@
-import { productSelectors, ProductVariation } from '@/entities/product';
-
-import { useAppSelector } from '@/shared/model/hooks';
-import Button from '@/shared/ui/Button/Button';
-
 import { ShoppingCartIcon } from '@heroicons/react/24/outline';
 import React from 'react';
+
+import { productSelectors, ProductVariation } from '@/entities/product';
+import { useAppSelector } from '@/shared/model/hooks';
+import Button from '@/shared/ui/button/button';
 
 type Props = {
   variation?: ProductVariation;

@@ -1,5 +1,5 @@
-import { DefaultSeo } from 'next-seo';
 import Document, { NextScript, Head, Main, Html } from 'next/document';
+import { DefaultSeo } from 'next-seo';
 
 export default class AppDocument extends Document {
   static async getInitialProps(ctx) {

@@ -1,10 +1,11 @@
-import Input from '@/shared/ui/Form/Input/Input';
-import Overlay from '@/shared/ui/Overlay/Overlay';
 import { MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import React, { useRef, useState } from 'react';
-import { debounce } from '@/shared/lib/debounce';
+
 import { useSearchProductsQuery } from '@/entities/product';
-import { useLazySearchProductsQuery } from '@/entities/product/api/productApi';
+import { useLazySearchProductsQuery } from '@/entities/product/api/product.api';
+import { debounce } from '@/shared/lib/debounce';
+import Input from '@/shared/ui/Form/Input/Input';
+import Overlay from '@/shared/ui/overlay/overlay';
 type Props = {};
 const SEARCH_PRODUCT_TIMEOUT_MS = 500;
 

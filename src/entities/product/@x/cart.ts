@@ -1,12 +1,12 @@
 export type {
-  ProductVariation,
-  ProductVariationId,
-  ProductId,
   ProductWithDetails,
+  ProductVariationId,
+  ProductVariation,
+  ProductId,
   Product,
 } from '../model/types';
 export type {
-  ProductDto,
   ProductVariationDto,
   ProductDtoWithDetails,
+  ProductDto,
 } from '../api/types';

@@ -1,8 +1,9 @@
-import Button from '@/shared/ui/Button/Button';
-import PageDefaultLayout from '@/shared/ui/Layout/PageDefaultLayout';
-import { AppLayout } from '@/widgets/layout/AppLayout';
 import { useRouter } from 'next/router';
 import { ReactElement } from 'react';
+
+import Button from '@/shared/ui/button/button';
+import PageDefaultLayout from '@/shared/ui/Layout/PageDefaultLayout';
+import { AppLayout } from '@/widgets/layout/AppLayout';
 
 export default function Page500({ props }) {
   const { push } = useRouter();

@@ -1,11 +1,14 @@
 {
   "extends": [
     "@feature-sliced/eslint-config/rules/layers-slices",
+    "@feature-sliced/eslint-config/rules/import-order",
+    "@feature-sliced/eslint-config/rules/public-api",
     "prettier",
-    "next/core-web-vitals"
+    "next/core-web-vitals",
+    "plugin:react/recommended"
   ],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["react", "@typescript-eslint", "check-file", "sort-exports"],
   "settings": {
     "import/resolver": {
       "typescript": {
@@ -14,6 +17,52 @@
     }
   },
   "rules": {
+    //Architecture convetions
+    "boundaries/element-types": "warn", // ~ 1,
+
+    // File system check
+
+    "check-file/folder-match-with-fex": [
+      "warn",
+      {
+        "*.test.{js,jsx,ts,tsx}": "**/__tests__/",
+        "*.mock.{js,jsx,ts,tsx}": "**/__mocks__/",
+        "*.stories.{js,jsx,ts,tsx}": "**/__stories__/",
+        "*.api.{js,jsx,ts,tsx}": "**/api/"
+      }
+    ],
+    "check-file/filename-naming-convention": [
+      "error",
+      {
+        "**/*.{tsx}": "PASCAL_CASE",
+        "**/*.{ts}": "KEBAB_CASE"
+      },
+      {
+        "ignoreMiddleExtensions": true
+      }
+    ],
+    "check-file/folder-naming-convention": [
+      "error",
+      {
+        // "**/__mocks__/*/": "KEBAB_CASE",
+        // "src/entities/**/lib/*": "KEBAB_CASE"
+      }
+    ],
+
+    //Naming convetions
+
+    //Import convetions
+    "sort-exports/sort-exports": [
+      "error",
+      { "sortDir": "desc", "sortExportKindFirst": "type", "ignoreCase": true }
+    ],
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always",
+        "alphabetize": { "order": "asc", "caseInsensitive": true }
+      }
+    ],
     "object-curly-spacing": ["warn", "always"],
     "import/no-internal-modules": "off",
     "no-unused-vars": [
@@ -52,6 +101,7 @@
       }
     ],
     "react/jsx-key": "error",
+    "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": "off",
     "import/prefer-default-export": "off",
     "react/jsx-boolean-value": "off",
@@ -60,7 +110,47 @@
     "react/jsx-one-expression-per-line": "off",
     "react/jsx-wrap-multilines": "off",
     "react/destructuring-assignment": "off",
-    // feature-sliced/layers-slices
-    "boundaries/element-types": "warn" // ~ 1,
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "function",
+        "format": ["PascalCase", "camelCase"]
+      },
+      {
+        "selector": "variable",
+        "format": ["camelCase", "UPPER_CASE", "PascalCase"],
+        "leadingUnderscore": "allow",
+
+        "trailingUnderscore": "allow"
+      },
+      {
+        "selector": "typeLike",
+        "format": ["PascalCase"]
+      },
+      {
+        "selector": "default",
+        "format": ["camelCase", "UPPER_CASE", "PascalCase"],
+        "leadingUnderscore": "allow",
+        "trailingUnderscore": "allow"
+      }
+    ]
   }
+  // "overrides": [
+  //   {
+  //     "files": "['**/*.tsx']",
+  //     "rules": {
+  //       "@typescript-eslint/naming-convention": [
+  //         "error",
+  //         {
+  //           "selector": "function",
+  //           "format": ["PascalCase", "camelCase"]
+  //         },
+  //         {
+  //           "selector": "variable",
+  //           "format": ["camelCase", "PascalCase"]
+  //         }
+  //       ]
+  //     }
+  //   }
+  // ]
 }

@@ -1,20 +1,29 @@
+export type {
+  ProductWithDetails,
+  ProductVariation,
+  Product,
+} from './model/types';
+
 export {
-  productApi,
   useSearchProductsQuery,
   useGetProductByIdQuery,
+  productApi,
   getRunningQueriesThunk,
-} from './api/productApi';
-export { ProductCard } from './ui/ProductCard/ProductCard';
-export { ProductItem } from './ui/ProductItem/ProductItem';
-export type {
-  Product,
-  ProductVariation,
-  ProductWithDetails,
-} from './model/types';
-export { productSlice, selectProductVariation } from './model/slice';
+} from './api/product.api';
+
+export { selectProductVariation, productSlice } from './model/slice';
 export { productSelectors } from './model/selectors';
+
+export { Item as ProductItem } from './ui/item/item';
+export { Card as ProductCard } from './ui/card/card';
+
 export {
   mapSpecsFromProductVariations,
   mapSpecFromProductWithDetails,
-} from './lib/mapSpecsFromProductVariants';
-export { compareSpecs } from './lib/compareSpecs';
+} from './lib/map-specs-variants';
+
+export { compareSpecs } from './lib/compare-specs';
+
+export { _testProduct_ } from './__tests__';
+
+export { _mockProduct_ } from './__mocks__';

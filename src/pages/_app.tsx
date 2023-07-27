@@ -1,15 +1,16 @@
-import { StoreWrapper } from '@/app/appStore';
+import { Provider as ReduxProvider } from 'react-redux';
+
+import { storeWrapper } from '@/app/app-store';
 import { SiteDefaultSeo } from '@/features/seo';
 import { config } from '@/shared/lib/config';
 import '@/shared/ui/base.css';
-import { Provider as ReduxProvider } from 'react-redux';
 
-if (process.env.NEXT_PUBLIC_API_MOCKING === 'enabled') {
+if (config.NEXT_PUBLIC_API_MOCKING === 'enabled') {
   require('../app/__mocks__');
 }
 
 export default function App({ Component, ...rest }: AppPropsWithLayout) {
-  const { store, props } = StoreWrapper.useWrappedStore(rest);
+  const { store, props } = storeWrapper.useWrappedStore(rest);
 
   const getLayout = Component.getLayout ?? ((page) => page);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

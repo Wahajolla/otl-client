@@ -1,14 +1,16 @@
 import clsx from 'clsx';
 import Image from 'next';
 import React, { Fragment } from 'react';
-import Button from '@/shared/ui/Button/Button';
-import { Card } from '@/shared/ui/Card/Card';
+
 import styles from './Offer.module.css';
+
+import Button from '@/shared/ui/button/button';
+import { Card } from '@/shared/ui/card/card';
 type Props = {};
 
 function Offer({}: Props) {
   return (
-    <div className=" grid grid-cols-3 gap-4 items-stretch sm:text-center lg:text-left ">
+    <div className=" grid grid-cols-3 items-stretch gap-4 sm:text-center lg:text-left ">
       {/* <Card className={clsx(styles.accentCard, 'col-span-2')}>
           <Card.Header>
             <h2 className="text-start">
@@ -47,7 +49,7 @@ function Offer({}: Props) {
           <p className="text-secondary">Водосточные системы</p>
 
           <img
-            className="ml-auto  opacity-20  inset-0 mt-4"
+            className="inset-0  ml-auto  mt-4 opacity-20"
             src="/images/drainage.png"
             width={80}
           ></img>
@@ -61,7 +63,7 @@ function Offer({}: Props) {
         <Card.Body>
           <p className="text-secondary">Водосточные системы</p>
           <img
-            className="ml-auto  opacity-20  inset-0 mt-4"
+            className="inset-0  ml-auto  mt-4 opacity-20"
             src="/images/fason.png"
             width={80}
           ></img>
@@ -75,7 +77,7 @@ function Offer({}: Props) {
         <Card.Body>
           <p className="text-start">Кровельные материалы</p>
           <img
-            className="ml-auto  opacity-20  inset-0 mt-4"
+            className="inset-0  ml-auto  mt-4 opacity-20"
             src="/images/roof.png"
             width={80}
           ></img>

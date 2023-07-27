@@ -1,17 +1,15 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import { ReactElement } from 'react';
 
+import PageDefaultLayout from '@/shared/ui/Layout/PageDefaultLayout';
 import { AppLayout } from '@/widgets/layout/AppLayout';
 import { Breadcrumbs } from '@/widgets/layout/Breadcrumbs';
-import PageDefaultLayout from '@/shared/ui/Layout/PageDefaultLayout';
 
 interface Props {
   data: string;
 }
 
-export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  return { props: { data: 'kek' } };
-};
+export { Page };
 
 const Page: NextPageWithLayout<
   InferGetServerSidePropsType<typeof getServerSideProps>
@@ -36,4 +34,6 @@ Page.getLayout = function getLayout(page: ReactElement) {
   );
 };
 
-export { Page };
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
+  return { props: { data: 'kek' } };
+};

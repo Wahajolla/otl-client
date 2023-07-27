@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import React, { forwardRef, MouseEventHandler } from 'react';
+
 import styles from './Input.module.css';
 
 type InputType = 'primary' | 'secondary';

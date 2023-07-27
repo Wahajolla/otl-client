@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import Link from 'next/link';
 import { FC } from 'react';
+
 import styles from './Breadcrumbs.module.css';
 
 export interface BreadcrumbsItem {

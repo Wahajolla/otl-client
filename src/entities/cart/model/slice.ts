@@ -3,13 +3,15 @@ import {
   createSlice,
   createSelector,
 } from '@reduxjs/toolkit';
+
+import { type CartItem, type Cart } from './types';
+
 import type {
   Product,
   ProductVariation,
   ProductVariationId,
 } from '@/entities/product/@x/cart';
 
-import { type CartItem, type Cart } from './types';
 
 type CartSliceState = Cart;
 

@@ -1,6 +1,8 @@
-import { ProductVariationId } from '@/entities/product/@x/cart';
 import { createSelector } from '@reduxjs/toolkit';
+
 import { CartItem } from './types';
+
+import { ProductVariationId } from '@/entities/product/@x/cart';
 
 const totalPrice = (state: RootState) =>
   Object.values(state.cart.itemsMap).reduce(

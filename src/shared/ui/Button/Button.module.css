@@ -1,5 +1,5 @@
 .root {
-  @apply items-center gap-1 rounded px-4 py-1;
+  @apply inline items-center gap-1 rounded px-4 py-1;
 
   &:hover {
     @apply cursor-pointer;
@@ -18,7 +18,7 @@
   }
 
   &_block {
-    @apply inline-block;
+    @apply block;
   }
 
   &_type_primary {
@@ -53,7 +53,17 @@
   }
 
   &_type_secondary:hover {
-    background: var(--secondary-colorPressed) !important;
+    background: var(--secondary-color) !important;
+  }
+
+  &_type_dashed {
+    @apply rounded-lg border-r-8 border-dashed;
+    border-width: 0.2rem;
+  }
+
+  &_type_dashed:hover {
+    color: var(--secondary-colorPressed) !important;
+    border-color: var(--secondary-colorPressed);
   }
 
   &_disabled {

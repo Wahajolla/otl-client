@@ -1,6 +1,7 @@
-import { config } from '@/shared/lib/config';
 import { DefaultSeo } from 'next-seo';
 import React from 'react';
+
+import { config } from '@/shared/lib/config';
 
 type Props = {};
 

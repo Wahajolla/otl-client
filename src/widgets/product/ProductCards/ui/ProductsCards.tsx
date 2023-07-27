@@ -1,8 +1,9 @@
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
+
 import { Product, ProductCard, ProductWithDetails } from '@/entities/product';
 import SkeletonImage from '@/shared/ui/Skeleton/SkeletonImage';
-import Link from 'next/link';
-import Image from 'next/image';
-import React from 'react';
 
 type Props = {
   products: ProductWithDetails[];

@@ -13,4 +13,5 @@ export const config = {
   BACKEND_URL: process.env.BACKEND_URL,
   PROXY_URL: process.env.PROXY_URL,
   NEXT_PUBLIC_URL: process.env.NEXT_PUBLIC_URL,
+  NEXT_PUBLIC_API_MOCKING: process.env.NEXT_PUBLIC_API_MOCKING,
 } as const;

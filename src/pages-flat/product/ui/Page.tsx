@@ -1,17 +1,17 @@
-import { ReactElement } from 'react';
-import { Breadcrumbs } from '@/widgets/layout/Breadcrumbs';
-import { productApi } from '@/entities/product';
-
-import { StoreWrapper } from '@/app/appStore';
-import { AppLayout } from '@/widgets/layout/AppLayout';
 import { InferGetServerSidePropsType } from 'next';
-import { ProductDetails } from '@/widgets/product/ProductDetails';
+import { ReactElement } from 'react';
+
+import { StoreWrapper } from '@/app/app-store';
+import { productApi } from '@/entities/product';
 import { ProductWithDetails } from '@/entities/product/model/types';
-import PageDefaultLayout from '@/shared/ui/Layout/PageDefaultLayout';
-import { ProductVariantSelection } from '@/widgets/product/ProductVariantSelection';
-import { ProductImagePreview } from '@/widgets/product/ProductImagePreview';
-import { ProductActionCard } from '@/widgets/product/ProductActionCard';
 import { ProductDefaultSeo } from '@/features/seo';
+import PageDefaultLayout from '@/shared/ui/Layout/PageDefaultLayout';
+import { AppLayout } from '@/widgets/layout/AppLayout';
+import { Breadcrumbs } from '@/widgets/layout/Breadcrumbs';
+import { ProductActionCard } from '@/widgets/product/ProductActionCard';
+import { ProductDetails } from '@/widgets/product/ProductDetails';
+import { ProductImagePreview } from '@/widgets/product/ProductImagePreview';
+import { ProductVariantSelection } from '@/widgets/product/ProductVariantSelection';
 
 type Props = {
   product: ProductWithDetails;
@@ -57,6 +57,16 @@ const Page: NextPageWithLayout<
   );
 };
 
+export { Page };
+
+Page.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <AppLayout>
+      <>{page}</>
+    </AppLayout>
+  );
+};
+
 export const getServerSideProps = StoreWrapper.getServerSideProps<Props>(
   (store) =>
     async ({ params }) => {
@@ -93,13 +103,3 @@ export const getServerSideProps = StoreWrapper.getServerSideProps<Props>(
       };
     }
 );
-
-Page.getLayout = function getLayout(page: ReactElement) {
-  return (
-    <AppLayout>
-      <>{page}</>
-    </AppLayout>
-  );
-};
-
-export { Page };

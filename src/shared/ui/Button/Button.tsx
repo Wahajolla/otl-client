@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import React from 'react';
-import styles from './Button.module.css';
+
+import styles from './button.module.css';
 
 type ButtonTheme = 'primary' | 'secondary' | 'link' | 'dashed' | 'text';
 type ShapeType = 'default' | 'pill';
@@ -50,4 +51,4 @@ function Button({
   );
 }
 
-export default Button;
+export { Button };

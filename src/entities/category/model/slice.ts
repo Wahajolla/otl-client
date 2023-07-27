@@ -1,7 +1,9 @@
 import { createSlice, AnyAction } from '@reduxjs/toolkit';
-import { categoryApi } from '../api/categoryApi';
-import { Category } from './types';
 import { HYDRATE } from 'next-redux-wrapper';
+
+import { categoryApi } from '../api/category.api';
+
+import { Category } from './types';
 
 type CategorySliceState = {
   categories: Category[];

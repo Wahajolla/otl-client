@@ -9,10 +9,8 @@ import {
   QueueListIcon,
   UserCircleIcon,
 } from '@heroicons/react/24/outline';
-
 import Moment from 'moment';
 import Link from 'next/link';
-
 import { FC } from 'react';
 
 export const LayoutFooter: FC = () => {
