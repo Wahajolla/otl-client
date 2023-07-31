@@ -22,7 +22,6 @@ export const AppLayout: FC<PropsWithChildren<Props>> = ({
   return (
     <main className="flex h-screen flex-col items-center">
       <LayoutHeader></LayoutHeader>
-      {sider}
       <div className="w-full max-w-7xl flex-1 ">{children}</div>
       <LayoutFooter></LayoutFooter>
     </main>

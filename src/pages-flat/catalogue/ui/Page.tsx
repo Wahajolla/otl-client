@@ -1,16 +1,22 @@
 import { InferGetServerSidePropsType } from 'next';
+import router from 'next/router';
 import { ReactElement } from 'react';
 
-import { StoreWrapper } from '@/app/app-store';
-import { Category, categoryApi } from '@/entities/category';
+import { storeWrapper } from '@/app/app-store';
+import {
+  Category,
+  categoryApi,
+  mapCategoriesToTree,
+} from '@/entities/category';
+import { CategoryTree } from '@/entities/category/model/types';
 import PageDefaultLayout from '@/shared/ui/Layout/PageDefaultLayout';
-import { CategoryList } from '@/widgets/category/CategoryList';
+import { CategoryList } from '@/widgets/category/CategoryGrid';
 import { AppLayout } from '@/widgets/layout/AppLayout';
 import { Breadcrumbs } from '@/widgets/layout/Breadcrumbs';
 import { LayoutFooter } from '@/widgets/layout/LayoutFooter';
 
 interface Props {
-  categories: Category[];
+  categories: CategoryTree[];
 }
 
 export { Page };
@@ -23,10 +29,13 @@ const Page: NextPageWithLayout<
       <Breadcrumbs
         links={[
           { name: 'Главная', path: '/' },
-          { name: 'Каталог', path: '/catalog' },
+          { name: 'Каталог', path: '/catalogue' },
         ]}
       />
-      <CategoryList categories={categories}></CategoryList>
+      <CategoryList
+        onClick={(category) => router.push(`/catalogue/${category.uuid}`)}
+        categories={categories}
+      ></CategoryList>
     </PageDefaultLayout>
   );
 };
@@ -39,7 +48,7 @@ Page.getLayout = function getLayout(page: ReactElement) {
   );
 };
 
-export const getServerSideProps = StoreWrapper.getServerSideProps<Props>(
+export const getServerSideProps = storeWrapper.getServerSideProps<Props>(
   (store) => async () => {
     store.dispatch(categoryApi.endpoints.searchCategories.initiate());
 
@@ -59,7 +68,7 @@ export const getServerSideProps = StoreWrapper.getServerSideProps<Props>(
 
     return {
       props: {
-        categories: data,
+        categories: mapCategoriesToTree(data),
       },
     };
   }

@@ -1,11 +1,10 @@
-import { MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import React, { useRef, useState } from 'react';
+import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+import React from 'react';
 
-import { useSearchProductsQuery } from '@/entities/product';
 import { useLazySearchProductsQuery } from '@/entities/product/api/product.api';
 import { debounce } from '@/shared/lib/debounce';
-import Input from '@/shared/ui/Form/Input/Input';
-import Overlay from '@/shared/ui/overlay/overlay';
+import { Input } from '@/shared/ui';
+
 type Props = {};
 const SEARCH_PRODUCT_TIMEOUT_MS = 500;
 

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { SpecBadge } from '@/entities/product-specs';
 import { Spec } from '@/entities/product-specs/model/types';
-import Button from '@/shared/ui/button/button';
+import { Button } from '@/shared/ui';
 
 type Props = {
   spec: Spec;

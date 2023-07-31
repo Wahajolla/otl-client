@@ -1,7 +1,7 @@
 import { InferGetServerSidePropsType } from 'next';
 import { ReactElement } from 'react';
 
-import { StoreWrapper } from '@/app/app-store';
+import { storeWrapper } from '@/app/app-store';
 import { productApi } from '@/entities/product';
 import { ProductWithDetails } from '@/entities/product/model/types';
 import { ProductDefaultSeo } from '@/features/seo';
@@ -31,6 +31,10 @@ const Page: NextPageWithLayout<
             name: product?.category?.name || 'Нет категории',
             path: `/category/${product?.category?.uuid || ''}`,
           },
+          // {
+          //   name: product?.name,
+          //   path: `/product/${product?.name}`,
+          // },
         ]}
       />
       <article className="grid grid-cols-1 gap-4  md:grid-cols-3 md:flex-row md:gap-10">
@@ -67,7 +71,7 @@ Page.getLayout = function getLayout(page: ReactElement) {
   );
 };
 
-export const getServerSideProps = StoreWrapper.getServerSideProps<Props>(
+export const getServerSideProps = storeWrapper.getServerSideProps<Props>(
   (store) =>
     async ({ params }) => {
       const uuid = params?.uuid;

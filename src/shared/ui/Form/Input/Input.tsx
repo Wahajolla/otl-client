@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import React, { forwardRef, MouseEventHandler } from 'react';
 
-import styles from './Input.module.css';
+import styles from './input.module.css';
 
 type InputType = 'primary' | 'secondary';
 
@@ -80,4 +80,5 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
     </span>
   );
 });
-export default Input;
+
+export { Input };

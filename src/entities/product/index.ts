@@ -22,6 +22,7 @@ export {
   mapSpecFromProductWithDetails,
 } from './lib/map-specs-variants';
 
+export { mapProductDetails } from './lib/map-product-details';
 export { compareSpecs } from './lib/compare-specs';
 
 export { _testProduct_ } from './__tests__';

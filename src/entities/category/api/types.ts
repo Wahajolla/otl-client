@@ -1,4 +1,7 @@
-export type CategoryDtoWithDetails = CategoryDto & {};
+export type CategoryDtoWithDetails = CategoryDto & {
+  children: CategoryDto[];
+  backtree: CategoryDto[];
+};
 
 export type CategoryDto = {
   id: Id;

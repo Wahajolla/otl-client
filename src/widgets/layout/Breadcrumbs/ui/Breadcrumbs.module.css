@@ -14,7 +14,7 @@
   }
 
   &:last-child {
-    @apply pointer-events-none align-middle opacity-100;
+    @apply align-middle opacity-100;
   }
   &:last-child::after {
     content: '';

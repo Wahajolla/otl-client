@@ -10,7 +10,7 @@ const Header = (props: HeaderProps) => {
 };
 
 type BodyProps = {
-  children?: React.ReactElement | React.ReactElement[];
+  children?: React.ReactNode | React.ReactNode[];
   className?: string;
 };
 
@@ -37,16 +37,18 @@ const Footer = (props: FooterProps) => {
 
 type CardProps = {
   children?: React.ReactElement | React.ReactElement[];
+  onClick?: () => void;
   className?: string;
 };
 
-function Card({ children, className }: CardProps) {
+function Card({ children, className, onClick }: CardProps) {
   return (
     <article
       className={clsx(
         'flex flex-col content-stretch justify-start rounded  ' +
           'h-full w-full',
-        className
+        className,
+        onClick && 'cursor-pointer'
       )}
     >
       {children}

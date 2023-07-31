@@ -87,37 +87,35 @@ const mockVariations = [
   },
 ] as ProductVariationDto[];
 
-const mockProductWithDetails: ProductDtoWithDetails = {
-  id: faker.number.int(),
-  uuid: 'test-product',
-  name: faker.commerce.product(),
-  description: faker.commerce.productDescription(),
-  isActive: true,
-  images: [faker.image.urlLoremFlickr()],
-  price: faker.number.int(),
-  stock: faker.number.int(),
-  variations: mockVariations,
-  category: {
+export function mockProductDtoByUuid(): ProductDtoWithDetails {
+  return {
     id: faker.number.int(),
-    uuid: 'test-category',
-    parentId: faker.number.int(),
+    uuid: 'test-product',
     name: faker.commerce.product(),
     description: faker.commerce.productDescription(),
-    priority: 1,
     isActive: true,
-  },
-  manufacturer: {
-    id: faker.number.int(),
-    name: faker.company.name(),
-    description: faker.company.catchPhrase(),
-    image: faker.image.urlLoremFlickr(),
-    country: faker.location.country(),
-  },
-  metadata: '',
-  priority: 1,
-  tags: [],
-};
-
-export function mockProductDtoByUuid(): ProductDtoWithDetails {
-  return mockProductWithDetails;
+    images: [faker.image.urlLoremFlickr()],
+    price: faker.number.int(),
+    stock: faker.number.int(),
+    variations: mockVariations,
+    category: {
+      id: faker.number.int(),
+      uuid: 'test-category',
+      parentId: faker.number.int(),
+      name: faker.commerce.product(),
+      description: faker.commerce.productDescription(),
+      priority: 1,
+      isActive: true,
+    },
+    manufacturer: {
+      id: faker.number.int(),
+      name: faker.company.name(),
+      description: faker.company.catchPhrase(),
+      image: faker.image.urlLoremFlickr(),
+      country: faker.location.country(),
+    },
+    metadata: '',
+    priority: 1,
+    tags: [],
+  };
 }

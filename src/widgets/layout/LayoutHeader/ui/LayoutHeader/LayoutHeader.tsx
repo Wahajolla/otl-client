@@ -25,25 +25,40 @@ type Props = {
 
 const NavigationList: React.ReactNode[] = [
   <Link href={'/payment'} key={'payment'}>
-    <>
+    <a>
       <CreditCardIcon className="m-2 h-5 w-5 md:hidden"></CreditCardIcon>
-      <span className="">Оплата</span>
-    </>
+      <p>Оплата</p>
+    </a>
   </Link>,
   <Link href={'/receiving'} key={'receiving'}>
-    <>
+    <a>
       <ArchiveBoxIcon className="m-2 h-5 w-5 md:hidden"></ArchiveBoxIcon>
-      <span className="">Получение</span>
-    </>
+      <p>Получение</p>
+    </a>
   </Link>,
 
   <Link href={'/contacts'} key={'contacts'}>
-    <>
+    <a>
       <PhoneIcon className="m-2 h-5 w-5 md:hidden"></PhoneIcon>
-      <span className="">Контакты</span>
-    </>
+      <p>Контакты</p>
+    </a>
   </Link>,
 ];
+
+// <MapPinIcon className="inline h-6  w-6"></MapPinIcon>{' '}
+//       <>Осташковское ш., вл1Бс7</>
+//     </a>
+
+//     <a className="text-center" href="https://yandex.ru/maps/-/CXUv47S">
+//       <ClockIcon className="inline h-6  w-6"></ClockIcon>{' '}
+//       <>9:00 - 19:00 | </>
+//       <>воскресенье 9:00 - 18:00</>
+//     </a>
+
+//     <a className="text-center" href={`tel:+7 (969) 049 63 92`}>
+//       <PhoneIcon className="inline h-6 w-6"></PhoneIcon>{' '}
+//       <> +7 (969) 049 63 92</>
+//     </a>
 
 export const LayoutHeader: FC<Props> = ({ actionsSlot }) => {
   const [collapsed, setCollapsed] = useState(true);
@@ -67,7 +82,7 @@ export const LayoutHeader: FC<Props> = ({ actionsSlot }) => {
         sider
         collapsed={collapsed}
         header={
-          <div className="flex flex-row justify-end">
+          <div className="flex w-full flex-row justify-end">
             <XMarkIcon
               onClick={() => setCollapsed((prev) => !prev)}
               className=" h-8 w-8 cursor-pointer  "
@@ -75,20 +90,39 @@ export const LayoutHeader: FC<Props> = ({ actionsSlot }) => {
           </div>
         }
       >
-        <div className="flex h-full flex-col justify-between">
+        <div className="flex h-full w-full flex-col justify-between">
           <div className="flex flex-1 flex-col ">
             {NavigationList.map((e) => e)}
           </div>
 
           <address className="flex flex-none flex-col  justify-start gap-1  not-italic">
-            <a className="block leading-3 text-red-900 ">+7 (963) 929-87-41</a>
-            <a className="block leading-3 text-red-900 ">+7 (969) 049 63 92 </a>
-            <a className="block leading-4">info@otlivchik.ru</a>
-            <a className="block leading-3">
+            <a
+              className="block leading-3 text-red-900 "
+              href={`tel:+7 (963) 929-87-41`}
+            >
+              +7 (963) 929-87-41
+            </a>
+            <a
+              className="block leading-3 text-red-900"
+              href={`tel:+7 (969) 049 63 92`}
+            >
+              +7 (969) 049 63 92{' '}
+            </a>
+            <a className="block leading-4" href={`mailto:info@otlivchik.ru`}>
+              info@otlivchik.ru
+            </a>
+            <a
+              className="block leading-3"
+              href="https://yandex.ru/maps/-/CXUv47S"
+            >
               будни 9:00 - 19:00 | вск. 9:00 - 18:00
             </a>
-            <a className="block">Мытищи, Мытищинская ярмарка</a>
-            <a className="block">Осташковское ш., вл1Бс7</a>
+            <a className="block" href="https://yandex.ru/maps/-/CXUv47S">
+              Мытищи, Мытищинская ярмарка
+            </a>
+            <a className="block" href="https://yandex.ru/maps/-/CXUv47S">
+              Осташковское ш., вл1Бс7
+            </a>
           </address>
         </div>
       </Overlay>

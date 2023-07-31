@@ -5,8 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { productSelectors } from '@/entities/product';
 import { SearchByInput } from '@/features/product/search';
 import { useAppSelector } from '@/shared/model/hooks';
-import Input from '@/shared/ui/Form/Input/Input';
-import Overlay from '@/shared/ui/overlay/overlay';
+import { Input, Overlay } from '@/shared/ui';
 import { ProductList } from '@/widgets/product/ProductList';
 
 type Props = {};
@@ -39,7 +38,7 @@ function ProductSearch({}: Props) {
       <Overlay
         collapsed={collapsedSearch}
         header={
-          <div className="flex flex-row items-center justify-end">
+          <div className="mt-6 flex w-full max-w-6xl flex-row items-center justify-between md:mt-6">
             <SearchByInput></SearchByInput>
             <XMarkIcon
               onClick={() => setCollapsedSearch((prev) => !prev)}

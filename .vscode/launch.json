@@ -42,6 +42,17 @@
         "uriFormat": "%s",
         "action": "openExternally"
       }
+    },
+    {
+      "name": "Storybook",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "yarn storybook",
+      "serverReadyAction": {
+        "pattern": "started server on .+, url: (https?://.+)",
+        "uriFormat": "%s",
+        "action": "openExternally"
+      }
     }
   ]
 }

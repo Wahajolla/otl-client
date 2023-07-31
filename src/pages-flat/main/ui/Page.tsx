@@ -1,7 +1,5 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
-import { NextSeo, OrganizationJsonLd, ProductJsonLd } from 'next-seo';
 import { ReactElement } from 'react';
-
 
 import Cards from './Cards/Cards';
 import Contractors from './Contractors/Contractors';

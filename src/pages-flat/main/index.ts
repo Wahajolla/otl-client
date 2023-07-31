@@ -1,3 +1,3 @@
-import { MainPage, getServerSideProps, metadata } from './ui/Page';
+import { MainPage, getServerSideProps } from './ui/Page';
 
-export { metadata, MainPage, getServerSideProps };
+export { MainPage, getServerSideProps };

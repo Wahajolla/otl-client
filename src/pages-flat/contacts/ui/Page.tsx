@@ -6,8 +6,6 @@ import { Contacts } from './Contacts/Contacts';
 import PageDefaultLayout from '@/shared/ui/Layout/PageDefaultLayout';
 import { AppLayout } from '@/widgets/layout/AppLayout';
 import { Breadcrumbs } from '@/widgets/layout/Breadcrumbs';
-import { LayoutFooter } from '@/widgets/layout/LayoutFooter';
-import { LayoutHeader } from '@/widgets/layout/LayoutHeader';
 interface Props {
   data: string;
 }

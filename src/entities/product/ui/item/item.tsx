@@ -26,7 +26,7 @@ const Item: FC<Props> = ({ product, actionSlot }) => {
               <Image
                 alt={product.name}
                 objectFit="cover"
-                className="absolute bottom-0 "
+                className="absolute bottom-0  rounded"
                 layout="fill"
                 src={product.image}
               ></Image>

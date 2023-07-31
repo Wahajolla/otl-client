@@ -1,4 +1,9 @@
-export type { Category } from './model/types';
+export type {
+  CategoryWithDetails,
+  CategoryTree,
+  CategoryId,
+  Category,
+} from './model/types';
 export {
   useSearchCategoriesQuery,
   useLazySearchCategoriesQuery,
@@ -6,6 +11,7 @@ export {
   categoryApi,
 } from './api/category.api';
 export { mapCategoriesToTree } from './lib/map-categories-to-tree';
+export { mapCategories } from './lib/map-categories';
 export { categorySlice } from './model/slice';
 export { Item as CategoryItem } from './ui/item/Item';
 

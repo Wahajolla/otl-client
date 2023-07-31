@@ -1,6 +1,7 @@
-import { mapCategories } from '../lib/map-categoires';
+import { mapCategories } from '../lib/map-categories';
 import { mapCategory } from '../lib/map-category';
-import { Category } from '../model/types';
+import { mapCategoryDetails } from '../lib/map-category-details';
+import { Category, CategoryWithDetails } from '../model/types';
 
 import type {
   CategoryDetailsRequestArgs,
@@ -18,19 +19,22 @@ export const categoryApi = API.injectEndpoints({
       }),
       transformResponse: (response: CategoryDto[]) => mapCategories(response),
     }),
-    getCategoryById: build.query<Category, CategoryDetailsRequestArgs>({
+    getCategoryById: build.query<
+      CategoryWithDetails,
+      CategoryDetailsRequestArgs
+    >({
       query: ({ id }) => ({
         url: `/categories/${id}`,
       }),
       transformResponse: (response: CategoryDtoWithDetails) =>
-        mapCategory(response),
+        mapCategoryDetails(response),
     }),
-    getCategoryByUuid: build.query<Category, { uuid: Uuid }>({
+    getCategoryByUuid: build.query<CategoryWithDetails, { uuid: Uuid }>({
       query: ({ uuid }) => ({
         url: `/categories/${uuid}`,
       }),
       transformResponse: (response: CategoryDtoWithDetails) =>
-        mapCategory(response),
+        mapCategoryDetails(response),
     }),
   }),
 });

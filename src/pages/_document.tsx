@@ -1,5 +1,4 @@
 import Document, { NextScript, Head, Main, Html } from 'next/document';
-import { DefaultSeo } from 'next-seo';
 
 export default class AppDocument extends Document {
   static async getInitialProps(ctx) {
@@ -9,7 +8,7 @@ export default class AppDocument extends Document {
 
   render() {
     return (
-      <Html lang="ru">
+      <Html>
         <Head></Head>
 
         <body className="site-bg">

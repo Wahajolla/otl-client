@@ -2,7 +2,8 @@ import { type CategoryDto } from '../api/types';
 import { CategoryId, type Category, type CategoryTree } from '../model/types';
 
 export function mapCategoriesToTree(
-  flatCategories: Category[]
+  flatCategories: Category[],
+  onlyRoot: boolean = true
 ): CategoryTree[] {
   //   const sortedFlatCategories = flatCategories.sort((a, b) => {
   //     let _a = a.parentId;
@@ -16,17 +17,19 @@ export function mapCategoriesToTree(
   //     return _a < _b ? 1 : -1;
   //   });
 
-  const mapCategoriesToTree = flatCategories.reduce((trees, category) => {
+  const mapCategories = flatCategories.reduce((trees, category) => {
     if (!trees[category.id]) {
-      trees[category.id] = { ...category, children: [] };
+      trees[category.id] = { ...category, treeChildren: [] };
     }
     if (category.parentId && trees[category.parentId]) {
-      trees[category!.parentId]!.children?.push(trees[category.id]);
+      trees[category!.parentId]!.treeChildren?.push(trees[category.id]);
     }
     return trees;
   }, {} as Record<CategoryId, CategoryTree>);
 
-  return Object.values(mapCategoriesToTree).filter(
-    (c) => c.parentId == undefined
-  );
+  return onlyRoot
+    ? Object.values(mapCategories).filter((c) => c.parentId == undefined)
+    : Object.values(mapCategories).filter(
+        (c) => c.parentId && !mapCategories[c.parentId]
+      );
 }

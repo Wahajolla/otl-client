@@ -12,40 +12,41 @@ import SkeletonImage from '@/shared/ui/Skeleton/SkeletonImage';
 
 interface Props {
   product: ProductWithDetails;
-  actionSlot?: React.ReactNode;
-  bottomContentSlot?: React.ReactNode;
-  size?: 's' | 'm';
+  actionHeaderSlot?: React.ReactNode;
+  actionFooterSlot?: React.ReactNode;
 }
-const Card: FC<Props> = ({ product, actionSlot }) => {
+const Card: FC<Props> = ({ product, actionHeaderSlot, actionFooterSlot }) => {
   return (
-    <Link href={`/product/${product.uuid}`}>
-      <UICard>
-        <UICard.Body>
-          <div className=" flex flex-col gap-4  p-4 text-start">
-            <div className="relative h-60  ">
-              {product.image ? (
-                <Image
-                  alt={product.name}
-                  objectFit="cover"
-                  className="absolute bottom-0 rounded-lg "
-                  layout="fill"
-                  src={product.image}
-                ></Image>
-              ) : (
-                <div className="m-4">
-                  <SkeletonImage width={5} height={5}></SkeletonImage>
-                </div>
-              )}
+    <Link
+      href={`/product/${product.uuid}`}
+      passHref
+      onClick={() => console.log('???')}
+    >
+      <div>
+        {actionHeaderSlot}
+        <div className="relative h-60  ">
+          {product.image ? (
+            <Image
+              alt={product.name}
+              objectFit="cover"
+              className="absolute bottom-0 rounded-lg "
+              layout="fill"
+              src={product.image}
+            ></Image>
+          ) : (
+            <div className="m-4">
+              <SkeletonImage width={5} height={5}></SkeletonImage>
             </div>
+          )}
+        </div>
 
-            <div className="">
-              <p>{formatQuantity(product.variations.length)}</p>
-              <h1>{product.name}</h1>
-              <h1>{formatPrice(getAveragePrice(product.variations))}</h1>
-            </div>
-          </div>
-        </UICard.Body>
-      </UICard>
+        <div className="">
+          <p>{formatQuantity(product.variations.length)}</p>
+          <h1>{product.name}</h1>
+          <h1>{formatPrice(getAveragePrice(product.variations))}</h1>
+        </div>
+        {actionFooterSlot}
+      </div>
     </Link>
   );
 };
