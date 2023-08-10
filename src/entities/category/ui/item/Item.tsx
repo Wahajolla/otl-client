@@ -14,7 +14,7 @@ const Item: FC<Props> = ({ category, icon }) => {
     <Link passHref href={'/catalogue/' + category.uuid}>
       <Button block type="text">
         <span>{icon}</span>
-        <a>{category.name}</a>
+        <p>{category.name}</p>
       </Button>
     </Link>
   );

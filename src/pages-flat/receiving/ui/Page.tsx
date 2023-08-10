@@ -1,7 +1,7 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import { ReactElement } from 'react';
 
-import { Contacts } from './Contacts/Contacts';
+import { ReceivingOptions } from './ReceivingOptions/receiving-options';
 
 import PageDefaultLayout from '@/shared/ui/Layout/PageDefaultLayout';
 import { AppLayout } from '@/widgets/layout/AppLayout';
@@ -20,10 +20,11 @@ const Page: NextPageWithLayout<
       <Breadcrumbs
         links={[
           { name: 'Главная', path: '/' },
-          { name: 'Получение', path: '/' },
+          { name: 'Заказ и получение', path: '/' },
         ]}
       />
-      <Contacts></Contacts>
+
+      <ReceivingOptions></ReceivingOptions>
     </PageDefaultLayout>
   );
 };

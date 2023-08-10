@@ -13,9 +13,9 @@
     content: ' ';
   }
 
-  &:last-child {
+  /* &:last-child {
     @apply align-middle opacity-100;
-  }
+  } */
   &:last-child::after {
     content: '';
   }

@@ -1,6 +1,10 @@
+import { CombinedFilter } from '@/entities/filter/@x/category';
+import { SpecDto } from '@/entities/product-specs/api/types';
+
 export type CategoryDtoWithDetails = CategoryDto & {
-  children: CategoryDto[];
-  backtree: CategoryDto[];
+  children?: CategoryDto[];
+  availableFilter?: CombinedFilter[];
+  path?: CategoryDto[];
 };
 
 export type CategoryDto = {

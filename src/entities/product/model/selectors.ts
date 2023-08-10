@@ -1,5 +1,5 @@
 import { getAvailableSpecsToSelect } from '../lib/get-availabe-specs';
-import { mapSpecsFromProductVariations } from '../lib/map-specs-variants';
+import { getUniqueSpecsFromProductVariations } from '../lib/get-unique-specs';
 
 const products = (state: RootState) => state.product.products;
 
@@ -10,7 +10,7 @@ const variation = (state: RootState) => state.product?.variation;
 const selectedSpecs = (state: RootState) => variation(state)?.specs || [];
 
 const specs = (state: RootState) =>
-  mapSpecsFromProductVariations(productVariations(state));
+  getUniqueSpecsFromProductVariations(productVariations(state));
 
 const productVariations = (state: RootState) =>
   state.product?.product?.variations || [];

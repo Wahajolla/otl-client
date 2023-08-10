@@ -7,82 +7,158 @@ import { ProductVariation } from '../model/types';
 const mockVariations = [
   {
     id: 1,
-
-    dimension: {
-      id: 1,
-      volume: 200,
-      volume_unit: 'mm',
-      width: 12,
-      height: 24,
-      depth: 34,
-      weight: 45,
-      width_unit: 'mm',
-      height_unit: 'mm',
-      depth_unit: 'mm',
-    },
-    color: {
-      id: 1,
-      hex: '#ff0000',
-      name: 'Красивый',
-      ralId: '5555',
-      description: 'ну такое',
-    },
-
+    specs: [
+      {
+        id: 1,
+        type: 'RANGE',
+        uuid: 'dimension',
+        values: [
+          {
+            name: 'id',
+            value: 1,
+          },
+          {
+            name: 'volume',
+            value: 200,
+          },
+          {
+            name: 'volume_unit',
+            value: 'mm^3',
+          },
+          {
+            name: 'width',
+            value: 200,
+          },
+          {
+            name: 'width_unit',
+            value: 'mm',
+          },
+          {
+            name: 'height',
+            value: 200,
+          },
+          {
+            name: 'height_unit',
+            value: 'mm',
+          },
+          {
+            name: 'depth',
+            value: 200,
+          },
+          {
+            name: 'depth_unit',
+            value: 'mm',
+          },
+        ],
+      },
+      {
+        id: 2,
+        type: 'SELECTION',
+        uuid: 'color',
+        values: [
+          {
+            name: 'id',
+            value: 1,
+          },
+          {
+            name: 'hex',
+            value: '#ff0000',
+          },
+          {
+            name: 'name',
+            value: 'Красивый',
+          },
+          {
+            name: 'description',
+            value: 'ну такое',
+          },
+          {
+            name: 'ralId',
+            value: 5555,
+          },
+        ],
+      },
+    ],
     price: 400,
     sku: 324,
     stock: 4,
   },
   {
     id: 2,
-
-    dimension: {
-      id: 2,
-      volume: 1,
-      volume_unit: 'm',
-      width: 2,
-      height: 4,
-      depth: 3,
-      weight: 4,
-      width_unit: 'm',
-      height_unit: 'm',
-      depth_unit: 'm',
-    },
-    color: {
-      id: 2,
-      hex: '#bd3a3a',
-      name: 'Не очень красивый',
-      ralId: '4444',
-      description: 'ну такое',
-    },
-
+    specs: [
+      {
+        id: 1,
+        type: 'RANGE',
+        uuid: 'dimension',
+        values: [
+          {
+            name: 'id',
+            value: 2,
+          },
+          {
+            name: 'volume',
+            value: 200,
+          },
+          {
+            name: 'volume_unit',
+            value: 'mm^3',
+          },
+          {
+            name: 'width',
+            value: 200,
+          },
+          {
+            name: 'width_unit',
+            value: 'mm',
+          },
+          {
+            name: 'height',
+            value: 200,
+          },
+          {
+            name: 'height_unit',
+            value: 'mm',
+          },
+          {
+            name: 'depth',
+            value: 200,
+          },
+          {
+            name: 'depth_unit',
+            value: 'mm',
+          },
+        ],
+      },
+      {
+        id: 2,
+        type: 'SELECTION',
+        uuid: 'color',
+        values: [
+          {
+            name: 'id',
+            value: 2,
+          },
+          {
+            name: 'hex',
+            value: '#bd3a3a',
+          },
+          {
+            name: 'name',
+            value: 'Не очень красивый',
+          },
+          {
+            name: 'description',
+            value: 'ну такое',
+          },
+          {
+            name: 'ralId',
+            value: 4444,
+          },
+        ],
+      },
+    ],
     price: 4000,
     sku: 331,
-    stock: 4,
-  },
-  {
-    id: 3,
-    dimension: {
-      id: 2,
-      volume: 1,
-      volume_unit: 'm',
-      width: 2,
-      height: 4,
-      depth: 3,
-      weight: 4,
-      width_unit: 'm',
-      height_unit: 'm',
-      depth_unit: 'm',
-    },
-    color: {
-      id: 3,
-      hex: '#34b353',
-      name: 'Ваще очень красивый',
-      ralId: '12355213',
-      description: 'ну такое',
-    },
-
-    price: 4000,
-    sku: 113,
     stock: 4,
   },
 ] as ProductVariationDto[];

@@ -1,7 +1,10 @@
+import { CombinedFilter } from '@/entities/filter/@x/category';
+
 export type CategoryWithDetails = Category & {
   sortable: boolean;
   children: Category[];
-  backtree?: Category[];
+  path: Category[];
+  availableFilters: CombinedFilter[];
 };
 
 export type CategoryTree = Category & {
@@ -14,7 +17,7 @@ export type CategoryId = Brand<Id, 'CategoryId'>;
 export type Category = {
   id: Id;
   uuid: Uuid;
-  parentId?: Id;
+  parentId: Id | null;
   name: string;
   description: string;
   priority: Priority;

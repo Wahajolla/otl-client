@@ -30,15 +30,15 @@ export const ProductVariantSelection = ({ product }: Props) => {
     <div>
       {specs.map((e) => {
         return (
-          <div key={e.spec_name}>
-            <p>{translateSpecName(e.spec_name)}</p>
+          <div key={e.uuid}>
+            <p>{translateSpecName(e.uuid)}</p>
             <div>
               {e.specs.map((v) => (
                 <SelectVariantButton
                   selected={selectedSpecs.some((e) => compareSpecs(e, v))}
                   disabled={!availableSpecs.some((e) => compareSpecs(e, v))}
                   spec={v}
-                  key={v.uniqueName + v.id}
+                  key={v.uuid + v.values.find((a) => a.name === 'id')?.value}
                   onClick={(e) => updateVariation(e)}
                 ></SelectVariantButton>
               ))}

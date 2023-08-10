@@ -1,7 +1,7 @@
+import { ProductVariation, type ProductWithDetails } from '../../model/types';
+import { ProductVariationDto, type ProductDtoWithDetails } from '../types';
 
-import { ProductVariationDto, type ProductDtoWithDetails } from '../api/types';
-import { ProductVariation, type ProductWithDetails } from '../model/types';
-
+import { mapSpec } from '@/entities/product-specs';
 import { mapSeoTag } from '@/entities/seo-tag/@x/product';
 
 export function mapProductDetails(
@@ -15,14 +15,7 @@ export function mapProductDetails(
     stock: dto.stock || null,
     images: dto.images || [],
     image: dto.images[0] || null,
-    category: {
-      id: 1,
-      uuid: 'vodostochnye-sistemy',
-      name: 'Водосточные системы',
-      description: 'Водосточные системы',
-      isActive: true,
-      priority: 1,
-    },
+    category: dto.category,
     description: dto.description || null,
     isActive: dto.isActive || true,
     manufacturer: dto.manufacturer || null,
@@ -34,25 +27,16 @@ export function mapProductDetails(
         : [],
     variations:
       dto.variations && dto.variations.length > 0
-        ? dto.variations.map((v) => mapProductVariations(v))
+        ? dto.variations.map((v) => mapProductVariation(v))
         : [],
   } as ProductWithDetails;
 }
-function mapProductVariations(dto: ProductVariationDto): ProductVariation {
+function mapProductVariation(dto: ProductVariationDto): ProductVariation {
   return {
     id: dto.id,
     price: dto.price,
     sku: dto.sku,
-    specs: [
-      {
-        ...dto.dimension,
-        uniqueName: 'dimension',
-      },
-      {
-        ...dto.color,
-        uniqueName: 'color',
-      },
-    ],
+    specs: dto.specs.map(mapSpec),
     stock: dto.stock,
   };
 }

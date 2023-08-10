@@ -2,7 +2,7 @@ import React from 'react';
 
 import { productSelectors, ProductVariation } from '@/entities/product';
 import { formatPrice } from '@/entities/product/lib/format-price';
-import { AddVariationToCartButton } from '@/features/product/addToCart';
+import { AddVariationToCartButton } from '@/features/cart/addToCart';
 import { useAppSelector } from '@/shared/model/hooks';
 import { Card } from '@/shared/ui/card/card';
 

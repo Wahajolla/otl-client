@@ -58,9 +58,7 @@ const ProductSeoHead = ({ productDetails }: Props) => {
         <ProductJsonLd
           productName={productDetails.name}
           description={productDetails.description}
-          color={
-            (v.specs?.find((s) => s.uniqueName === 'color') as Color)?.name
-          }
+          color={(v.specs?.find((s) => s.uuid === 'color') as Color)?.name}
           sku={v.sku.toString()}
           manufacturerName={productDetails.manufacturer?.name}
           offers={[

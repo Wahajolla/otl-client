@@ -3,14 +3,14 @@ import { rest } from 'msw';
 import { CategoryDto, CategoryDtoWithDetails } from '../api/types';
 import { Category } from '../model/types';
 
-import { mockCategoriesDto } from './mock-categories-dto';
-import { mockCategoryDtoByUuid } from './mock-category-dto-by-uuid';
+import { mockCategoryDetailsDtoByUuid } from './mock-category-details-dto-by-uuid';
+import { mockCategoriesDto } from './mock-category-dtos';
 
 import { config } from '@/shared/lib/config';
 
 export const handlers = [
   rest.get(`${config.BACKEND_URL}/categories/:uuid`, (_req, res, ctx) => {
-    // const { id } = _req.params;
+    const { uuid } = _req.params;
     // if (isNaN(+id)) {
     //   return res(
     //     ctx.status(403),
@@ -20,7 +20,9 @@ export const handlers = [
     //     })
     //   );
     // }
-    return res(ctx.json<CategoryDto>(mockCategoryDtoByUuid()));
+    return res(
+      ctx.json<CategoryDto>(mockCategoryDetailsDtoByUuid(uuid.toString()))
+    );
   }),
 
   rest.get(`${config.BACKEND_URL}/categories`, (_req, res, ctx) => {

@@ -1,5 +1,5 @@
-import { type ProductDto } from '../api/types';
-import { type Product } from '../model/types';
+import { type Product } from '../../model/types';
+import { type ProductDto } from '../types';
 
 export function mapProduct(dto: ProductDto): Product {
   return {

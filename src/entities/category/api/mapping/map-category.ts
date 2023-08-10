@@ -1,5 +1,5 @@
-import { type CategoryDto } from '../api/types';
-import { type Category } from '../model/types';
+import { type Category } from '../../model/types';
+import { type CategoryDto } from '../types';
 
 export function mapCategory(dto: CategoryDto): Category {
   return {
@@ -9,5 +9,6 @@ export function mapCategory(dto: CategoryDto): Category {
     description: dto.description,
     priority: dto.priority,
     isActive: dto.isActive,
+    parentId: dto.parentId || null,
   };
 }

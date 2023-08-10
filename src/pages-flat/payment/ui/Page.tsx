@@ -22,7 +22,12 @@ const Page: NextPageWithLayout<
           { name: 'Оплата', path: '/' },
         ]}
       />
-      {/* <Contacts></Contacts> */}
+      <article className="mb-4 grid grid-cols-2 gap-4">
+        <div className="rounded-lg bg-slate-50 p-6">
+          <h1>Оплата при получении заказа </h1>
+          <p>Наличными и картой при оплате</p>
+        </div>
+      </article>
     </PageDefaultLayout>
   );
 };

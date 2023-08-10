@@ -29,7 +29,7 @@ const Page: NextPageWithLayout<
           { name: 'Каталог', path: '/catalogue' },
           {
             name: product?.category?.name || 'Нет категории',
-            path: `/category/${product?.category?.uuid || ''}`,
+            path: `/catalogue/${product?.category?.uuid || ''}`,
           },
           // {
           //   name: product?.name,

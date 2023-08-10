@@ -1,6 +1,12 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-export type DimensionDto = {
-  id: number;
+export type SpecDto = {
+  id: Id;
+  uuid: Uuid;
+  values: { name: string; value: string | number }[];
+};
+
+export type DimensionDto = SpecDto & {
+  id: Id;
   volume: number;
   volume_unit: string;
   width: number;
@@ -12,10 +18,10 @@ export type DimensionDto = {
   depth_unit: string;
 };
 
-export interface ColorDto {
+export type ColorDto = SpecDto & {
   id: Id;
   hex: string;
   name: string;
   ralId: string;
   description: string;
-}
+};

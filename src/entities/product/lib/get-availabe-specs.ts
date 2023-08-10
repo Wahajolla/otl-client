@@ -10,10 +10,7 @@ export const getAvailableSpecsToSelect = (
     .filter(
       (e) =>
         e.specs.filter(
-          (s) =>
-            !selectedSpec.some(
-              (c) => c.id === s.id && c.uniqueName === s.uniqueName
-            )
+          (s) => !selectedSpec.some((c) => c.id === s.id && c.uuid === s.uuid)
         ).length <= 1
     )
     .flatMap((e) => e.specs);

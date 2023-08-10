@@ -2,9 +2,17 @@ import { InferGetServerSidePropsType } from 'next';
 import { ReactElement } from 'react';
 
 import { storeWrapper } from '@/app/app-store';
-import { Category, CategoryItem, categoryApi } from '@/entities/category';
+import {
+  Category,
+  CategoryItem,
+  categoryApi,
+  getCategoryPath,
+  getCategoryChildren,
+} from '@/entities/category';
 import { CategoryWithDetails } from '@/entities/category/model/types';
 import { Product, ProductWithDetails, productApi } from '@/entities/product';
+import { ProductsFilter } from '@/features/product/filterProducts';
+import { Button } from '@/shared/ui';
 import PageDefaultLayout from '@/shared/ui/Layout/PageDefaultLayout';
 import { CategoryList } from '@/widgets/category/CategoryGrid';
 import { AppLayout } from '@/widgets/layout/AppLayout';
@@ -28,23 +36,49 @@ const Page: NextPageWithLayout<
       <Breadcrumbs
         links={[
           { name: 'Главная', path: '/' },
-          { name: 'Каталог', path: '/catalog' },
+          { name: 'Каталог', path: '/catalogue' },
+          ...category.path.map((_category) => {
+            return {
+              name: _category.name,
+              path: `/catalogue/${_category.uuid}`,
+            };
+          }),
         ]}
       />
       <div>
         <h1>{category.name}</h1>
-        <p>{category.description}</p>
       </div>
-      <div className="grid h-full grid-cols-1 gap-4 md:grid-cols-4">
-        <aside>
-          {category.sortable ? (
-            <>Сортировка</>
-          ) : (
-            category.children?.map((c) => (
-              <CategoryItem key={c.id} category={c}></CategoryItem>
-            ))
+      <div className="grid h-full grid-cols-1 gap-6 md:grid-cols-4">
+        <aside className="flex flex-col gap-4 ">
+          <div>
+            <p>Найдено {products.length.toString()} товаров</p>
+          </div>
+
+          {category.children.length > 0 && (
+            <>
+              <hr></hr>
+              <div>
+                {category.children.map((c) => (
+                  <div key={c.id}>
+                    <CategoryItem category={c}></CategoryItem>
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
+
+          {category.sortable && (
+            <>
+              <hr></hr>
+              <ProductsFilter category={category}></ProductsFilter>
+
+              <Button>Отфильтровать</Button>
+              <Button type="secondary">Сбросить</Button>
+              <Button type="text">Все фильтры</Button>
+            </>
           )}
         </aside>
+
         <div className="md:col-span-3">
           <ProductCards products={products}></ProductCards>
         </div>
@@ -75,7 +109,7 @@ export const getServerSideProps = storeWrapper.getServerSideProps<Props>(
           uuid: uuid.toString(),
         })
       );
-
+      store.dispatch(categoryApi.endpoints.searchCategories.initiate());
       await Promise.all(
         store.dispatch(categoryApi.util.getRunningQueriesThunk())
       );
@@ -84,7 +118,16 @@ export const getServerSideProps = storeWrapper.getServerSideProps<Props>(
         uuid: uuid.toString(),
       })(store.getState());
 
-      if (!categoryResult.data || categoryResult.error) {
+      const categoriesResult = categoryApi.endpoints.searchCategories.select()(
+        store.getState()
+      );
+
+      if (
+        !categoryResult.data ||
+        categoryResult.error ||
+        !categoriesResult.data ||
+        categoriesResult.error
+      ) {
         return {
           notFound: true,
         };
@@ -106,7 +149,14 @@ export const getServerSideProps = storeWrapper.getServerSideProps<Props>(
 
       return {
         props: {
-          category: categoryResult.data,
+          category: {
+            ...categoryResult.data,
+            path: getCategoryPath(categoryResult.data, categoriesResult.data),
+            children: getCategoryChildren(
+              categoryResult.data,
+              categoriesResult.data
+            ),
+          },
           products: productResult.data || [],
         },
       };

@@ -1,16 +1,17 @@
-export type SpecName = 'dimension' | 'color' | 'generic';
-export type Spec = GenericSpec | Color | Dimension;
+export type SpecUuid = Uuid;
+export type SpecId = Id;
 
-export type NamedSpecs = { uniqueName: SpecName; specs: Spec[] };
-export type NamedSpec = { uniqueName: SpecName; spec: Spec };
-
-export type GenericSpec = {
-  id: Id;
-  uniqueName: SpecName;
-  values?: string[];
+export type Spec = {
+  id: SpecId;
+  uuid: SpecUuid;
+  values: { name: string; value: string | number }[];
 };
 
-export type Dimension = GenericSpec & {
+export type NamedSpecs = { uuid: SpecUuid; specs: Spec[] };
+
+export type NamedSpec = { uuid: SpecUuid; spec: Spec };
+
+export type Dimension = Spec & {
   volume: number;
   volumeUnit: string;
   width: number;
@@ -22,7 +23,7 @@ export type Dimension = GenericSpec & {
   depthUnit: string;
 };
 
-export type Color = GenericSpec & {
+export type Color = Spec & {
   hex: string;
   name: string;
   ralId: string;

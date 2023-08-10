@@ -4,8 +4,6 @@ import { Spec } from '@/entities/product-specs/model/types';
 import { SeoTag } from '@/entities/seo-tag/@x/product';
 
 export type ProductWithDetails = Product & {
-  // //Не нужно в модели ?
-  // category: Category;
   description: string;
   category: Category;
   manufacturer: Manufacturer;

@@ -24,20 +24,20 @@ type Props = {
 };
 
 const NavigationList: React.ReactNode[] = [
-  <Link href={'/payment'} key={'payment'}>
-    <a>
-      <CreditCardIcon className="m-2 h-5 w-5 md:hidden"></CreditCardIcon>
-      <p>Оплата</p>
-    </a>
-  </Link>,
+  // <Link href={'/payment'} key={'payment'}>
+  //   <a>
+  //     <CreditCardIcon className="m-2 h-5 w-5 md:hidden"></CreditCardIcon>
+  //     <p>Оплата</p>
+  //   </a>
+  // </Link>,
   <Link href={'/receiving'} key={'receiving'}>
     <a>
       <ArchiveBoxIcon className="m-2 h-5 w-5 md:hidden"></ArchiveBoxIcon>
-      <p>Получение</p>
+      <p>Заказ и получение</p>
     </a>
   </Link>,
 
-  <Link href={'/contacts'} key={'contacts'}>
+  <Link href={'/receiving'} key={'contacts'}>
     <a>
       <PhoneIcon className="m-2 h-5 w-5 md:hidden"></PhoneIcon>
       <p>Контакты</p>

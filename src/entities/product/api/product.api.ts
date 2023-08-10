@@ -1,7 +1,7 @@
-import { mapProduct } from '../lib/map-product';
-import { mapProductDetails } from '../lib/map-product-details';
 import { Product, ProductWithDetails } from '../model/types';
 
+import { mapProduct } from './mapping/map-product';
+import { mapProductDetails } from './mapping/map-product-details';
 import {
   ProductDto,
   ProductDtoWithDetails,

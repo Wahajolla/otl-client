@@ -16,10 +16,7 @@ export const selectVariationBySpec = createAsyncThunk<
   const state = getState();
   const variations = productSelectors.productVariations(state);
   const selectedSpecs = productSelectors.selectedSpecs(state);
-  let newSpecs = [
-    ...selectedSpecs.filter((e) => e.uniqueName !== spec.uniqueName),
-    spec,
-  ];
+  let newSpecs = [...selectedSpecs.filter((e) => e.uuid !== spec.uuid), spec];
   let variationBySpecs = variations.find((v) =>
     v.specs.every((s) => newSpecs.every((n) => compareSpecs(s, n)))
   );

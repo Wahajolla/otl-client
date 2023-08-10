@@ -6,12 +6,14 @@ import {
   ColorDto,
   Spec,
 } from '@/entities/product-specs/@x/product';
+import { SpecDto } from '@/entities/product-specs/api/types';
 import { SeoTagDto } from '@/entities/seo-tag/@x/product';
 
 export type ProductVariationDto = {
   id: Id;
-  dimension: DimensionDto;
-  color: ColorDto;
+  specs: SpecDto[];
+  // dimension: DimensionDto;
+  // color: ColorDto;
   price: Rubles;
   stock: number;
   sku: Sku;

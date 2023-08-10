@@ -1,8 +1,8 @@
-import { mapCategories } from '../lib/map-categories';
-import { mapCategory } from '../lib/map-category';
-import { mapCategoryDetails } from '../lib/map-category-details';
 import { Category, CategoryWithDetails } from '../model/types';
 
+import { mapCategories } from './mapping/map-categories';
+import { mapCategory } from './mapping/map-category';
+import { mapCategoryDetails } from './mapping/map-category-details';
 import type {
   CategoryDetailsRequestArgs,
   CategoryDto,

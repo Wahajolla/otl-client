@@ -17,12 +17,14 @@ export { productSelectors } from './model/selectors';
 export { Item as ProductItem } from './ui/item/item';
 export { Card as ProductCard } from './ui/card/card';
 
-export {
-  mapSpecsFromProductVariations,
-  mapSpecFromProductWithDetails,
-} from './lib/map-specs-variants';
+export { mapProductDetails } from './api/mapping/map-product-details';
 
-export { mapProductDetails } from './lib/map-product-details';
+export { mapProduct } from './api/mapping/map-product';
+export {
+  getUniqueSpecsFromProductVariations,
+  getUniqueSpecsFromProduct,
+} from './lib/get-unique-specs';
+
 export { compareSpecs } from './lib/compare-specs';
 
 export { _testProduct_ } from './__tests__';
